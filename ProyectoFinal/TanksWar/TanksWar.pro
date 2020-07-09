@@ -18,16 +18,24 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     funcioneslogin.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    myrect.cpp \
+    nivel.cpp
 
 HEADERS += \
     funcioneslogin.h \
-    mainwindow.h
+    mainwindow.h \
+    myrect.h \
+    nivel.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    nivel.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    Imagenes.qrc
