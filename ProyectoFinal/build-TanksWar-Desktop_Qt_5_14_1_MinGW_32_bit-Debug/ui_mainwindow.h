@@ -25,7 +25,6 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
-    QPushButton *pushButton;
     QPushButton *pushButton_2;
     QPushButton *pushButton_3;
     QPushButton *Login;
@@ -45,9 +44,6 @@ public:
         MainWindow->resize(800, 600);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        pushButton = new QPushButton(centralwidget);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(30, 180, 93, 28));
         pushButton_2 = new QPushButton(centralwidget);
         pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
         pushButton_2->setGeometry(QRect(30, 220, 93, 28));
@@ -94,7 +90,6 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        pushButton->setText(QCoreApplication::translate("MainWindow", "Single Player", nullptr));
         pushButton_2->setText(QCoreApplication::translate("MainWindow", "Multi Player", nullptr));
         pushButton_3->setText(QCoreApplication::translate("MainWindow", "Sing Up", nullptr));
         Login->setText(QCoreApplication::translate("MainWindow", "Login", nullptr));

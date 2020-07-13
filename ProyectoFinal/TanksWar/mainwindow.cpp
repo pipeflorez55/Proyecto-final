@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+#include "nivel.h"
 
 std::string usuario;
 
@@ -9,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
 }
 
 MainWindow::~MainWindow()
@@ -19,7 +20,6 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_3_clicked()
 {
-
     QString name2 = ui->newname->text();
     std::string name = name2.toStdString();//cambio de QString para extraer datos de la Mainwindow para utilizar funciones
     QString password2 = ui->newpassword->text();
@@ -52,6 +52,11 @@ void MainWindow::on_Login_clicked()
         valc=validarcontrase(archivousu,contrase);
         if(valc==true){
             ui->ingresomal->setText("Acceso concedido");
+            this->hide();
+            Nivel nivel;
+           // ui->setupUi(Nivel);
+            nivel.setModal(true);
+            nivel.exec();
 
         }
         else{

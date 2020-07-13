@@ -41,7 +41,7 @@ string leernuevousu(string usuario, bool *valido)//lectura del archivo del usuar
 
 bool validarcontrase(string datos, string datosui)
 {
-    string contrasena="";
+    string contrasena;
     contrasena += datos[0];    //Se cogen los primeros 5 datos
     contrasena += datos[1];
     contrasena += datos[2];
@@ -56,3 +56,7 @@ bool validarcontrase(string datos, string datosui)
     }
 
 }
+
+/*setPixmap(QPixmap(":/images/TUIMAGEN"));
+    setTransformOriginPoint(50,50);
+    setRotation(180);*/
