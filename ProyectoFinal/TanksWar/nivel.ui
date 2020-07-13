@@ -13,6 +13,7 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+<<<<<<< HEAD
   <widget class="QProgressBar" name="progressBar">
    <property name="geometry">
     <rect>
@@ -26,6 +27,8 @@
     <number>24</number>
    </property>
   </widget>
+=======
+>>>>>>> d25cc1564d00c0afc5c53c6734b509e67d24ae2f
   <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
@@ -39,7 +42,11 @@
     <item row="0" column="0">
      <widget class="QGraphicsView" name="graphicsView"/>
     </item>
+<<<<<<< HEAD
     <item row="2" column="0">
+=======
+    <item row="1" column="0">
+>>>>>>> d25cc1564d00c0afc5c53c6734b509e67d24ae2f
      <widget class="QPushButton" name="pushButton">
       <property name="text">
        <string>Inicio</string>

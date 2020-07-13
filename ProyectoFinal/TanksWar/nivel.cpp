@@ -1,19 +1,28 @@
 #include "nivel.h"
 #include "ui_nivel.h"
+<<<<<<< HEAD
 #include "QKeyEvent"
 
 int flag=0;
+=======
+
+>>>>>>> d25cc1564d00c0afc5c53c6734b509e67d24ae2f
 Nivel::Nivel(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Nivel)
 {
     ui->setupUi(this);
+<<<<<<< HEAD
     v_limit=625;
     h_limit=999;
     timer = new QTimer(this);
     scene = new QGraphicsScene(this);//crea escena
     scene->setSceneRect(0,0,h_limit,v_limit);//limites de la escena
 
+=======
+    scene = new QGraphicsScene(this);//crea escena
+    scene->setSceneRect(0,0,1000,1000);//limites de la escena
+>>>>>>> d25cc1564d00c0afc5c53c6734b509e67d24ae2f
     tanque= new MyRect;
     ui->graphicsView->setScene(scene);//añade la escena al graphicsview
     //ui->centralwidget->adjustSize();//se ajusta al tamaño
@@ -21,14 +30,18 @@ Nivel::Nivel(QWidget *parent) :
     ui->graphicsView->resize(scene->width(),scene->height());//el graphicsview se acomoda al tamaño de la escena
     this->resize(ui->graphicsView->width()+100,ui->graphicsView->height()+100);//aumenta el tamañño
     scene->addItem(tanque);
+<<<<<<< HEAD
     tanque->setPos(2,575);
 
     connect(timer,SIGNAL(timeout()),this,SLOT(actualizar()));
     timer->start(20);
+=======
+>>>>>>> d25cc1564d00c0afc5c53c6734b509e67d24ae2f
 }
 
 Nivel::~Nivel()
 {
+<<<<<<< HEAD
     delete timer;
     delete scene;
     delete ui;
@@ -103,3 +116,7 @@ void Nivel::on_pushButton_clicked()
     b->set_vel(40,80,72,13);
 
 }
+=======
+    delete ui;
+}
+>>>>>>> d25cc1564d00c0afc5c53c6734b509e67d24ae2f
