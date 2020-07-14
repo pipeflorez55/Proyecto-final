@@ -120,10 +120,10 @@ void Nivel::on_pushButton_clicked()//Con este boton se inicia el juego y cada ve
         bars.back()->actualizar(v_limit);
 
     }
-    if(cont>0){
-    scene->addItem(bars.back());
-    Cuerpo *b = bars.at(cont)->getEsf();
-    b->set_vel(vo,angulo,72,13);
+    if(cont>0){  // para esperar a que inicie el juego para poder disparar
+    scene->addItem(bars.back());  // añadir bala a la escena
+    Cuerpo *b = bars.at(cont)->getEsf(); // crear las fisicas de la bala
+    b->set_vel(vo,angulo,72,13); // añadir las variables de la fisica
     }
     cont++;
 }
