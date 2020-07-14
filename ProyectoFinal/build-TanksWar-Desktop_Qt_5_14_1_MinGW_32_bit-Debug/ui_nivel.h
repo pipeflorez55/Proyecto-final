@@ -14,10 +14,7 @@
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QGridLayout>
-<<<<<<< HEAD
-#include <QtWidgets/QProgressBar>
-=======
->>>>>>> d25cc1564d00c0afc5c53c6734b509e67d24ae2f
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
 
@@ -26,47 +23,48 @@ QT_BEGIN_NAMESPACE
 class Ui_Nivel
 {
 public:
-<<<<<<< HEAD
-    QProgressBar *progressBar;
-=======
->>>>>>> d25cc1564d00c0afc5c53c6734b509e67d24ae2f
-    QWidget *widget;
+    QWidget *layoutWidget;
     QGridLayout *gridLayout;
     QGraphicsView *graphicsView;
     QPushButton *pushButton;
+    QLabel *nombrevo;
+    QLabel *nombreangulo;
+    QLabel *vo;
+    QLabel *angulo;
 
     void setupUi(QDialog *Nivel)
     {
         if (Nivel->objectName().isEmpty())
             Nivel->setObjectName(QString::fromUtf8("Nivel"));
         Nivel->resize(1174, 754);
-<<<<<<< HEAD
-        progressBar = new QProgressBar(Nivel);
-        progressBar->setObjectName(QString::fromUtf8("progressBar"));
-        progressBar->setGeometry(QRect(-20, 690, 999, 24));
-        progressBar->setValue(24);
-=======
->>>>>>> d25cc1564d00c0afc5c53c6734b509e67d24ae2f
-        widget = new QWidget(Nivel);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(10, 10, 1001, 661));
-        gridLayout = new QGridLayout(widget);
+        layoutWidget = new QWidget(Nivel);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(10, 10, 1001, 661));
+        gridLayout = new QGridLayout(layoutWidget);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 0, 0);
-        graphicsView = new QGraphicsView(widget);
+        graphicsView = new QGraphicsView(layoutWidget);
         graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
 
         gridLayout->addWidget(graphicsView, 0, 0, 1, 1);
 
-        pushButton = new QPushButton(widget);
+        pushButton = new QPushButton(layoutWidget);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
 
-<<<<<<< HEAD
         gridLayout->addWidget(pushButton, 2, 0, 1, 1);
-=======
-        gridLayout->addWidget(pushButton, 1, 0, 1, 1);
->>>>>>> d25cc1564d00c0afc5c53c6734b509e67d24ae2f
 
+        nombrevo = new QLabel(Nivel);
+        nombrevo->setObjectName(QString::fromUtf8("nombrevo"));
+        nombrevo->setGeometry(QRect(90, 680, 151, 16));
+        nombreangulo = new QLabel(Nivel);
+        nombreangulo->setObjectName(QString::fromUtf8("nombreangulo"));
+        nombreangulo->setGeometry(QRect(540, 680, 161, 16));
+        vo = new QLabel(Nivel);
+        vo->setObjectName(QString::fromUtf8("vo"));
+        vo->setGeometry(QRect(210, 680, 171, 16));
+        angulo = new QLabel(Nivel);
+        angulo->setObjectName(QString::fromUtf8("angulo"));
+        angulo->setGeometry(QRect(660, 680, 55, 16));
 
         retranslateUi(Nivel);
 
@@ -77,6 +75,10 @@ public:
     {
         Nivel->setWindowTitle(QCoreApplication::translate("Nivel", "Dialog", nullptr));
         pushButton->setText(QCoreApplication::translate("Nivel", "Inicio", nullptr));
+        nombrevo->setText(QCoreApplication::translate("Nivel", "velocidad inicial:", nullptr));
+        nombreangulo->setText(QCoreApplication::translate("Nivel", "angulo:", nullptr));
+        vo->setText(QCoreApplication::translate("Nivel", "0", nullptr));
+        angulo->setText(QCoreApplication::translate("Nivel", "0", nullptr));
     } // retranslateUi
 
 };

@@ -58,10 +58,10 @@ float Cuerpo::get_VelY()
     return VY;
 }
 
-void Cuerpo::set_vel(float velx, float vely, float px, float py)
+void Cuerpo::set_vel(float vo, float anguI, float px, float py)
 {
-    VX = velx;
-    VY = vely;
+    VX = vo*cos(anguI*(M_PI/180));
+    VY = vo*sin(anguI*(M_PI/180));
     PX = px;
     PY = py;
 }

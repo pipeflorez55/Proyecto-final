@@ -22,13 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Nivel_t {
-<<<<<<< HEAD
     QByteArrayData data[4];
     char stringdata0[40];
-=======
-    QByteArrayData data[1];
-    char stringdata0[6];
->>>>>>> d25cc1564d00c0afc5c53c6734b509e67d24ae2f
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -37,7 +32,6 @@ struct qt_meta_stringdata_Nivel_t {
     )
 static const qt_meta_stringdata_Nivel_t qt_meta_stringdata_Nivel = {
     {
-<<<<<<< HEAD
 QT_MOC_LITERAL(0, 0, 5), // "Nivel"
 QT_MOC_LITERAL(1, 6, 21), // "on_pushButton_clicked"
 QT_MOC_LITERAL(2, 28, 0), // ""
@@ -45,12 +39,6 @@ QT_MOC_LITERAL(3, 29, 10) // "actualizar"
 
     },
     "Nivel\0on_pushButton_clicked\0\0actualizar"
-=======
-QT_MOC_LITERAL(0, 0, 5) // "Nivel"
-
-    },
-    "Nivel"
->>>>>>> d25cc1564d00c0afc5c53c6734b509e67d24ae2f
 };
 #undef QT_MOC_LITERAL
 
@@ -60,18 +48,13 @@ static const uint qt_meta_data_Nivel[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-<<<<<<< HEAD
        2,   14, // methods
-=======
-       0,    0, // methods
->>>>>>> d25cc1564d00c0afc5c53c6734b509e67d24ae2f
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
        0,       // signalCount
 
-<<<<<<< HEAD
  // slots: name, argc, parameters, tag, flags
        1,    0,   24,    2, 0x08 /* Private */,
        3,    0,   25,    2, 0x08 /* Private */,
@@ -80,14 +63,11 @@ static const uint qt_meta_data_Nivel[] = {
     QMetaType::Void,
     QMetaType::Void,
 
-=======
->>>>>>> d25cc1564d00c0afc5c53c6734b509e67d24ae2f
        0        // eod
 };
 
 void Nivel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
-<<<<<<< HEAD
     if (_c == QMetaObject::InvokeMetaMethod) {
         auto *_t = static_cast<Nivel *>(_o);
         Q_UNUSED(_t)
@@ -97,11 +77,6 @@ void Nivel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
         default: ;
         }
     }
-=======
-    Q_UNUSED(_o);
-    Q_UNUSED(_id);
-    Q_UNUSED(_c);
->>>>>>> d25cc1564d00c0afc5c53c6734b509e67d24ae2f
     Q_UNUSED(_a);
 }
 
@@ -131,7 +106,6 @@ void *Nivel::qt_metacast(const char *_clname)
 int Nivel::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QDialog::qt_metacall(_c, _id, _a);
-<<<<<<< HEAD
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
@@ -143,8 +117,6 @@ int Nivel::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
             *reinterpret_cast<int*>(_a[0]) = -1;
         _id -= 2;
     }
-=======
->>>>>>> d25cc1564d00c0afc5c53c6734b509e67d24ae2f
     return _id;
 }
 QT_WARNING_POP
