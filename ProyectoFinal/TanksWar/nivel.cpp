@@ -1,7 +1,7 @@
 #include "nivel.h"
 #include "ui_nivel.h"
 #include "QKeyEvent"
-
+int cont=0;
 int flag=0, vo=0, angulo=0;
 Nivel::Nivel(QWidget *parent) :
     QDialog(parent),
@@ -36,16 +36,26 @@ Nivel::~Nivel()
 
 void Nivel::keyPressEvent(QKeyEvent *event)//Teclas para variar la velocidad inicial y el valor del angulo
 {
-    Cuerpo *b = bars.at(0)->getEsf();
+    //Cuerpo *b = bars.at(0)->getEsf();
 
-    /*if(event->key()==Qt::Key_Space)
+    if(event->key()==Qt::Key_Space)
     {
-        timer->start(6);
-        bars.push_back(new Bala);
-        bars.back()->actualizar(v_limit);
-        scene->addItem(bars.back());
-        flag=1;
-    }*/
+        timer->start(40);
+        ui->pushButton->setText("DISPARO!!!");
+        if(flag==0){
+            //flag=1;
+
+            bars.push_back(new Bala);
+            bars.back()->actualizar(v_limit);
+
+        }
+        if(cont>0){  // para esperar a que inicie el juego para poder disparar
+        scene->addItem(bars.back());  // añadir bala a la escena
+        Cuerpo *b = bars.at(cont)->getEsf(); // crear las fisicas de la bala
+        b->set_vel(vo,angulo,72,13); // añadir las variables de la fisica
+        }
+        cont++;
+    }
     if(flag==0){
         if(event->key()==Qt::Key_Q){
             if(vo!=0){
@@ -108,22 +118,8 @@ void Nivel::bordercollision(Cuerpo *b)//En esta parte se definen los bordes de c
     }
 }
 
-int cont=0;
+
 void Nivel::on_pushButton_clicked()//Con este boton se inicia el juego y cada vez que se modifique un valor se vera en la pantalla
 {                                  //Tambien es el mismo boton para realizar un nuevo disparo
-    timer->start(40);
-    ui->pushButton->setText("DISPARO!!!");
-    if(flag==0){
-        //flag=1;
 
-        bars.push_back(new Bala);
-        bars.back()->actualizar(v_limit);
-
-    }
-    if(cont>0){  // para esperar a que inicie el juego para poder disparar
-    scene->addItem(bars.back());  // añadir bala a la escena
-    Cuerpo *b = bars.at(cont)->getEsf(); // crear las fisicas de la bala
-    b->set_vel(vo,angulo,72,13); // añadir las variables de la fisica
-    }
-    cont++;
 }
