@@ -9,7 +9,7 @@ Bala::Bala(): escala(1)
     mass = 500;
     velx = 0;
     vely = 0;
-    K = 0.08;
+    K = 0.03;
     e = 0.2;
     esf = new Cuerpo(posx,posy,velx,vely,mass,r,K,e);
 }
