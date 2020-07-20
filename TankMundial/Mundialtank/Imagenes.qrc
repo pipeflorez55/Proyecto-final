@@ -5,5 +5,6 @@
     <qresource prefix="/">
         <file>blanco_pequena.png</file>
         <file>Escena.png</file>
+        <file>Escena2.png</file>
     </qresource>
 </RCC>

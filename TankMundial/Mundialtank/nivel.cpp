@@ -67,6 +67,9 @@ void Nivel::keyPressEvent(QKeyEvent *event)//Teclas para variar la velocidad ini
 
     if(event->key()==Qt::Key_Space)
     {
+        if(score==4){
+            score=0;
+        }
         timer->start(40);
         ui->pushButton->setText("DISPARO!!!");
         if(flag==0){
@@ -76,6 +79,7 @@ void Nivel::keyPressEvent(QKeyEvent *event)//Teclas para variar la velocidad ini
             bars.back()->actualizar(v_limit);
 
         }
+
         if(cont>0){  // para esperar a que inicie el juego para poder disparar
         scene->addItem(bars.back());  // añadir bala a la escena
         Cuerpo *b = bars.at(cont)->getEsf(); // crear las fisicas de la bala
@@ -84,6 +88,22 @@ void Nivel::keyPressEvent(QKeyEvent *event)//Teclas para variar la velocidad ini
         ui->numdis->setText(disparost);
         }
         cont++;
+        if(cont==1){
+            if(numnivel==2){
+                blanco= new enemy;//arregalar que aparezcan los objetos
+                blanco1= new enemy;
+                blanco2= new enemy;
+                blanco3= new enemy;
+                scene->addItem(blanco);
+                scene->addItem(blanco1);
+                scene->addItem(blanco2);
+                scene->addItem(blanco3);
+                blanco->setPos(950,600);//posicion de los objetivos
+                blanco1->setPos(940,180);
+                blanco2->setPos(280,90);
+                blanco3->setPos(680,600);
+            }
+        }
     }
     if(flag==0){
         if(event->key()==Qt::Key_Q){
@@ -132,8 +152,24 @@ void Nivel::actualizar()
 
     }
     }
+    if(score==4){
+        cont=0;
+        scene->setBackgroundBrush(QBrush(QImage(":/Escena2.png")));
+        numnivel++;
+        for (int i=0;i<bars.size();i++) {
+        bars.at(i)->~Bala();
+        bars.removeAt(i);
+        }
+
+
+
+
+    }
+
 
 }
+
+
 
 void Nivel::bordercollision(Cuerpo *b)
 {

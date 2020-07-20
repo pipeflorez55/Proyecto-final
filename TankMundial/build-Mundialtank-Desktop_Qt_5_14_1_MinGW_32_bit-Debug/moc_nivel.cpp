@@ -22,13 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Nivel_t {
-<<<<<<< HEAD:TankMundial/build-Mundialtank-Desktop_Qt_5_14_1_MinGW_32_bit-Debug/moc_nivel.cpp
     QByteArrayData data[3];
     char stringdata0[18];
-=======
-    QByteArrayData data[4];
-    char stringdata0[40];
->>>>>>> 5053605f4360514f79dc04ce9d9aff54afff1476:ProyectoFinal/build-TanksWar-Desktop_Qt_5_14_1_MinGW_32_bit-Debug/moc_nivel.cpp
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -42,11 +37,7 @@ QT_MOC_LITERAL(1, 6, 10), // "actualizar"
 QT_MOC_LITERAL(2, 17, 0) // ""
 
     },
-<<<<<<< HEAD:TankMundial/build-Mundialtank-Desktop_Qt_5_14_1_MinGW_32_bit-Debug/moc_nivel.cpp
     "Nivel\0actualizar\0"
-=======
-    "Nivel\0on_pushButton_clicked\0\0actualizar"
->>>>>>> 5053605f4360514f79dc04ce9d9aff54afff1476:ProyectoFinal/build-TanksWar-Desktop_Qt_5_14_1_MinGW_32_bit-Debug/moc_nivel.cpp
 };
 #undef QT_MOC_LITERAL
 
@@ -56,11 +47,7 @@ static const uint qt_meta_data_Nivel[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-<<<<<<< HEAD:TankMundial/build-Mundialtank-Desktop_Qt_5_14_1_MinGW_32_bit-Debug/moc_nivel.cpp
        1,   14, // methods
-=======
-       2,   14, // methods
->>>>>>> 5053605f4360514f79dc04ce9d9aff54afff1476:ProyectoFinal/build-TanksWar-Desktop_Qt_5_14_1_MinGW_32_bit-Debug/moc_nivel.cpp
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
