@@ -1,0 +1,13 @@
+bala.o
+cuerpo.o
+enemy.o
+funcioneslogin.o
+main.o
+mainwindow.o
+myrect.o
+nivel.o
+qrc_Imagenes.o
+moc_enemy.o
+moc_mainwindow.o
+moc_myrect.o
+moc_nivel.o

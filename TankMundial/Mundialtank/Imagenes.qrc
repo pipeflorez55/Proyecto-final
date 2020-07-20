@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/Tanque">
+        <file>tank-verde-0-grados.png</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>blanco_pequena.png</file>
+        <file>Escena.png</file>
+    </qresource>
+</RCC>
