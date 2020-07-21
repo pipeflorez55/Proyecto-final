@@ -7,7 +7,7 @@
 *****************************************************************************/
 
 #include <memory>
-#include "../Mundialtank/nivel.h"
+#include "../MundialTank/Mundialtank/nivel.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)

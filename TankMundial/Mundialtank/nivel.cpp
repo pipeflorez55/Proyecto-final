@@ -156,10 +156,12 @@ void Nivel::actualizar()
         cont=0;
         scene->setBackgroundBrush(QBrush(QImage(":/Escena2.png")));
         numnivel++;
-        for (int i=0;i<bars.size();i++) {
-        bars.at(i)->~Bala();
-        bars.removeAt(i);
+
+        for (int i=0;bars.size()>0;i++) {
+        bars.at(0)->~Bala();
+        bars.removeAt(0);
         }
+        score=0;
 
 
 
@@ -232,6 +234,23 @@ void Nivel::bordercollision(Cuerpo *b)
             b->set_vel(b->get_VelX(),-1*b->get_e()*b->get_VelY(),b->get_PosX(),423-b->get_Radio());
 
         }
+    }
+
+    if(numnivel==2){
+        //muro 1
+        if((b->get_PosX()> 417-b->get_Radio())&&(b->get_PosX()< 430-b->get_Radio())&&(b->get_PosY()<215-b->get_Radio())){
+            b->set_vel(-1*b->get_VelX()*b->get_e(),b->get_VelY(),417-b->get_Radio(),b->get_PosY());
+        }
+
+        if((b->get_PosX()< 505-b->get_Radio())&&(b->get_PosX()> 495-b->get_Radio())&&(b->get_PosY()<215-b->get_Radio())){
+            b->set_vel(-1*b->get_VelX()*b->get_e(),b->get_VelY(),505-b->get_Radio(),b->get_PosY());
+
+        }
+        if((b->get_PosY()<215-b->get_Radio())&&(b->get_PosX()> 417-b->get_Radio())&&(b->get_PosX()< 505-b->get_Radio())){
+            b->set_vel(b->get_VelX(),-1*b->get_e()*b->get_VelY(),b->get_PosX(),215-b->get_Radio());
+
+        }
+
     }
 
 
