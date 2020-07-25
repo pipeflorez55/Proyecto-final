@@ -1,4 +1,5 @@
 bala.o
+circular.o
 cuerpo.o
 enemy.o
 funcioneslogin.o
@@ -7,6 +8,7 @@ mainwindow.o
 myrect.o
 nivel.o
 qrc_Imagenes.o
+moc_circular.o
 moc_enemy.o
 moc_mainwindow.o
 moc_myrect.o

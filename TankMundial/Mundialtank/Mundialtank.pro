@@ -17,6 +17,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     bala.cpp \
+    circular.cpp \
     cuerpo.cpp \
     enemy.cpp \
     funcioneslogin.cpp \
@@ -27,6 +28,7 @@ SOURCES += \
 
 HEADERS += \
     bala.h \
+    circular.h \
     cuerpo.h \
     enemy.h \
     funcioneslogin.h \

@@ -5,6 +5,7 @@
 #include "QGraphicsScene"
 #include "cuerpo.h"
 #include "enemy.h"
+#include "circular.h"
 
 
 class Bala: public QGraphicsItem
@@ -18,6 +19,7 @@ public:
     void actualizar(float v_lim);
     Cuerpo *getEsf();
     bool coli();
+    bool colistar();
     bool increase;
 private:
     Cuerpo *esf;

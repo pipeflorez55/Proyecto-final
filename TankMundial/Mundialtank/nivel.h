@@ -12,6 +12,7 @@
 #include "cuerpo.h"
 #include "bala.h"
 #include "enemy.h"
+#include "circular.h"
 namespace Ui {
 class Nivel;
 }
@@ -30,6 +31,7 @@ private:
     Ui::Nivel *ui;
     QGraphicsScene *scene;
     MyRect *tanque;
+    Circular *estrella1,*estrella2,*estrella3;
     enemy *blanco, *blanco1, *blanco2, *blanco3;
     QTimer *timer;
     int score=0;

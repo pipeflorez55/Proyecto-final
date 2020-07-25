@@ -90,14 +90,30 @@ void Nivel::keyPressEvent(QKeyEvent *event)//Teclas para variar la velocidad ini
         cont++;
         if(cont==1){
             if(numnivel==2){
+                estrella1= new Circular;
+                estrella2= new Circular;
+                estrella3= new Circular;
                 blanco= new enemy;//arregalar que aparezcan los objetos
                 blanco1= new enemy;
                 blanco2= new enemy;
                 blanco3= new enemy;
+
+                scene->addItem(estrella1);
+                scene->addItem(estrella2);
+                scene->addItem(estrella3);
                 scene->addItem(blanco);
                 scene->addItem(blanco1);
                 scene->addItem(blanco2);
                 scene->addItem(blanco3);
+
+                estrella1->setPos(783,270);
+                estrella1->setPosC(783,270,100,3,0);
+
+
+                estrella2->setPosC(783,270,100,3,120);
+
+
+                estrella3->setPosC(783,270,100,3,240);
                 blanco->setPos(950,600);//posicion de los objetivos
                 blanco1->setPos(940,180);
                 blanco2->setPos(280,90);
@@ -152,6 +168,11 @@ void Nivel::actualizar()
 
     }
     }
+    if(numnivel==2&&cont>0){
+        estrella1->actualizar();
+        estrella2->actualizar();
+        estrella3->actualizar();
+    }
     if(score==4){
         cont=0;
         scene->setBackgroundBrush(QBrush(QImage(":/Escena2.png")));
@@ -167,6 +188,7 @@ void Nivel::actualizar()
 
 
     }
+
 
 
 }
@@ -238,19 +260,32 @@ void Nivel::bordercollision(Cuerpo *b)
 
     if(numnivel==2){
         //muro 1
-        if((b->get_PosX()> 417-b->get_Radio())&&(b->get_PosX()< 430-b->get_Radio())&&(b->get_PosY()<215-b->get_Radio())){
+        if((b->get_PosX()> 417-b->get_Radio())&&(b->get_PosX()< 427-b->get_Radio())&&(b->get_PosY()<214-b->get_Radio())){
             b->set_vel(-1*b->get_VelX()*b->get_e(),b->get_VelY(),417-b->get_Radio(),b->get_PosY());
         }
 
-        if((b->get_PosX()< 505-b->get_Radio())&&(b->get_PosX()> 495-b->get_Radio())&&(b->get_PosY()<215-b->get_Radio())){
-            b->set_vel(-1*b->get_VelX()*b->get_e(),b->get_VelY(),505-b->get_Radio(),b->get_PosY());
+        if((b->get_PosX()< 521-b->get_Radio())&&(b->get_PosX()> 509-b->get_Radio())&&(b->get_PosY()<214-b->get_Radio())){
+            b->set_vel(-1*b->get_VelX()*b->get_e(),b->get_VelY(),521-b->get_Radio(),b->get_PosY());
 
         }
-        if((b->get_PosY()<215-b->get_Radio())&&(b->get_PosX()> 417-b->get_Radio())&&(b->get_PosX()< 505-b->get_Radio())){
-            b->set_vel(b->get_VelX(),-1*b->get_e()*b->get_VelY(),b->get_PosX(),215-b->get_Radio());
+        if((b->get_PosY()<214-b->get_Radio())&&(b->get_PosX()> 417-b->get_Radio())&&(b->get_PosX()< 521-b->get_Radio())){
+            b->set_vel(b->get_VelX(),-1*b->get_e()*b->get_VelY(),b->get_PosX(),214-b->get_Radio());
 
         }
+        //muro 2
 
+        if((b->get_PosX()> 422-b->get_Radio())&&(b->get_PosX()< 432-b->get_Radio())&&(b->get_PosY()>412-b->get_Radio())){
+            b->set_vel(-1*b->get_VelX()*b->get_e(),b->get_VelY(),422-b->get_Radio(),b->get_PosY());
+        }
+
+        /*if((b->get_PosX()< 521-b->get_Radio())&&(b->get_PosX()> 509-b->get_Radio())&&(b->get_PosY()<214-b->get_Radio())){
+            b->set_vel(-1*b->get_VelX()*b->get_e(),b->get_VelY(),521-b->get_Radio(),b->get_PosY());
+
+        }
+        if((b->get_PosY()<214-b->get_Radio())&&(b->get_PosX()> 417-b->get_Radio())&&(b->get_PosX()< 521-b->get_Radio())){
+            b->set_vel(b->get_VelX(),-1*b->get_e()*b->get_VelY(),b->get_PosX(),214-b->get_Radio());
+
+        }*/
     }
 
 
