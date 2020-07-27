@@ -7,15 +7,7 @@
 *****************************************************************************/
 
 #include <memory>
-<<<<<<< HEAD
-<<<<<<< HEAD
 #include "../MundialTank/mainwindow.h"
-=======
-#include "../MundialTank/Mundialtank/mainwindow.h"
->>>>>>> 08bfa91a13eeb5efa9578cc39cd96c794d07f734
-=======
-#include "../MundialTank/Mundialtank/mainwindow.h"
->>>>>>> 08bfa91a13eeb5efa9578cc39cd96c794d07f734
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
