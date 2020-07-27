@@ -13,5 +13,7 @@ string leernuevousu(string usuario, bool *valido);//Funcion para leer si esta bi
 
 bool validarcontrase(string datos, string datosui);//Funcion para compara la contrseña del archivo con la contraseña ingresada
 
+string cargar(string usuario);
+
 #endif // FUNCIONESLOGIN_H
 

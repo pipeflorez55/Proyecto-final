@@ -17,22 +17,26 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     bala.cpp \
+    circular.cpp \
     cuerpo.cpp \
     enemy.cpp \
     funcioneslogin.cpp \
     main.cpp \
     mainwindow.cpp \
     myrect.cpp \
-    nivel.cpp
+    nivel.cpp \
+    pendulo.cpp
 
 HEADERS += \
     bala.h \
+    circular.h \
     cuerpo.h \
     enemy.h \
     funcioneslogin.h \
     mainwindow.h \
     myrect.h \
-    nivel.h
+    nivel.h \
+    pendulo.h
 
 FORMS += \
     mainwindow.ui \

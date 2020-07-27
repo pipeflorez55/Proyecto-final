@@ -44,6 +44,7 @@ void Bala::actualizar(float v_lim)
     esf->actualizar();
     setPos(esf->get_PosX(),(v_lim-esf->get_PosY()));
     increase=coli();
+    colistar();
 
 }
 
@@ -99,4 +100,41 @@ bool Bala::coli()
         }
     }*/
 
+}
+
+bool Bala::colistar()
+{
+    QList<QGraphicsItem *> colliding_items = collidingItems();
+    for(int i = 0, n = colliding_items.size(); i < n; i++){
+        if(typeid(*(colliding_items[i])) == typeid (Circular)){
+
+            //Increase score
+
+            //remove
+            scene()->removeItem(this);
+            //delete
+<<<<<<< HEAD
+        }
+    }
+    for(int i = 0, n = colliding_items.size(); i < n; i++){
+        if(typeid(*(colliding_items[i])) == typeid (Pendulo)){
+
+            //Increase score
+
+            //remove
+            scene()->removeItem(this);
+            //delete
+        }
+    }
+
+
+=======
+
+
+
+
+        }
+    }
+
+>>>>>>> 08bfa91a13eeb5efa9578cc39cd96c794d07f734
 }

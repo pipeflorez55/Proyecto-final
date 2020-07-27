@@ -13,10 +13,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QGraphicsView>
-#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QPushButton>
-#include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
@@ -27,14 +24,11 @@ public:
     QLabel *nombreangulo;
     QLabel *vo;
     QLabel *nombrevo;
-    QWidget *layoutWidget;
-    QGridLayout *gridLayout;
-    QGraphicsView *graphicsView;
-    QPushButton *pushButton;
     QLabel *label;
     QLabel *objetivo;
     QLabel *label_2;
     QLabel *numdis;
+    QGraphicsView *graphicsView;
 
     void setupUi(QDialog *Nivel)
     {
@@ -53,23 +47,6 @@ public:
         nombrevo = new QLabel(Nivel);
         nombrevo->setObjectName(QString::fromUtf8("nombrevo"));
         nombrevo->setGeometry(QRect(10, 670, 101, 16));
-        layoutWidget = new QWidget(Nivel);
-        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(0, 0, 1001, 661));
-        gridLayout = new QGridLayout(layoutWidget);
-        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        gridLayout->setContentsMargins(0, 0, 0, 0);
-        graphicsView = new QGraphicsView(layoutWidget);
-        graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
-        graphicsView->setEnabled(true);
-
-        gridLayout->addWidget(graphicsView, 0, 0, 1, 1);
-
-        pushButton = new QPushButton(layoutWidget);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-
-        gridLayout->addWidget(pushButton, 2, 0, 1, 1);
-
         label = new QLabel(Nivel);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(280, 670, 131, 16));
@@ -82,6 +59,10 @@ public:
         numdis = new QLabel(Nivel);
         numdis->setObjectName(QString::fromUtf8("numdis"));
         numdis->setGeometry(QRect(600, 670, 16, 16));
+        graphicsView = new QGraphicsView(Nivel);
+        graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
+        graphicsView->setEnabled(true);
+        graphicsView->setGeometry(QRect(0, 0, 999, 625));
 
         retranslateUi(Nivel);
 
@@ -95,7 +76,6 @@ public:
         nombreangulo->setText(QCoreApplication::translate("Nivel", "Angulo:", nullptr));
         vo->setText(QCoreApplication::translate("Nivel", "0", nullptr));
         nombrevo->setText(QCoreApplication::translate("Nivel", "velocidad inicial:", nullptr));
-        pushButton->setText(QCoreApplication::translate("Nivel", "Inicio", nullptr));
         label->setText(QCoreApplication::translate("Nivel", "Objetivos alcanzados:", nullptr));
         objetivo->setText(QCoreApplication::translate("Nivel", "0", nullptr));
         label_2->setText(QCoreApplication::translate("Nivel", "Numero de disparos:", nullptr));
