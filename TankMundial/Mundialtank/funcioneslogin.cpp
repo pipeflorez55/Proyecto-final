@@ -60,3 +60,21 @@ bool validarcontrase(string datos, string datosui)
 /*setPixmap(QPixmap(":/images/TUIMAGEN"));
     setTransformOriginPoint(50,50);
     setRotation(180);*/
+
+string cargar(string usuario)
+{
+    string datos;
+    string t="../Usuarios/";
+    usuario=t+usuario+".txt";
+    ifstream archivo(usuario);
+
+    if(archivo.is_open()){  //validar si esta el usuario
+        while (!archivo.eof()) {//leer el archivo
+            if(!archivo.eof()){
+                datos += archivo.get();
+            }
+        }
+        archivo.close();
+        return datos;
+    }
+}

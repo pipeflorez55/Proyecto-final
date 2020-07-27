@@ -1,6 +1,6 @@
 #ifndef NIVEL_H
 #define NIVEL_H
-
+#include "string"
 #include <QDialog>
 #include <QGraphicsScene>
 #include <QGraphicsView>
@@ -13,6 +13,7 @@
 #include "bala.h"
 #include "enemy.h"
 #include "circular.h"
+#include "pendulo.h"
 namespace Ui {
 class Nivel;
 }
@@ -24,6 +25,7 @@ class Nivel : public QDialog
 public:
     explicit Nivel(QWidget *parent = nullptr);
     ~Nivel();
+      void cargar(int aniv, int bdis, int bl1, int bl2, int bl3,int bl4, int sco);
 private slots:
      //void on_pushButton_clicked();
      void actualizar();
@@ -31,6 +33,7 @@ private:
     Ui::Nivel *ui;
     QGraphicsScene *scene;
     MyRect *tanque;
+    Pendulo *pinchos1,*pinchos2;
     Circular *estrella1,*estrella2,*estrella3;
     enemy *blanco, *blanco1, *blanco2, *blanco3;
     QTimer *timer;
@@ -39,9 +42,12 @@ private:
     int h_limit;
     int v_limit;
     int numnivel=1;
+    int numedis=0;
+    int ena1,ena2,ena3,ena4;
     void bordercollision(Cuerpo *b);
     void keyPressEvent(QKeyEvent *event);
     QList<Bala*>bars;
+
 };
 
 #endif // NIVEL_H

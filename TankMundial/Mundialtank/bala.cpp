@@ -113,11 +113,18 @@ bool Bala::colistar()
             //remove
             scene()->removeItem(this);
             //delete
-
-
-
-
         }
     }
+    for(int i = 0, n = colliding_items.size(); i < n; i++){
+        if(typeid(*(colliding_items[i])) == typeid (Pendulo)){
+
+            //Increase score
+
+            //remove
+            scene()->removeItem(this);
+            //delete
+        }
+    }
+
 
 }

@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "nivel.h"
+#include "QMessageBox"
 
 std::string usuario;
 
@@ -28,7 +29,7 @@ void MainWindow::on_pushButton_3_clicked()
 
     if(n==5){//condicional para saber el numero de caracteres necesarios
         escribirnewlogin(name, password);
-
+        QMessageBox::information(this, tr("Nuevo usuario"), tr("Se ha guardado un nuevo usuario"));
     }
     else{
         ui->avisocm->setText("La contraseña debe ser de 5 caracteres");
@@ -54,6 +55,17 @@ void MainWindow::on_Login_clicked()
             ui->ingresomal->setText("Acceso concedido");
             this->hide();
             Nivel nivel;
+            std::string info=cargar(usuario);
+            //aqui va la funcion
+            char numnivel= info[5],numdis;
+            int numnivel1=numnivel-48;
+            int bl1=info[6]-48;
+            int bl2=info[7]-48;
+            int bl3=info[8]-48;
+            int bl4=info[9]-48;
+            int sco=info[10]-48;
+
+            nivel.cargar(numnivel1,numdis,bl1,bl2,bl3,bl4,sco);
            // ui->setupUi(Nivel);
             nivel.setModal(true);
             nivel.exec();

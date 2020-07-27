@@ -33,8 +33,3 @@ void Circular::setPosC(float x_, float y_, float radio_, float w_,float angulo_)
     angulo=angulo_;
 }
 
-/*void Circular::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
-{
-    painter->setBrush(Qt::red);
-    painter->drawEllipse(boundingRect());
-}*/

@@ -14,16 +14,6 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLineEdit" name="newname">
-    <property name="geometry">
-     <rect>
-      <x>-4</x>
-      <y>410</y>
-      <width>137</width>
-      <height>22</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QLabel" name="avisocm">
     <property name="geometry">
      <rect>
@@ -35,19 +25,6 @@
     </property>
     <property name="text">
      <string/>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="newpassword">
-    <property name="geometry">
-     <rect>
-      <x>-4</x>
-      <y>440</y>
-      <width>137</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="maxLength">
-     <number>5</number>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_2">
@@ -63,29 +40,6 @@
      <string>Multi Player</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="contrase">
-    <property name="geometry">
-     <rect>
-      <x>656</x>
-      <y>440</y>
-      <width>113</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="maxLength">
-     <number>5</number>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="usuario">
-    <property name="geometry">
-     <rect>
-      <x>656</x>
-      <y>400</y>
-      <width>113</width>
-      <height>22</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QLabel" name="ingresomal">
     <property name="geometry">
      <rect>
@@ -99,31 +53,63 @@
      <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="Login">
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>680</x>
-      <y>480</y>
-      <width>93</width>
-      <height>28</height>
+      <x>30</x>
+      <y>410</y>
+      <width>145</width>
+      <height>86</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Login</string>
-    </property>
+    <layout class="QFormLayout" name="formLayout">
+     <item row="0" column="0">
+      <widget class="QLineEdit" name="newname"/>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLineEdit" name="newpassword">
+       <property name="maxLength">
+        <number>5</number>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QPushButton" name="pushButton_3">
+       <property name="text">
+        <string>Sing Up</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>470</y>
-      <width>93</width>
-      <height>28</height>
+      <x>656</x>
+      <y>400</y>
+      <width>145</width>
+      <height>86</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Sing Up</string>
-    </property>
+    <layout class="QFormLayout" name="formLayout_2">
+     <item row="0" column="0">
+      <widget class="QLineEdit" name="usuario"/>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLineEdit" name="contrase">
+       <property name="maxLength">
+        <number>5</number>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QPushButton" name="Login">
+       <property name="text">
+        <string>Login</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -132,7 +118,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>18</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

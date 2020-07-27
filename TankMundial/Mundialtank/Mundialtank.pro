@@ -24,7 +24,8 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     myrect.cpp \
-    nivel.cpp
+    nivel.cpp \
+    pendulo.cpp
 
 HEADERS += \
     bala.h \
@@ -34,7 +35,8 @@ HEADERS += \
     funcioneslogin.h \
     mainwindow.h \
     myrect.h \
-    nivel.h
+    nivel.h \
+    pendulo.h
 
 FORMS += \
     mainwindow.ui \
