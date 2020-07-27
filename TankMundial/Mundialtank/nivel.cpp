@@ -99,6 +99,7 @@ void Nivel::keyPressEvent(QKeyEvent *event)//Teclas para variar la velocidad ini
                 estrella2= new Circular;
                 estrella3= new Circular;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
                 if(ena1==1){
                     blanco= new enemy;//arregalar que aparezcan los objetos
@@ -168,6 +169,8 @@ void Nivel::keyPressEvent(QKeyEvent *event)//Teclas para variar la velocidad ini
                 pinchos1->setPos(419,180);
                 pinchos2->setPos(419,180);
 =======
+=======
+>>>>>>> 08bfa91a13eeb5efa9578cc39cd96c794d07f734
                 blanco= new enemy;//arregalar que aparezcan los objetos
                 blanco1= new enemy;
                 blanco2= new enemy;
@@ -264,10 +267,13 @@ void Nivel::actualizar()
         estrella3->actualizar();
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
     if(numnivel==3&&cont>0){
         pinchos1->actualizar();
         pinchos2->actualizar();
     }
+=======
+>>>>>>> 08bfa91a13eeb5efa9578cc39cd96c794d07f734
 =======
 >>>>>>> 08bfa91a13eeb5efa9578cc39cd96c794d07f734
     if(score==4){
@@ -278,13 +284,19 @@ void Nivel::actualizar()
         ena4=1;
         numnivel++;
 <<<<<<< HEAD
+<<<<<<< HEAD
         if(numnivel==2){
             scene->setBackgroundBrush(QBrush(QImage(":/Escena2.png")));
 =======
+=======
+>>>>>>> 08bfa91a13eeb5efa9578cc39cd96c794d07f734
 
         for (int i=0;bars.size()>0;i++) {
         bars.at(0)->~Bala();
         bars.removeAt(0);
+<<<<<<< HEAD
+>>>>>>> 08bfa91a13eeb5efa9578cc39cd96c794d07f734
+=======
 >>>>>>> 08bfa91a13eeb5efa9578cc39cd96c794d07f734
         }
         score=0;
@@ -314,6 +326,7 @@ void Nivel::actualizar()
     if(numnivel==3){
         scene->setBackgroundBrush(QBrush(QImage(":/Escena3.jpg")));
     }
+
 
 
 
@@ -387,6 +400,7 @@ void Nivel::bordercollision(Cuerpo *b)
     if(numnivel==2){
         //muro 1
 <<<<<<< HEAD
+<<<<<<< HEAD
         if((b->get_PosX()> 417-b->get_Radio())&&(b->get_PosX()< 427-b->get_Radio())&&(b->get_PosY()<216-b->get_Radio())){
             b->set_vel(-1*b->get_VelX()*b->get_e(),b->get_VelY(),417-b->get_Radio(),b->get_PosY());
         }
@@ -397,6 +411,8 @@ void Nivel::bordercollision(Cuerpo *b)
         }
         if((b->get_PosY()<216-b->get_Radio())&&(b->get_PosX()> 417-b->get_Radio())&&(b->get_PosX()< 521-b->get_Radio())){
 =======
+=======
+>>>>>>> 08bfa91a13eeb5efa9578cc39cd96c794d07f734
         if((b->get_PosX()> 417-b->get_Radio())&&(b->get_PosX()< 427-b->get_Radio())&&(b->get_PosY()<214-b->get_Radio())){
             b->set_vel(-1*b->get_VelX()*b->get_e(),b->get_VelY(),417-b->get_Radio(),b->get_PosY());
         }
@@ -406,6 +422,9 @@ void Nivel::bordercollision(Cuerpo *b)
 
         }
         if((b->get_PosY()<214-b->get_Radio())&&(b->get_PosX()> 417-b->get_Radio())&&(b->get_PosX()< 521-b->get_Radio())){
+<<<<<<< HEAD
+>>>>>>> 08bfa91a13eeb5efa9578cc39cd96c794d07f734
+=======
 >>>>>>> 08bfa91a13eeb5efa9578cc39cd96c794d07f734
             b->set_vel(b->get_VelX(),-1*b->get_e()*b->get_VelY(),b->get_PosX(),214-b->get_Radio());
 
@@ -419,6 +438,7 @@ void Nivel::bordercollision(Cuerpo *b)
         /*if((b->get_PosX()< 521-b->get_Radio())&&(b->get_PosX()> 509-b->get_Radio())&&(b->get_PosY()<214-b->get_Radio())){
             b->set_vel(-1*b->get_VelX()*b->get_e(),b->get_VelY(),521-b->get_Radio(),b->get_PosY());
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         }*/
         if((b->get_PosY()>412-b->get_Radio())&&(b->get_PosX()> 422-b->get_Radio())&&(b->get_PosX()< 511-b->get_Radio())){
@@ -442,11 +462,16 @@ void Nivel::bordercollision(Cuerpo *b)
 
         }
 =======
+=======
+>>>>>>> 08bfa91a13eeb5efa9578cc39cd96c794d07f734
         }
         if((b->get_PosY()<214-b->get_Radio())&&(b->get_PosX()> 417-b->get_Radio())&&(b->get_PosX()< 521-b->get_Radio())){
             b->set_vel(b->get_VelX(),-1*b->get_e()*b->get_VelY(),b->get_PosX(),214-b->get_Radio());
 
         }*/
+<<<<<<< HEAD
+>>>>>>> 08bfa91a13eeb5efa9578cc39cd96c794d07f734
+=======
 >>>>>>> 08bfa91a13eeb5efa9578cc39cd96c794d07f734
     }
 

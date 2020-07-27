@@ -14,7 +14,10 @@
 #include "enemy.h"
 #include "circular.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "pendulo.h"
+=======
+>>>>>>> 08bfa91a13eeb5efa9578cc39cd96c794d07f734
 =======
 >>>>>>> 08bfa91a13eeb5efa9578cc39cd96c794d07f734
 namespace Ui {
@@ -37,7 +40,10 @@ private:
     QGraphicsScene *scene;
     MyRect *tanque;
 <<<<<<< HEAD
+<<<<<<< HEAD
     Pendulo *pinchos1,*pinchos2;
+=======
+>>>>>>> 08bfa91a13eeb5efa9578cc39cd96c794d07f734
 =======
 >>>>>>> 08bfa91a13eeb5efa9578cc39cd96c794d07f734
     Circular *estrella1,*estrella2,*estrella3;

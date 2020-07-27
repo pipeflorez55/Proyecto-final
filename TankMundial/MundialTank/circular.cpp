@@ -34,10 +34,16 @@ void Circular::setPosC(float x_, float y_, float radio_, float w_,float angulo_)
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 08bfa91a13eeb5efa9578cc39cd96c794d07f734
 /*void Circular::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     painter->setBrush(Qt::red);
     painter->drawEllipse(boundingRect());
 }*/
+<<<<<<< HEAD
+>>>>>>> 08bfa91a13eeb5efa9578cc39cd96c794d07f734
+=======
 >>>>>>> 08bfa91a13eeb5efa9578cc39cd96c794d07f734

@@ -114,6 +114,7 @@ bool Bala::colistar()
             scene()->removeItem(this);
             //delete
 <<<<<<< HEAD
+<<<<<<< HEAD
         }
     }
     for(int i = 0, n = colliding_items.size(); i < n; i++){
@@ -129,6 +130,8 @@ bool Bala::colistar()
 
 
 =======
+=======
+>>>>>>> 08bfa91a13eeb5efa9578cc39cd96c794d07f734
 
 
 
@@ -136,5 +139,8 @@ bool Bala::colistar()
         }
     }
 
+<<<<<<< HEAD
+>>>>>>> 08bfa91a13eeb5efa9578cc39cd96c794d07f734
+=======
 >>>>>>> 08bfa91a13eeb5efa9578cc39cd96c794d07f734
 }
