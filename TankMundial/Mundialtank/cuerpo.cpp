@@ -48,6 +48,16 @@ float Cuerpo::get_e()
     return e;
 }
 
+int Cuerpo::grat()
+{
+    return G;
+}
+
+void Cuerpo::invertgra()
+{
+    G*=-1;
+}
+
 float Cuerpo::get_VelX()
 {
     return VX;

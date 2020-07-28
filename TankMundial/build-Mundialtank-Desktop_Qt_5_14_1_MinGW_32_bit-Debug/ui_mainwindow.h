@@ -11,7 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QFormLayout>
+#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
@@ -27,15 +27,15 @@ class Ui_MainWindow
 public:
     QWidget *centralwidget;
     QLabel *avisocm;
-    QPushButton *pushButton_2;
+    QPushButton *multi;
     QLabel *ingresomal;
-    QWidget *widget;
-    QFormLayout *formLayout;
+    QWidget *layoutWidget;
+    QGridLayout *gridLayout;
     QLineEdit *newname;
     QLineEdit *newpassword;
     QPushButton *pushButton_3;
-    QWidget *widget1;
-    QFormLayout *formLayout_2;
+    QWidget *layoutWidget1;
+    QGridLayout *gridLayout_2;
     QLineEdit *usuario;
     QLineEdit *contrase;
     QPushButton *Login;
@@ -46,66 +46,66 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(800, 600);
+        MainWindow->resize(804, 562);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         avisocm = new QLabel(centralwidget);
         avisocm->setObjectName(QString::fromUtf8("avisocm"));
         avisocm->setGeometry(QRect(156, 435, 251, 21));
-        pushButton_2 = new QPushButton(centralwidget);
-        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
-        pushButton_2->setGeometry(QRect(6, 200, 93, 28));
+        multi = new QPushButton(centralwidget);
+        multi->setObjectName(QString::fromUtf8("multi"));
+        multi->setGeometry(QRect(30, 200, 93, 28));
         ingresomal = new QLabel(centralwidget);
         ingresomal->setObjectName(QString::fromUtf8("ingresomal"));
         ingresomal->setGeometry(QRect(450, 400, 161, 101));
-        widget = new QWidget(centralwidget);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(30, 410, 145, 86));
-        formLayout = new QFormLayout(widget);
-        formLayout->setObjectName(QString::fromUtf8("formLayout"));
-        formLayout->setContentsMargins(0, 0, 0, 0);
-        newname = new QLineEdit(widget);
+        layoutWidget = new QWidget(centralwidget);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(31, 411, 139, 86));
+        gridLayout = new QGridLayout(layoutWidget);
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        gridLayout->setContentsMargins(0, 0, 0, 0);
+        newname = new QLineEdit(layoutWidget);
         newname->setObjectName(QString::fromUtf8("newname"));
 
-        formLayout->setWidget(0, QFormLayout::LabelRole, newname);
+        gridLayout->addWidget(newname, 0, 0, 1, 1);
 
-        newpassword = new QLineEdit(widget);
+        newpassword = new QLineEdit(layoutWidget);
         newpassword->setObjectName(QString::fromUtf8("newpassword"));
         newpassword->setMaxLength(5);
 
-        formLayout->setWidget(1, QFormLayout::LabelRole, newpassword);
+        gridLayout->addWidget(newpassword, 1, 0, 1, 1);
 
-        pushButton_3 = new QPushButton(widget);
+        pushButton_3 = new QPushButton(layoutWidget);
         pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
 
-        formLayout->setWidget(2, QFormLayout::LabelRole, pushButton_3);
+        gridLayout->addWidget(pushButton_3, 2, 0, 1, 1);
 
-        widget1 = new QWidget(centralwidget);
-        widget1->setObjectName(QString::fromUtf8("widget1"));
-        widget1->setGeometry(QRect(656, 400, 145, 86));
-        formLayout_2 = new QFormLayout(widget1);
-        formLayout_2->setObjectName(QString::fromUtf8("formLayout_2"));
-        formLayout_2->setContentsMargins(0, 0, 0, 0);
-        usuario = new QLineEdit(widget1);
+        layoutWidget1 = new QWidget(centralwidget);
+        layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
+        layoutWidget1->setGeometry(QRect(657, 401, 139, 86));
+        gridLayout_2 = new QGridLayout(layoutWidget1);
+        gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
+        gridLayout_2->setContentsMargins(0, 0, 0, 0);
+        usuario = new QLineEdit(layoutWidget1);
         usuario->setObjectName(QString::fromUtf8("usuario"));
 
-        formLayout_2->setWidget(0, QFormLayout::LabelRole, usuario);
+        gridLayout_2->addWidget(usuario, 0, 0, 1, 1);
 
-        contrase = new QLineEdit(widget1);
+        contrase = new QLineEdit(layoutWidget1);
         contrase->setObjectName(QString::fromUtf8("contrase"));
         contrase->setMaxLength(5);
 
-        formLayout_2->setWidget(1, QFormLayout::LabelRole, contrase);
+        gridLayout_2->addWidget(contrase, 1, 0, 1, 1);
 
-        Login = new QPushButton(widget1);
+        Login = new QPushButton(layoutWidget1);
         Login->setObjectName(QString::fromUtf8("Login"));
 
-        formLayout_2->setWidget(2, QFormLayout::LabelRole, Login);
+        gridLayout_2->addWidget(Login, 2, 0, 1, 1);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 26));
+        menubar->setGeometry(QRect(0, 0, 804, 26));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -120,7 +120,7 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         avisocm->setText(QString());
-        pushButton_2->setText(QCoreApplication::translate("MainWindow", "Multi Player", nullptr));
+        multi->setText(QCoreApplication::translate("MainWindow", "Multi Player", nullptr));
         ingresomal->setText(QString());
         pushButton_3->setText(QCoreApplication::translate("MainWindow", "Sing Up", nullptr));
         Login->setText(QCoreApplication::translate("MainWindow", "Login", nullptr));

@@ -23,6 +23,8 @@ SOURCES += \
     funcioneslogin.cpp \
     main.cpp \
     mainwindow.cpp \
+    menu.cpp \
+    multiplayer.cpp \
     myrect.cpp \
     nivel.cpp \
     pendulo.cpp
@@ -34,12 +36,16 @@ HEADERS += \
     enemy.h \
     funcioneslogin.h \
     mainwindow.h \
+    menu.h \
+    multiplayer.h \
     myrect.h \
     nivel.h \
     pendulo.h
 
 FORMS += \
     mainwindow.ui \
+    menu.ui \
+    multiplayer.ui \
     nivel.ui
 
 # Default rules for deployment.

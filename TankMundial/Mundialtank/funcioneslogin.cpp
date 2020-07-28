@@ -7,7 +7,7 @@ void escribirnewlogin(string name, string password)
     name=t+name+".txt";
     ofstream archivo2;
     archivo2.open(name);//Se crea el archivo con el nombre de ingreso
-    archivo2<< password;//Se le agrega al archivo la contrseña
+    archivo2<< password+"1111100";//Se le agrega al archivo la contrseña
     archivo2.close();
 
 }

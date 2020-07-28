@@ -12,6 +12,8 @@ public:
     float get_Radio();
     float get_masa();
     float get_e();
+    int grat();
+    void invertgra();
     float get_VelX();
     float get_VelY();
     void set_vel(float vo, float anguI,float px,float py);
