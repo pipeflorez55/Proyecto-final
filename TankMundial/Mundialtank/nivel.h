@@ -14,6 +14,7 @@
 #include "enemy.h"
 #include "circular.h"
 #include "pendulo.h"
+
 namespace Ui {
 class Nivel;
 }
@@ -25,10 +26,18 @@ class Nivel : public QDialog
 public:
     explicit Nivel(QWidget *parent = nullptr);
     ~Nivel();
-      void cargar(int aniv, int bdis, int bl1, int bl2, int bl3,int bl4, int sco);
+     void cargardo(int aniv, int bdis, int bl1, int bl2, int bl3,int bl4, int sco);
+     std::string usuario;
+     std::string contrsmain;
 private slots:
-     //void on_pushButton_clicked();
+
      void actualizar();
+     void on_pushButton_clicked();
+
+     void on_controles_clicked();
+
+     void on_menu_clicked();
+
 private:
     Ui::Nivel *ui;
     QGraphicsScene *scene;
@@ -44,6 +53,8 @@ private:
     int numnivel=1;
     int numedis=0;
     int ena1,ena2,ena3,ena4;
+    void guardar(std::string name);
+    void comprobarblancos();
     void bordercollision(Cuerpo *b);
     void keyPressEvent(QKeyEvent *event);
     QList<Bala*>bars;

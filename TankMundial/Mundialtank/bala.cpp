@@ -63,9 +63,8 @@ bool Bala::coli()
             //Increase score
 
             //remove
-            scene()->removeItem(colliding_items[i]);
+            colliding_items[i]->setPos(-100,-100);
             //delete
-            delete colliding_items[i];
             return true;
 
 

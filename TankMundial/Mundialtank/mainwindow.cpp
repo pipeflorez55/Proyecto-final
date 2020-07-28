@@ -1,7 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "nivel.h"
+#include "multiplayer.h"
 #include "QMessageBox"
+#include <cstdlib>
 
 std::string usuario;
 
@@ -42,6 +44,7 @@ void MainWindow::on_Login_clicked()
 {
     QString usuario2 = ui->usuario->text();
     usuario = usuario2.toStdString();
+
     QString contrase2 = ui->contrase->text();
     std::string contrase = contrase2.toStdString();
 
@@ -57,15 +60,18 @@ void MainWindow::on_Login_clicked()
             Nivel nivel;
             std::string info=cargar(usuario);
             //aqui va la funcion
-            char numnivel= info[5],numdis;
+            char numnivel= info[5];
+            string numdis=info.substr(11);
+            int numdis1=atoi(numdis.c_str());
             int numnivel1=numnivel-48;
             int bl1=info[6]-48;
             int bl2=info[7]-48;
             int bl3=info[8]-48;
             int bl4=info[9]-48;
             int sco=info[10]-48;
-
-            nivel.cargar(numnivel1,numdis,bl1,bl2,bl3,bl4,sco);
+            nivel.usuario=usuario;
+            nivel.contrsmain=contrase;
+            nivel.cargardo(numnivel1,numdis1,bl1,bl2,bl3,bl4,sco);
            // ui->setupUi(Nivel);
             nivel.setModal(true);
             nivel.exec();
@@ -81,7 +87,12 @@ void MainWindow::on_Login_clicked()
     }
 
 
+}
 
-
-
+void MainWindow::on_multi_clicked()
+{
+    this->hide();
+    Multiplayer multiplayer;
+    multiplayer.setModal(true);
+    multiplayer.exec();
 }
