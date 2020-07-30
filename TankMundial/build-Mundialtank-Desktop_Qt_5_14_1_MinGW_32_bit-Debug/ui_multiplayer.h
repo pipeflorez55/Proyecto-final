@@ -13,6 +13,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QGraphicsView>
+#include <QtWidgets/QPushButton>
 
 QT_BEGIN_NAMESPACE
 
@@ -20,6 +21,7 @@ class Ui_Multiplayer
 {
 public:
     QGraphicsView *graphicsView;
+    QPushButton *pushButton;
 
     void setupUi(QDialog *Multiplayer)
     {
@@ -29,6 +31,9 @@ public:
         graphicsView = new QGraphicsView(Multiplayer);
         graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
         graphicsView->setGeometry(QRect(0, 0, 999, 625));
+        pushButton = new QPushButton(Multiplayer);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setGeometry(QRect(10, 630, 93, 28));
 
         retranslateUi(Multiplayer);
 
@@ -38,6 +43,7 @@ public:
     void retranslateUi(QDialog *Multiplayer)
     {
         Multiplayer->setWindowTitle(QCoreApplication::translate("Multiplayer", "Dialog", nullptr));
+        pushButton->setText(QCoreApplication::translate("Multiplayer", "Volver al menu", nullptr));
     } // retranslateUi
 
 };

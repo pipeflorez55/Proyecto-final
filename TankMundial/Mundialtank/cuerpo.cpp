@@ -48,6 +48,16 @@ float Cuerpo::get_e()
     return e;
 }
 
+int Cuerpo::grat()
+{
+    return G;
+}
+
+void Cuerpo::invertgra()
+{
+    G*=-1;
+}
+
 float Cuerpo::get_VelX()
 {
     return VX;
@@ -57,8 +67,15 @@ float Cuerpo::get_VelY()
 {
     return VY;
 }
+void Cuerpo::set_vel(float velx, float vely, float px, float py)
+{
+    VX = velx;
+    VY = vely;
+    PX = px;
+    PY = py;
+}
 
-void Cuerpo::set_vel(float vo, float anguI, float px, float py)
+void Cuerpo::set_velini(float vo, float anguI, float px, float py)
 {
     VX = vo*cos(anguI*(M_PI/180));
     VY = vo*sin(anguI*(M_PI/180));

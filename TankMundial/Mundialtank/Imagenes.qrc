@@ -1,6 +1,23 @@
 <RCC>
     <qresource prefix="/Tanque">
         <file>tank-verde-0-grados.png</file>
+        <file>tank-azul-0-grados.png</file>
+        <file>tank-verde-40-grados.png</file>
+        <file>tank-verde-50-grados.png</file>
+        <file>tank-verde-60-grados.png</file>
+        <file>tank-verde-70-grados.png</file>
+        <file>tank-verde-80-grados.png</file>
+        <file>tank-azul-10-grados.png</file>
+        <file>tank-azul-20-grados.png</file>
+        <file>tank-azul-30-grados.png</file>
+        <file>tank-azul-40-grados.png</file>
+        <file>tank-azul-50-grados.png</file>
+        <file>tank-azul-60-grados.png</file>
+        <file>tank-azul-70-grados.png</file>
+        <file>tank-azul-80-grados.png</file>
+        <file>tank-verde-10-grados.png</file>
+        <file>tank-verde-20-grados.png</file>
+        <file>tank-verde-30-grados.png</file>
     </qresource>
     <qresource prefix="/">
         <file>blanco_pequena.png</file>

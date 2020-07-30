@@ -30,7 +30,11 @@ QRectF Bala::boundingRect() const
 
 void Bala::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-    painter->setBrush(Qt::blue);
+    if(player==1){
+    painter->setBrush(Qt::blue);}
+    else{
+    painter->setBrush(Qt::red);}
+
     painter->drawEllipse(boundingRect());
 }
 
@@ -126,4 +130,9 @@ bool Bala::colistar()
     }
 
 
+}
+
+void Bala::set_player(int color)
+{
+    player=color;
 }

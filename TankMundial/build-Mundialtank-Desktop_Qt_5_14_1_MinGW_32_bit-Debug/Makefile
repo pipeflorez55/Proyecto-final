@@ -578,7 +578,24 @@ qrc_Imagenes.cpp: ../MundialTank/Imagenes.qrc \
 		../MundialTank/Escena3.jpg \
 		../MundialTank/Pendulo.png \
 		../MundialTank/Estrella.png \
-		../MundialTank/tank-verde-0-grados.png
+		../MundialTank/tank-verde-0-grados.png \
+		../MundialTank/tank-azul-0-grados.png \
+		../MundialTank/tank-verde-80-grados.png \
+		../MundialTank/tank-verde-50-grados.png \
+		../MundialTank/tank-verde-70-grados.png \
+		../MundialTank/tank-verde-20-grados.png \
+		../MundialTank/tank-verde-40-grados.png \
+		../MundialTank/tank-verde-60-grados.png \
+		../MundialTank/tank-verde-10-grados.png \
+		../MundialTank/tank-verde-30-grados.png \
+		../MundialTank/tank-azul-70-grados.png \
+		../MundialTank/tank-azul-20-grados.png \
+		../MundialTank/tank-azul-40-grados.png \
+		../MundialTank/tank-azul-60-grados.png \
+		../MundialTank/tank-azul-10-grados.png \
+		../MundialTank/tank-azul-80-grados.png \
+		../MundialTank/tank-azul-30-grados.png \
+		../MundialTank/tank-azul-50-grados.png
 	C:\Qt\5.14.1\mingw73_32\bin\rcc.exe -name Imagenes ..\MundialTank\Imagenes.qrc -o qrc_Imagenes.cpp
 
 compiler_moc_predefs_make_all: moc_predefs.h
@@ -1008,6 +1025,7 @@ moc_menu.cpp: ../MundialTank/menu.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qfiledevice.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qvector2d.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qtouchdevice.h \
+		../MundialTank/funcioneslogin.h \
 		moc_predefs.h \
 		../../../../Qt/5.14.1/mingw73_32/bin/moc.exe
 	C:\Qt\5.14.1\mingw73_32\bin\moc.exe $(DEFINES) --include C:/Users/Usuario/Desktop/build-Mundialtank-Desktop_Qt_5_14_1_MinGW_32_bit-Debug/moc_predefs.h -IC:/Qt/5.14.1/mingw73_32/mkspecs/win32-g++ -IC:/Users/Usuario/Desktop/MundialTank -IC:/Qt/5.14.1/mingw73_32/include -IC:/Qt/5.14.1/mingw73_32/include/QtWidgets -IC:/Qt/5.14.1/mingw73_32/include/QtGui -IC:/Qt/5.14.1/mingw73_32/include/QtANGLE -IC:/Qt/5.14.1/mingw73_32/include/QtCore -I. -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_32/i686-w64-mingw32/include ..\MundialTank\menu.h -o moc_menu.cpp
@@ -1118,6 +1136,31 @@ moc_multiplayer.cpp: ../MundialTank/multiplayer.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qfiledevice.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qvector2d.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qtouchdevice.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QGraphicsScene \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qgraphicsscene.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qpen.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QGraphicsView \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qgraphicsview.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qpainter.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qtextoption.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qscrollarea.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qabstractscrollarea.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qframe.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/QPixmap \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/QBrush \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/QTimer \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qtimer.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qbasictimer.h \
+		../MundialTank/myrect.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QGraphicsPixmapItem \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qgraphicsitem.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/QObject \
+		../MundialTank/cuerpo.h \
+		../MundialTank/bala.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/QPainter \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QGraphicsItem \
+		../MundialTank/enemy.h \
+		../MundialTank/circular.h \
 		moc_predefs.h \
 		../../../../Qt/5.14.1/mingw73_32/bin/moc.exe
 	C:\Qt\5.14.1\mingw73_32\bin\moc.exe $(DEFINES) --include C:/Users/Usuario/Desktop/build-Mundialtank-Desktop_Qt_5_14_1_MinGW_32_bit-Debug/moc_predefs.h -IC:/Qt/5.14.1/mingw73_32/mkspecs/win32-g++ -IC:/Users/Usuario/Desktop/MundialTank -IC:/Qt/5.14.1/mingw73_32/include -IC:/Qt/5.14.1/mingw73_32/include/QtWidgets -IC:/Qt/5.14.1/mingw73_32/include/QtGui -IC:/Qt/5.14.1/mingw73_32/include/QtANGLE -IC:/Qt/5.14.1/mingw73_32/include/QtCore -I. -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_32/i686-w64-mingw32/include ..\MundialTank\multiplayer.h -o moc_multiplayer.cpp
@@ -1351,12 +1394,6 @@ moc_nivel.cpp: ../MundialTank/nivel.h \
 		../MundialTank/enemy.h \
 		../MundialTank/circular.h \
 		../MundialTank/pendulo.h \
-		../MundialTank/mainwindow.h \
-		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QMainWindow \
-		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qmainwindow.h \
-		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qtabwidget.h \
-		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qicon.h \
-		../MundialTank/funcioneslogin.h \
 		moc_predefs.h \
 		../../../../Qt/5.14.1/mingw73_32/bin/moc.exe
 	C:\Qt\5.14.1\mingw73_32\bin\moc.exe $(DEFINES) --include C:/Users/Usuario/Desktop/build-Mundialtank-Desktop_Qt_5_14_1_MinGW_32_bit-Debug/moc_predefs.h -IC:/Qt/5.14.1/mingw73_32/mkspecs/win32-g++ -IC:/Users/Usuario/Desktop/MundialTank -IC:/Qt/5.14.1/mingw73_32/include -IC:/Qt/5.14.1/mingw73_32/include/QtWidgets -IC:/Qt/5.14.1/mingw73_32/include/QtGui -IC:/Qt/5.14.1/mingw73_32/include/QtANGLE -IC:/Qt/5.14.1/mingw73_32/include/QtCore -I. -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_32/i686-w64-mingw32/include ..\MundialTank\nivel.h -o moc_nivel.cpp
@@ -1632,13 +1669,7 @@ bala.o: ../MundialTank/bala.cpp ../MundialTank/bala.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtCore/QTimer \
 		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qtimer.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qbasictimer.h \
-		../MundialTank/pendulo.h \
-		../MundialTank/mainwindow.h \
-		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QMainWindow \
-		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qmainwindow.h \
-		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qtabwidget.h \
-		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qicon.h \
-		../MundialTank/funcioneslogin.h
+		../MundialTank/pendulo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o bala.o ..\MundialTank\bala.cpp
 
 circular.o: ../MundialTank/circular.cpp ../MundialTank/circular.h \
@@ -2250,6 +2281,7 @@ menu.o: ../MundialTank/menu.cpp ../MundialTank/menu.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qfiledevice.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qvector2d.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qtouchdevice.h \
+		../MundialTank/funcioneslogin.h \
 		ui_menu.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtCore/QVariant \
 		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QApplication \
@@ -2259,23 +2291,34 @@ menu.o: ../MundialTank/menu.cpp ../MundialTank/menu.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qdesktopwidget.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qguiapplication.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qinputmethod.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QGridLayout \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qgridlayout.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qlayout.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qlayoutitem.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qboxlayout.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QLabel \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qlabel.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qframe.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QLineEdit \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qlineedit.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qtextcursor.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qtextformat.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qpen.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qtextoption.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QPushButton \
 		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qpushbutton.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qabstractbutton.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qicon.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QWidget \
 		../MundialTank/nivel.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QGraphicsScene \
 		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qgraphicsscene.h \
-		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qpen.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QGraphicsView \
 		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qgraphicsview.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qpainter.h \
-		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qtextoption.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qscrollarea.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qabstractscrollarea.h \
-		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qframe.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtGui/QPixmap \
-		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QWidget \
 		../../../../Qt/5.14.1/mingw73_32/include/QtGui/QBrush \
 		../MundialTank/myrect.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QGraphicsPixmapItem \
@@ -2291,11 +2334,9 @@ menu.o: ../MundialTank/menu.cpp ../MundialTank/menu.h \
 		../MundialTank/enemy.h \
 		../MundialTank/circular.h \
 		../MundialTank/pendulo.h \
-		../MundialTank/mainwindow.h \
-		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QMainWindow \
-		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qmainwindow.h \
-		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qtabwidget.h \
-		../MundialTank/funcioneslogin.h
+		../MundialTank/multiplayer.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QMessageBox \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qmessagebox.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o menu.o ..\MundialTank\menu.cpp
 
 multiplayer.o: ../MundialTank/multiplayer.cpp ../MundialTank/multiplayer.h \
@@ -2404,7 +2445,47 @@ multiplayer.o: ../MundialTank/multiplayer.cpp ../MundialTank/multiplayer.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qfiledevice.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qvector2d.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qtouchdevice.h \
-		ui_multiplayer.h
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QGraphicsScene \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qgraphicsscene.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qpen.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QGraphicsView \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qgraphicsview.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qpainter.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qtextoption.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qscrollarea.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qabstractscrollarea.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qframe.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/QPixmap \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/QBrush \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/QTimer \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qtimer.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qbasictimer.h \
+		../MundialTank/myrect.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QGraphicsPixmapItem \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qgraphicsitem.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/QObject \
+		../MundialTank/cuerpo.h \
+		../MundialTank/bala.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/QPainter \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QGraphicsItem \
+		../MundialTank/enemy.h \
+		../MundialTank/circular.h \
+		ui_multiplayer.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/QVariant \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QApplication \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qapplication.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qcoreapplication.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qeventloop.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qdesktopwidget.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qguiapplication.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qinputmethod.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QPushButton \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qpushbutton.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qabstractbutton.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qicon.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/QKeyEvent \
+		../MundialTank/menu.h \
+		../MundialTank/funcioneslogin.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o multiplayer.o ..\MundialTank\multiplayer.cpp
 
 myrect.o: ../MundialTank/myrect.cpp ../MundialTank/myrect.h \
@@ -2649,12 +2730,6 @@ nivel.o: ../MundialTank/nivel.cpp ../MundialTank/nivel.h \
 		../MundialTank/enemy.h \
 		../MundialTank/circular.h \
 		../MundialTank/pendulo.h \
-		../MundialTank/mainwindow.h \
-		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QMainWindow \
-		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qmainwindow.h \
-		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qtabwidget.h \
-		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qicon.h \
-		../MundialTank/funcioneslogin.h \
 		ui_nivel.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtCore/QVariant \
 		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QApplication \
@@ -2674,7 +2749,9 @@ nivel.o: ../MundialTank/nivel.cpp ../MundialTank/nivel.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QPushButton \
 		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qpushbutton.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qabstractbutton.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qicon.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtGui/QKeyEvent \
+		../MundialTank/funcioneslogin.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QMessageBox \
 		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qmessagebox.h \
 		../MundialTank/menu.h

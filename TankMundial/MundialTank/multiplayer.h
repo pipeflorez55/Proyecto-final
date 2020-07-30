@@ -10,6 +10,7 @@
 #include "myrect.h"
 #include "cuerpo.h"
 #include "bala.h"
+
 namespace Ui {
 class Multiplayer;
 }
@@ -22,13 +23,22 @@ public:
     explicit Multiplayer(QWidget *parent = nullptr);
     ~Multiplayer();
 
+
+private slots:
+    //void on_pushButton_clicked();
+     void actualizar();
+
 private:
     Ui::Multiplayer *ui;
-    MyRect *tanque, *tanque1;
+    MyRect *jugador1, *jugador2;
     QGraphicsScene *scene;
     QTimer *timer;
     int h_limit;
     int v_limit;
+    void bordercollision(Cuerpo *b);
+    void keyPressEvent(QKeyEvent *event);
+    QList<Bala*>barsmulti;
+    QList<Bala*>barsmulti2;
 };
 
 #endif // MULTIPLAYER_H
