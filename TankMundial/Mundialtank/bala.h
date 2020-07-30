@@ -20,11 +20,17 @@ public:
     Cuerpo *getEsf();
     bool coli();
     bool colistar();
+    int coliJ();
     bool increase;
+    void set_player(int color);
 private:
     Cuerpo *esf;
     //Nivel *nivel;
     float escala;
+    int player=1;
+
+
+
 };
 
 #endif // BALA_H

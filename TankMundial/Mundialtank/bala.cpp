@@ -6,8 +6,8 @@ extern Nivel *nivel;
 Bala::Bala(): escala(1)
 {
     float posx,posy,velx,vely,r,mass,K,e;
-    posx = 32;
-    posy = 150;
+    posx = -100;
+    posy = -100;
     r = 7;
     mass = 500;
     velx = 0;
@@ -30,7 +30,11 @@ QRectF Bala::boundingRect() const
 
 void Bala::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-    painter->setBrush(Qt::blue);
+    if(player==1){
+    painter->setBrush(Qt::blue);}
+    else{
+    painter->setBrush(Qt::red);}
+
     painter->drawEllipse(boundingRect());
 }
 
@@ -45,6 +49,7 @@ void Bala::actualizar(float v_lim)
     setPos(esf->get_PosX(),(v_lim-esf->get_PosY()));
     increase=coli();
     colistar();
+
 
 }
 
@@ -126,4 +131,26 @@ bool Bala::colistar()
     }
 
 
+}
+
+int Bala::coliJ()
+{
+    QList<QGraphicsItem *> colliding_items = collidingItems();
+    for(int i = 0, n = colliding_items.size(); i < n; i++){
+        if(typeid(*(colliding_items[i])) == typeid (MyRect)){
+
+            //Increase score
+
+            //remove
+
+            scene()->removeItem(this);
+            return -1;
+            //delete
+        }
+    }
+}
+
+void Bala::set_player(int color)
+{
+    player=color;
 }

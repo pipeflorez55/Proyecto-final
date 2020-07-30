@@ -7,9 +7,10 @@
 #include "menu.h"
 
 int cont=0;
-
+int grav=1;
 int flag=0, vo=0, angulo=0;
 int bandera=0;
+int gat=1;
 
 Nivel::Nivel(QWidget *parent) :
     QDialog(parent),
@@ -50,7 +51,7 @@ Nivel::Nivel(QWidget *parent) :
 
     scene->addItem(tanque);
 
-    tanque->setPos(2,575);
+    tanque->setPos(2,530);
 
     connect(timer,SIGNAL(timeout()),this,SLOT(actualizar()));
     timer->start(60);
@@ -67,8 +68,13 @@ Nivel::~Nivel()
 void Nivel::keyPressEvent(QKeyEvent *event)//Teclas para variar la velocidad inicial y el valor del angulo
 {
     //Cuerpo *b = bars.at(0)->getEsf();
+    if(event->key()==Qt::Key_X){
+         grav *=-1;
 
-    if(event->key()==Qt::Key_B)
+
+    }
+
+    if(event->key()==Qt::Key_C)
     {
         if(score==4){
             score=0;
@@ -85,7 +91,18 @@ void Nivel::keyPressEvent(QKeyEvent *event)//Teclas para variar la velocidad ini
         if(cont>0){  // para esperar a que inicie el juego para poder disparar
         scene->addItem(bars.back());  // añadir bala a la escena
         Cuerpo *b = bars.at(cont)->getEsf(); // crear las fisicas de la bala
-        b->set_vel(vo,angulo,93,50); // añadir las variables de la fisica
+        if(angulo>=60){
+        b->set_velini(vo,angulo,73,90); // añadir las variables de la fisica
+        }
+        else if(angulo>=40 && angulo<60){
+        b->set_velini(vo,angulo,83,80); // añadir las variables de la fisica
+        }
+        else {b->set_velini(vo,angulo,93,60);}
+
+        if(grav==-1){
+            b->invertgra();
+
+        }
         QString disparost= QString::number(numedis);
         ui->numdis->setText(disparost);
         }
@@ -228,6 +245,8 @@ void Nivel::keyPressEvent(QKeyEvent *event)//Teclas para variar la velocidad ini
         if(event->key()==Qt::Key_S){
             if(angulo!=0){
                 angulo-=5;
+                tanque->cambiarimagen(angulo);
+                tanque->cambiarplayer(1);
                 QString angulot= QString::number(angulo);
                 ui->angulo->setText(angulot);
             }
@@ -236,6 +255,8 @@ void Nivel::keyPressEvent(QKeyEvent *event)//Teclas para variar la velocidad ini
         if(event->key()==Qt::Key_W){
             if(angulo!=80){
                 angulo+=5;
+                tanque->cambiarimagen(angulo);
+                tanque->cambiarplayer(1);
                 QString angulot= QString::number(angulo);
                 ui->angulo->setText(angulot);
             }
@@ -261,6 +282,7 @@ void Nivel::actualizar()
     for (int i=0;i<bars.size();i++) {
     bars.at(i)->actualizar(v_limit);
     bordercollision(bars.at(i)->getEsf());
+
     if(bars.at(i)->increase){
 
         score++;
@@ -370,7 +392,6 @@ void Nivel::comprobarblancos()
 
 void Nivel::bordercollision(Cuerpo *b)
 {
-
     if(b->get_PosX()< b->get_Radio()){
         b->set_vel(-1*b->get_VelX()*b->get_e(),b->get_VelY(),b->get_Radio(),b->get_PosY());
 
@@ -392,41 +413,41 @@ void Nivel::bordercollision(Cuerpo *b)
     if(numnivel==1){
 
         //muro 1
-        if((b->get_PosX()> 408-b->get_Radio())&&(b->get_PosX()< 420-b->get_Radio())&&(b->get_PosY()<260-b->get_Radio())){
-            b->set_vel(-1*b->get_VelX()*b->get_e(),b->get_VelY(),408-b->get_Radio(),b->get_PosY());
+        if((b->get_PosX()> 401-b->get_Radio())&&(b->get_PosX()< 413-b->get_Radio())&&(b->get_PosY()<234-b->get_Radio())){
+            b->set_vel(-1*b->get_VelX()*b->get_e(),b->get_VelY(),401-b->get_Radio(),b->get_PosY());
         }
 
-        if((b->get_PosX()< 515-b->get_Radio())&&(b->get_PosX()> 500-b->get_Radio())&&(b->get_PosY()<260-b->get_Radio())){
-            b->set_vel(-1*b->get_VelX()*b->get_e(),b->get_VelY(),515-b->get_Radio(),b->get_PosY());
+        if((b->get_PosX()< 503-b->get_Radio())&&(b->get_PosX()> 492-b->get_Radio())&&(b->get_PosY()<234-b->get_Radio())){
+            b->set_vel(-1*b->get_VelX()*b->get_e(),b->get_VelY(),503-b->get_Radio(),b->get_PosY());
 
         }
-        if((b->get_PosY()<245-b->get_Radio())&&(b->get_PosX()> 408-b->get_Radio())&&(b->get_PosX()< 515-b->get_Radio())){
-            b->set_vel(b->get_VelX(),-1*b->get_e()*b->get_VelY(),b->get_PosX(),245-b->get_Radio());
+        if((b->get_PosY()<234-b->get_Radio())&&(b->get_PosX()> 401-b->get_Radio())&&(b->get_PosX()< 503-b->get_Radio())){
+            b->set_vel(b->get_VelX(),-1*b->get_e()*b->get_VelY(),b->get_PosX(),234-b->get_Radio());
 
         }
 
         //muro 2
 
-        if((b->get_PosX()> 781-b->get_Radio())&&(b->get_PosX()< 801-b->get_Radio())&&(b->get_PosY()<160-b->get_Radio())){
+        if((b->get_PosX()> 781-b->get_Radio())&&(b->get_PosX()< 801-b->get_Radio())&&(b->get_PosY()<152-b->get_Radio())){
             b->set_vel(-1*b->get_VelX()*b->get_e(),b->get_VelY(),781-b->get_Radio(),b->get_PosY());
         }
 
-        if((b->get_PosX()< 819-b->get_Radio())&&(b->get_PosX()> 800-b->get_Radio())&&(b->get_PosY()<160-b->get_Radio())){
-            b->set_vel(-1*b->get_VelX()*b->get_e(),b->get_VelY(),819-b->get_Radio(),b->get_PosY());
+        if((b->get_PosX()< 812-b->get_Radio())&&(b->get_PosX()> 800-b->get_Radio())&&(b->get_PosY()<152-b->get_Radio())){
+            b->set_vel(-1*b->get_VelX()*b->get_e(),b->get_VelY(),812-b->get_Radio(),b->get_PosY());
 
         }
-        if((b->get_PosY()<145-b->get_Radio())&&(b->get_PosX()> 781-b->get_Radio())&&(b->get_PosX()< 808-b->get_Radio())){
-            b->set_vel(b->get_VelX(),-1*b->get_e()*b->get_VelY(),b->get_PosX(),245-b->get_Radio());
+        if((b->get_PosY()<152-b->get_Radio())&&(b->get_PosX()> 781-b->get_Radio())&&(b->get_PosX()< 812-b->get_Radio())){
+            b->set_vel(b->get_VelX(),-1*b->get_e()*b->get_VelY(),b->get_PosX(),152-b->get_Radio());
 
         }
 
         //muro 3
-        if((b->get_PosX()> 758-b->get_Radio())&&(b->get_PosX()< 767-b->get_Radio())&&(b->get_PosY()< 423-b->get_Radio())&&(b->get_PosY()>319-b->get_Radio())){
-            b->set_vel(-1*b->get_VelX()*b->get_e(),b->get_VelY(),758-b->get_Radio(),b->get_PosY());
+        if((b->get_PosX()> 755-b->get_Radio())&&(b->get_PosX()< 764-b->get_Radio())&&(b->get_PosY()< 425-b->get_Radio())&&(b->get_PosY()>317-b->get_Radio())){
+            b->set_vel(-1*b->get_VelX()*b->get_e(),b->get_VelY(),755-b->get_Radio(),b->get_PosY());
         }
 
-        if((b->get_PosY()<423-b->get_Radio())&&(b->get_PosX()> 758-b->get_Radio())&&(b->get_PosY()> 319-b->get_Radio())){
-            b->set_vel(b->get_VelX(),-1*b->get_e()*b->get_VelY(),b->get_PosX(),423-b->get_Radio());
+        if((b->get_PosY()<425-b->get_Radio())&&(b->get_PosX()> 755-b->get_Radio())&&(b->get_PosY()> 317-b->get_Radio())){
+            b->set_vel(b->get_VelX(),-1*b->get_e()*b->get_VelY(),b->get_PosX(),425-b->get_Radio());
 
         }
     }

@@ -2,7 +2,8 @@
 #define MENU_H
 
 #include <QDialog>
-
+#include <string>
+#include <funcioneslogin.h>
 namespace Ui {
 class Menu;
 }
@@ -17,6 +18,10 @@ public:
 
 private slots:
     void on_pushButton_clicked();
+
+    void on_pushButton_3_clicked();
+
+    void on_multi_clicked();
 
 private:
     Ui::Menu *ui;

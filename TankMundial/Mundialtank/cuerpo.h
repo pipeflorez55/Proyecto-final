@@ -16,7 +16,8 @@ public:
     void invertgra();
     float get_VelX();
     float get_VelY();
-    void set_vel(float vo, float anguI,float px,float py);
+    void set_velini(float vo, float anguI,float px,float py);
+    void set_vel(float velx, float vely, float px, float py);
     void actualizar();
 private:
     float PX,PY,mass,R,VX,VY,angulo,AX,AY,G,K,e,V,dt;
