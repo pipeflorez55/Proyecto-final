@@ -6,6 +6,7 @@ GanadorJ1::GanadorJ1(QWidget *parent) :
     ui(new Ui::GanadorJ1)
 {
     ui->setupUi(this);
+    ui->label->setPixmap(QPixmap(":/GanadorJ1.png"));
 }
 
 GanadorJ1::~GanadorJ1()

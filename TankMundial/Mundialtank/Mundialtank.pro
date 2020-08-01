@@ -20,12 +20,14 @@ SOURCES += \
     circular.cpp \
     cuerpo.cpp \
     enemy.cpp \
+    finalsingle.cpp \
     funcioneslogin.cpp \
     ganadorj1.cpp \
     ganadorj2.cpp \
     main.cpp \
     mainwindow.cpp \
     menu.cpp \
+    movible.cpp \
     multiplayer.cpp \
     myrect.cpp \
     nivel.cpp \
@@ -37,11 +39,13 @@ HEADERS += \
     circular.h \
     cuerpo.h \
     enemy.h \
+    finalsingle.h \
     funcioneslogin.h \
     ganadorj1.h \
     ganadorj2.h \
     mainwindow.h \
     menu.h \
+    movible.h \
     multiplayer.h \
     myrect.h \
     nivel.h \
@@ -49,6 +53,7 @@ HEADERS += \
     pendulo.h
 
 FORMS += \
+    finalsingle.ui \
     ganadorj1.ui \
     ganadorj2.ui \
     mainwindow.ui \

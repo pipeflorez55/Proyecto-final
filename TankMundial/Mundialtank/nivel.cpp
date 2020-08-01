@@ -5,6 +5,7 @@
 #include "funcioneslogin.h"
 #include "QMessageBox"
 #include "menu.h"
+#include "finalsingle.h"
 
 int cont=0;
 int grav=1;
@@ -274,31 +275,55 @@ void Nivel::cargardo(int aniv, int bdis, int bl1, int bl2, int bl3, int bl4, int
 
 }
 
-string Nivel::pos(string info, int num, string nam)
+string Nivel::pospo(string info, int num, string nam)
 {
     int flag=-1;
     int cnt=0;
+    int lec1=0;
     string a;
-    string remplaso=nam.substr(0,3)+to_string(num);
+    string tren;
+    string infoc=info;
+    if(nam.length()==1)tren=nam+"**";
+    if(nam.length()==2)tren=nam+"*";
+    if(nam.length()>=3)tren=nam;
+    string remplaso=tren.substr(0,3)+to_string(num);
     int numdisp;
     for(int i=0;i<info.length()-1;i++){
         if(info[i]=='|'){
-            flag*=-1;
+            if(lec1>=1){
+                flag*=-1;
+            }
+            lec1++;
         }
 
         if(flag==1){
            cnt++;
+
            if(cnt>4){
              a+=info[i];
            }
         }
-        if(info[i]!='-'){
+        if(lec1>1){
         if(flag==-1){
             numdisp=stoi(a);
 
             if(num<numdisp){
-                info.replace(i-6,cnt-1,remplaso);
-                return info;
+                string part1,part2;
+
+                if(a.length()==3){
+                 part1=info.substr(0,i-6);
+                 part2=info.substr(i-8);
+                }
+                if(a.length()==2){
+                    part1=info.substr(0,i-5);
+                    part2=info.substr(i-7);
+                }
+                infoc=part1+remplaso+part2;
+
+                infoc.replace(infoc.length()-1,1,"");
+
+
+                return infoc;
             }
             else {
                 a="";
@@ -397,7 +422,36 @@ void Nivel::actualizar()
     if(numnivel==4){
         scene->setBackgroundBrush(QBrush(QImage(":/Escena4.jpg")));
     }
+    if(numnivel>4){
+        for (int i=0;bars.size()>0;i++) {
+        bars.at(0)->~Bala();
+        bars.removeAt(0);
+        }
+        this->hide();
+        cont=0;
+        delete timer;
+        delete tanque;
+        delete blanco;
+        delete blanco1;
+        delete blanco2;
+        delete blanco3;
+        delete estrella1;
+        delete estrella2;
+        delete estrella3;
+        delete pinchos1;
+        delete pinchos2;
+        delete scene;
+        delete ui;
+        std::string podio;
+        podio=pospo(cargar("podio/podio"),numedis,usuario);
+        escribirpodio(podio);
+        score=0;
+        escribirnewlogin(usuario,contrsmain);
+        Finalsingle finalsingle;
+        finalsingle.setModal(true);
+        finalsingle.exec();
 
+    }
 }
 
 void Nivel::guardar(std::string name)

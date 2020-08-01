@@ -28,13 +28,14 @@ public:
     {
         if (GanadorJ1->objectName().isEmpty())
             GanadorJ1->setObjectName(QString::fromUtf8("GanadorJ1"));
-        GanadorJ1->resize(819, 500);
+        GanadorJ1->resize(999, 625);
         label = new QLabel(GanadorJ1);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(270, 200, 171, 16));
+        label->setGeometry(QRect(0, 0, 999, 625));
+        label->setPixmap(QPixmap(QString::fromUtf8(":/GanadorJ1.png")));
         menu = new QPushButton(GanadorJ1);
         menu->setObjectName(QString::fromUtf8("menu"));
-        menu->setGeometry(QRect(422, 347, 171, 61));
+        menu->setGeometry(QRect(810, 540, 171, 61));
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/botonMenu.png"), QSize(), QIcon::Normal, QIcon::Off);
         menu->setIcon(icon);
@@ -48,7 +49,7 @@ public:
     void retranslateUi(QDialog *GanadorJ1)
     {
         GanadorJ1->setWindowTitle(QCoreApplication::translate("GanadorJ1", "Dialog", nullptr));
-        label->setText(QCoreApplication::translate("GanadorJ1", "Gano jugador1", nullptr));
+        label->setText(QString());
         menu->setText(QString());
     } // retranslateUi
 

@@ -12,6 +12,7 @@
 #include "bala.h"
 #include "circular.h"
 #include "pendulo.h"
+#include "movible.h"
 #include "time.h"
 #include "stdlib.h"
 
@@ -49,6 +50,7 @@ private:
     QList<Bala*>barsmulti2;
     QList<Circular*>estrellas;
     QList<Pendulo*>pendulos;
+    Movible *muro,*muro1;
 };
 
 #endif // MULTIPLAYER_H

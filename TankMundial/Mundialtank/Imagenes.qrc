@@ -32,12 +32,15 @@
         <file>boton verde.png</file>
         <file>boton negro.png</file>
         <file>botonLogin.png</file>
-        <file>myrect.cpp</file>
         <file>botonControles - copia.png</file>
         <file>botonGuardar.png</file>
         <file>botonMenu.png</file>
         <file>botonMulti.png</file>
         <file>botonSignup.png</file>
         <file>EscenaMulti.png</file>
+        <file>muropinchos.png</file>
+        <file>GanadorJ1.png</file>
+        <file>ganadorj2.png</file>
+        <file>pantallafinal.png</file>
     </qresource>
 </RCC>

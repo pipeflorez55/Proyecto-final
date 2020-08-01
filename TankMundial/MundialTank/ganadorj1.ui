@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>819</width>
-    <height>500</height>
+    <width>999</width>
+    <height>625</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,21 +16,24 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>270</x>
-     <y>200</y>
-     <width>171</width>
-     <height>16</height>
+     <x>0</x>
+     <y>0</y>
+     <width>999</width>
+     <height>625</height>
     </rect>
    </property>
    <property name="text">
-    <string>Gano jugador1</string>
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="Imagenes.qrc">:/GanadorJ1.png</pixmap>
    </property>
   </widget>
   <widget class="QPushButton" name="menu">
    <property name="geometry">
     <rect>
-     <x>422</x>
-     <y>347</y>
+     <x>810</x>
+     <y>540</y>
      <width>171</width>
      <height>61</height>
     </rect>

@@ -33,3 +33,23 @@ void Circular::setPosC(float x_, float y_, float radio_, float w_,float angulo_)
     angulo=angulo_;
 }
 
+void Circular::Push_X(int x_)
+{
+    x=x_;
+}
+
+void Circular::Push_Y(int y_)
+{
+    y=y_;
+}
+
+int Circular::get_X()
+{
+    return x;
+}
+
+int Circular::get_Y()
+{
+    return y;
+}
+

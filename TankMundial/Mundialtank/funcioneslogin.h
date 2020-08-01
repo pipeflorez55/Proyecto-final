@@ -15,5 +15,7 @@ bool validarcontrase(string datos, string datosui);//Funcion para compara la con
 
 string cargar(string usuario);
 
+void escribirpodio(string podio);
+
 #endif // FUNCIONESLOGIN_H
 

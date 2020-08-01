@@ -129,9 +129,23 @@ bool Bala::colistar()
             //delete
         }
     }
+    for(int i = 0, n = colliding_items.size(); i < n; i++){
+        if(typeid(*(colliding_items[i])) == typeid (Movible)){
+
+            //Increase score
+
+            //remove
+
+            scene()->removeItem(this);
+            return -1;
+            //delete
+        }
+    }
 
 
 }
+
+
 
 int Bala::coliJ()
 {

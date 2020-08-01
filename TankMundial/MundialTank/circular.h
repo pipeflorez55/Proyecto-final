@@ -12,8 +12,12 @@ public:
     ~Circular();
     void actualizar();
     void setPosC(float x_,float y_, float radio_,float w_,float angulo_);
+    void Push_X(int x_);
+    void Push_Y(int y_);
+    int get_X();
+    int get_Y();
 
-private:
+protected:
     float angulo=0,x=0,xt=radio,y=0,yt=0,w=0,radio=0;
 };
 

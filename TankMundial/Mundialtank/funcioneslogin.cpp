@@ -78,3 +78,13 @@ string cargar(string usuario)
         return datos;
     }
 }
+
+void escribirpodio(string podio)
+{
+    string t="../Usuarios/podio/podio.txt";
+
+    ofstream archivo2;
+    archivo2.open(t);
+    archivo2<< podio;
+    archivo2.close();
+}

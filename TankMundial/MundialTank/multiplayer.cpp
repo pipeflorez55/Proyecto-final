@@ -33,6 +33,12 @@ Multiplayer::Multiplayer(QWidget *parent) :
     scene->setSceneRect(0,0,h_limit,v_limit);//limites de la escena
     jugador1= new MyRect;
     jugador2= new MyRect;
+    muro= new Movible;
+    muro1= new Movible;
+    muro->Push_X(160);
+    muro->Push_Y(200);
+    muro1->Push_X(780);
+    muro1->Push_Y(500);
     ui->graphicsView->setScene(scene);//añade la escena al graphicsview
     scene->addRect(scene->sceneRect());
     ui->graphicsView->resize(scene->width()+2,scene->height()+2);//el graphicsview se acomoda al tamaño de la escena
@@ -41,6 +47,8 @@ Multiplayer::Multiplayer(QWidget *parent) :
     scene->addItem(jugador1);
     scene->addItem(jugador2);
 
+    scene->addItem(muro);
+    scene->addItem(muro1);
     jugador1->inipos(5,500);
     jugador2->inipos(898,10);
 
@@ -49,7 +57,7 @@ Multiplayer::Multiplayer(QWidget *parent) :
     int num=3+rand()%(7-3);
     for(int i=0;i<num;i++){
         xr=300+rand()%(600-300);
-        yr=200+rand()%(400-200);
+        yr=100+rand()%(500-100);
         wr=2+rand()%(10-2);
         radio=80+rand()%(160-80);
         angulor=0+rand()%(360-0);
@@ -61,7 +69,7 @@ Multiplayer::Multiplayer(QWidget *parent) :
     int numpe=2+rand()%(4-2);
     for(int i=0;i<numpe;i++){
         xp=300+rand()%(600-300);
-        yp=200+rand()%(400-200);
+        yp=100+rand()%(500-100);
         angmaxp=45+rand()%(120-45);
         Lp=50+rand()%(120-50);
         GP=10+rand()%(20-10);
@@ -97,12 +105,27 @@ void Multiplayer::bordercollision(Cuerpo *b)
         b->set_vel(b->get_VelX(),-1*b->get_e()*b->get_VelY(),b->get_PosX(),v_limit-b->get_Radio());
 
     }
+
+    //muro
+    if((b->get_PosX()> 462-b->get_Radio())&&(b->get_PosX()< 482-b->get_Radio())&&(b->get_PosY()>525-b->get_Radio())){
+        b->set_vel(-1*b->get_VelX()*b->get_e(),b->get_VelY(),462-b->get_Radio(),b->get_PosY());
+    }
+
+    if((b->get_PosX()< 574-b->get_Radio())&&(b->get_PosX()> 554-b->get_Radio())&&(b->get_PosY()>525-b->get_Radio())){
+        b->set_vel(-1*b->get_VelX()*b->get_e(),b->get_VelY(),574-b->get_Radio(),b->get_PosY());
+    }
+
+    if((b->get_PosY()>527-b->get_Radio())&&(b->get_PosX()> 462-b->get_Radio())&&(b->get_PosX()< 576-b->get_Radio())){
+        b->set_vel(b->get_VelX(),-1*b->get_e()*b->get_VelY(),b->get_PosX(),527-b->get_Radio());
+    }
 }
 
 void Multiplayer::actualizar()
 {
     jugador1->actualizar();
     jugador2->actualizar();
+    muro->actualizarmo();
+    muro1->actualizarmo();
     for (int i=0;i<estrellas.size();i++){
     estrellas.at(i)->actualizar();
     }
@@ -147,9 +170,9 @@ void Multiplayer::actualizar()
         delete jugador2;
         delete scene;
         delete ui;
-        GanadorJ1 ganador1;
-        ganador1.setModal(true);
-        ganador1.exec();
+        GanadorJ2 ganador2;
+        ganador2.setModal(true);
+        ganador2.exec();
 
     }
     if(jugador2->pushvidas()<=0){
@@ -171,9 +194,9 @@ void Multiplayer::actualizar()
         delete jugador2;
         delete scene;
         delete ui;
-        GanadorJ2 ganador2;
-        ganador2.setModal(true);
-        ganador2.exec();
+        GanadorJ1 ganador1;
+        ganador1.setModal(true);
+        ganador1.exec();
 
     }
 }
