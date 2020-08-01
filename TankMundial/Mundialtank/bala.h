@@ -20,6 +20,7 @@ public:
     Cuerpo *getEsf();
     bool coli();
     bool colistar();
+    int coliJ();
     bool increase;
     void set_player(int color);
 private:
@@ -27,6 +28,8 @@ private:
     //Nivel *nivel;
     float escala;
     int player=1;
+
+
 
 };
 

@@ -11,6 +11,7 @@ Menu::Menu(QWidget *parent) :
     ui(new Ui::Menu)
 {
     ui->setupUi(this);
+    ui->label->setPixmap(QPixmap(":/inicio.jpg"));
 
 }
 

@@ -21,12 +21,15 @@ SOURCES += \
     cuerpo.cpp \
     enemy.cpp \
     funcioneslogin.cpp \
+    ganadorj1.cpp \
+    ganadorj2.cpp \
     main.cpp \
     mainwindow.cpp \
     menu.cpp \
     multiplayer.cpp \
     myrect.cpp \
     nivel.cpp \
+    pantallaf.cpp \
     pendulo.cpp
 
 HEADERS += \
@@ -35,18 +38,24 @@ HEADERS += \
     cuerpo.h \
     enemy.h \
     funcioneslogin.h \
+    ganadorj1.h \
+    ganadorj2.h \
     mainwindow.h \
     menu.h \
     multiplayer.h \
     myrect.h \
     nivel.h \
+    pantallaf.h \
     pendulo.h
 
 FORMS += \
+    ganadorj1.ui \
+    ganadorj2.ui \
     mainwindow.ui \
     menu.ui \
     multiplayer.ui \
-    nivel.ui
+    nivel.ui \
+    pantallaf.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

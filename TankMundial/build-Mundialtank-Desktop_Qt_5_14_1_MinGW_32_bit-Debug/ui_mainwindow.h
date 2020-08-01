@@ -10,8 +10,8 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
@@ -29,16 +29,13 @@ public:
     QLabel *avisocm;
     QPushButton *multi;
     QLabel *ingresomal;
-    QWidget *layoutWidget;
-    QGridLayout *gridLayout;
-    QLineEdit *newname;
-    QLineEdit *newpassword;
-    QPushButton *pushButton_3;
-    QWidget *layoutWidget1;
-    QGridLayout *gridLayout_2;
-    QLineEdit *usuario;
+    QLabel *label;
     QLineEdit *contrase;
+    QLineEdit *usuario;
     QPushButton *Login;
+    QLineEdit *newpassword;
+    QLineEdit *newname;
+    QPushButton *pushButton_3;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -46,66 +43,77 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(804, 562);
+        MainWindow->resize(999, 625);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         avisocm = new QLabel(centralwidget);
         avisocm->setObjectName(QString::fromUtf8("avisocm"));
-        avisocm->setGeometry(QRect(156, 435, 251, 21));
+        avisocm->setGeometry(QRect(180, 470, 251, 21));
         multi = new QPushButton(centralwidget);
         multi->setObjectName(QString::fromUtf8("multi"));
-        multi->setGeometry(QRect(30, 200, 93, 28));
+        multi->setGeometry(QRect(430, 40, 171, 31));
+        multi->setMouseTracking(true);
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/botonMulti.png"), QSize(), QIcon::Normal, QIcon::Off);
+        multi->setIcon(icon);
+        multi->setIconSize(QSize(190, 80));
         ingresomal = new QLabel(centralwidget);
         ingresomal->setObjectName(QString::fromUtf8("ingresomal"));
-        ingresomal->setGeometry(QRect(450, 400, 161, 101));
-        layoutWidget = new QWidget(centralwidget);
-        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(31, 411, 139, 86));
-        gridLayout = new QGridLayout(layoutWidget);
-        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        gridLayout->setContentsMargins(0, 0, 0, 0);
-        newname = new QLineEdit(layoutWidget);
-        newname->setObjectName(QString::fromUtf8("newname"));
-
-        gridLayout->addWidget(newname, 0, 0, 1, 1);
-
-        newpassword = new QLineEdit(layoutWidget);
-        newpassword->setObjectName(QString::fromUtf8("newpassword"));
-        newpassword->setMaxLength(5);
-
-        gridLayout->addWidget(newpassword, 1, 0, 1, 1);
-
-        pushButton_3 = new QPushButton(layoutWidget);
-        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
-
-        gridLayout->addWidget(pushButton_3, 2, 0, 1, 1);
-
-        layoutWidget1 = new QWidget(centralwidget);
-        layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
-        layoutWidget1->setGeometry(QRect(657, 401, 139, 86));
-        gridLayout_2 = new QGridLayout(layoutWidget1);
-        gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
-        gridLayout_2->setContentsMargins(0, 0, 0, 0);
-        usuario = new QLineEdit(layoutWidget1);
-        usuario->setObjectName(QString::fromUtf8("usuario"));
-
-        gridLayout_2->addWidget(usuario, 0, 0, 1, 1);
-
-        contrase = new QLineEdit(layoutWidget1);
+        ingresomal->setGeometry(QRect(590, 450, 241, 101));
+        label = new QLabel(centralwidget);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setGeometry(QRect(0, 0, 999, 625));
+        label->setPixmap(QPixmap(QString::fromUtf8("inicio.jpg")));
+        contrase = new QLineEdit(centralwidget);
         contrase->setObjectName(QString::fromUtf8("contrase"));
+        contrase->setGeometry(QRect(841, 489, 137, 22));
+        contrase->setTabletTracking(true);
         contrase->setMaxLength(5);
-
-        gridLayout_2->addWidget(contrase, 1, 0, 1, 1);
-
-        Login = new QPushButton(layoutWidget1);
+        usuario = new QLineEdit(centralwidget);
+        usuario->setObjectName(QString::fromUtf8("usuario"));
+        usuario->setGeometry(QRect(841, 461, 137, 22));
+        usuario->setTabletTracking(true);
+        Login = new QPushButton(centralwidget);
         Login->setObjectName(QString::fromUtf8("Login"));
-
-        gridLayout_2->addWidget(Login, 2, 0, 1, 1);
-
+        Login->setEnabled(true);
+        Login->setGeometry(QRect(840, 520, 131, 31));
+        Login->setMouseTracking(true);
+        Login->setAutoFillBackground(false);
+        QIcon icon1;
+        icon1.addFile(QString::fromUtf8(":/botonLogin.png"), QSize(), QIcon::Normal, QIcon::Off);
+        Login->setIcon(icon1);
+        Login->setIconSize(QSize(150, 80));
+        newpassword = new QLineEdit(centralwidget);
+        newpassword->setObjectName(QString::fromUtf8("newpassword"));
+        newpassword->setGeometry(QRect(21, 499, 137, 22));
+        newpassword->setTabletTracking(true);
+        newpassword->setMaxLength(5);
+        newname = new QLineEdit(centralwidget);
+        newname->setObjectName(QString::fromUtf8("newname"));
+        newname->setGeometry(QRect(21, 471, 137, 22));
+        newname->setTabletTracking(true);
+        pushButton_3 = new QPushButton(centralwidget);
+        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
+        pushButton_3->setGeometry(QRect(20, 530, 131, 31));
+        pushButton_3->setMouseTracking(true);
+        QIcon icon2;
+        icon2.addFile(QString::fromUtf8(":/botonSignup.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_3->setIcon(icon2);
+        pushButton_3->setIconSize(QSize(150, 80));
         MainWindow->setCentralWidget(centralwidget);
+        label->raise();
+        multi->raise();
+        newpassword->raise();
+        newname->raise();
+        usuario->raise();
+        Login->raise();
+        contrase->raise();
+        ingresomal->raise();
+        avisocm->raise();
+        pushButton_3->raise();
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 804, 26));
+        menubar->setGeometry(QRect(0, 0, 999, 26));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -120,10 +128,11 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         avisocm->setText(QString());
-        multi->setText(QCoreApplication::translate("MainWindow", "Multi Player", nullptr));
+        multi->setText(QString());
         ingresomal->setText(QString());
-        pushButton_3->setText(QCoreApplication::translate("MainWindow", "Sing Up", nullptr));
-        Login->setText(QCoreApplication::translate("MainWindow", "Login", nullptr));
+        label->setText(QString());
+        Login->setText(QString());
+        pushButton_3->setText(QString());
     } // retranslateUi
 
 };

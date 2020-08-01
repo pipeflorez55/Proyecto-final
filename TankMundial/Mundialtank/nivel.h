@@ -27,6 +27,7 @@ public:
     explicit Nivel(QWidget *parent = nullptr);
     ~Nivel();
      void cargardo(int aniv, int bdis, int bl1, int bl2, int bl3,int bl4, int sco);
+     std::string pos(std::string info,int num,std::string nam);
      std::string usuario;
      std::string contrsmain;
 private slots:

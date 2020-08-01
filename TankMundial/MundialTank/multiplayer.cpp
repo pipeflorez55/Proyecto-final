@@ -2,8 +2,12 @@
 #include "ui_multiplayer.h"
 #include "QKeyEvent"
 #include "menu.h"
+#include "ganadorj1.h"
+#include "ganadorj2.h"
+#include "QMessageBox"
 
-
+int flag3=1,flag4=1;
+long cnt2=0;
 int contmulti=0;
 int gravmulti=1;
 int flagmulti=0, vomulti=0, angulomulti=0;
@@ -21,6 +25,7 @@ Multiplayer::Multiplayer(QWidget *parent) :
     ui(new Ui::Multiplayer)
 {
     ui->setupUi(this);
+
     v_limit=625;
     h_limit=999;
     timer = new QTimer(this);
@@ -36,9 +41,34 @@ Multiplayer::Multiplayer(QWidget *parent) :
     scene->addItem(jugador1);
     scene->addItem(jugador2);
 
-    jugador1->setPos(2,540);
-    jugador2->setPos(900,540);
+    jugador1->inipos(5,500);
+    jugador2->inipos(898,10);
 
+    scene->setBackgroundBrush(QBrush(QImage(":/EscenaMulti.png")));
+    int radio,xr,yr,wr,angulor;
+    int num=3+rand()%(7-3);
+    for(int i=0;i<num;i++){
+        xr=300+rand()%(600-300);
+        yr=200+rand()%(400-200);
+        wr=2+rand()%(10-2);
+        radio=80+rand()%(160-80);
+        angulor=0+rand()%(360-0);
+        estrellas.push_back(new Circular);
+        estrellas.at(i)->setPosC(xr,yr,radio,wr,angulor);
+        scene->addItem(estrellas.at(i));
+    }
+    int xp,yp,angmaxp,Lp,GP;
+    int numpe=2+rand()%(4-2);
+    for(int i=0;i<numpe;i++){
+        xp=300+rand()%(600-300);
+        yp=200+rand()%(400-200);
+        angmaxp=45+rand()%(120-45);
+        Lp=50+rand()%(120-50);
+        GP=10+rand()%(20-10);
+        pendulos.push_back(new Pendulo);
+        pendulos.at(i)->setDatos(angmaxp,Lp,GP,xp,yp);
+        scene->addItem(pendulos.at(i));
+    }
     connect(timer,SIGNAL(timeout()),this,SLOT(actualizar()));
     timer->start(60);
 }
@@ -71,14 +101,80 @@ void Multiplayer::bordercollision(Cuerpo *b)
 
 void Multiplayer::actualizar()
 {
+    jugador1->actualizar();
+    jugador2->actualizar();
+    for (int i=0;i<estrellas.size();i++){
+    estrellas.at(i)->actualizar();
+    }
+    for (int i=0;i<pendulos.size();i++){
+    pendulos.at(i)->actualizar();
+    }
     for (int i=0;i<barsmulti.size();i++){
     barsmulti.at(i)->actualizar(v_limit);
     bordercollision(barsmulti.at(i)->getEsf());
+    jugador2->colib(barsmulti.at(i)->coliJ());
     }
 
     for (int i=0;i<barsmulti2.size();i++){
     barsmulti2.at(i)->actualizar(v_limit);
     bordercollision(barsmulti2.at(i)->getEsf());
+    jugador1->colib(barsmulti2.at(i)->coliJ());
+    }
+    ui->vidasJ1->setText(  QString::number(jugador1->pushvidas()));
+    ui->vidasJ2->setText(  QString::number(jugador2->pushvidas()));
+    cnt2++;
+    if(cnt2==30){
+        flag3=1;
+        flag4=1;
+        cnt2=0;
+    }
+    if(jugador1->pushvidas()<=0){
+
+        for (int i=0;barsmulti.size()>0;i++) {
+        barsmulti.at(0)->~Bala();
+        barsmulti.removeAt(0);
+        }
+
+        for (int i=0;barsmulti2.size()>0;i++) {
+        barsmulti2.at(0)->~Bala();
+        barsmulti2.removeAt(0);
+        }
+        this->hide();
+        contmulti=0;
+        contmulti2=0;
+        delete timer;
+        delete jugador1;
+        delete jugador2;
+        delete scene;
+        delete ui;
+        GanadorJ1 ganador1;
+        ganador1.setModal(true);
+        ganador1.exec();
+
+    }
+    if(jugador2->pushvidas()<=0){
+
+        for (int i=0;barsmulti.size()>0;i++) {
+        barsmulti.at(0)->~Bala();
+        barsmulti.removeAt(0);
+        }
+
+        for (int i=0;barsmulti2.size()>0;i++) {
+        barsmulti2.at(0)->~Bala();
+        barsmulti2.removeAt(0);
+        }
+        this->hide();
+        contmulti=0;
+        contmulti2=0;
+        delete timer;
+        delete jugador1;
+        delete jugador2;
+        delete scene;
+        delete ui;
+        GanadorJ2 ganador2;
+        ganador2.setModal(true);
+        ganador2.exec();
+
     }
 }
 
@@ -92,10 +188,10 @@ void Multiplayer::keyPressEvent(QKeyEvent *event)//Teclas para variar la velocid
 
 
     }
-
-    if(event->key()==Qt::Key_B)
+    if(flag3==1){
+    if(event->key()==Qt::Key_C)
     {
-
+        flag3=-1;
         timer->start(40);
         if(flagmulti==0){
             //flag=1;
@@ -108,7 +204,7 @@ void Multiplayer::keyPressEvent(QKeyEvent *event)//Teclas para variar la velocid
         if(contmulti>0){  // para esperar a que inicie el juego para poder disparar
         scene->addItem(barsmulti.back());  // añadir bala a la escena
         Cuerpo *b = barsmulti.at(contmulti)->getEsf(); // crear las fisicas de la bala
-        b->set_velini(vomulti,angulomulti,93,50); // añadir las variables de la fisica
+        b->set_velini(vomulti,angulomulti,jugador1->pushx()+120,jugador2->pushy()); // añadir las variables de la fisica
         if(gravmulti==-1){
             b->invertgra();
 
@@ -117,6 +213,7 @@ void Multiplayer::keyPressEvent(QKeyEvent *event)//Teclas para variar la velocid
         }
         contmulti++;
 
+    }
     }
 
     if(flagmulti==0){
@@ -164,10 +261,10 @@ void Multiplayer::keyPressEvent(QKeyEvent *event)//Teclas para variar la velocid
 
 
     }
-
+    if(flag4==1){
     if(event->key()==Qt::Key_N)
     {
-
+           flag4=-1;
         timer->start(40);
         if(flagmulti2==0){
             //flag=1;
@@ -181,7 +278,8 @@ void Multiplayer::keyPressEvent(QKeyEvent *event)//Teclas para variar la velocid
         scene->addItem(barsmulti2.back());  // añadir bala a la escena
         barsmulti2.back()->set_player(2);
         Cuerpo *c = barsmulti2.at(contmulti2)->getEsf(); // crear las fisicas de la bala
-        c->set_velini(vomulti2,angulomulti2,850,50); // añadir las variables de la fisica
+
+        c->set_velini(vomulti2,angulomulti2,jugador2->pushx()-20,v_limit-jugador2->pushy()); // añadir las variables de la fisica
         if(gravmulti2==-1){
             c->invertgra();
 
@@ -191,7 +289,7 @@ void Multiplayer::keyPressEvent(QKeyEvent *event)//Teclas para variar la velocid
         contmulti2++;
 
     }
-
+    }
     if(flagmulti2==0){
         if(event->key()==Qt::Key_U){
             if(vomulti2!=0){
@@ -231,9 +329,38 @@ void Multiplayer::keyPressEvent(QKeyEvent *event)//Teclas para variar la velocid
     }
 }
 
-/*void Multiplayer::on_pushButton_clicked()
+void Multiplayer::on_pushButton_clicked()
 {
+    for (int i=0;barsmulti.size()>0;i++) {
+    barsmulti.at(0)->~Bala();
+    barsmulti.removeAt(0);
+    }
+
+    for (int i=0;barsmulti2.size()>0;i++) {
+    barsmulti2.at(0)->~Bala();
+    barsmulti2.removeAt(0);
+    }
+    this->hide();
+    contmulti=0;
+    contmulti2=0;
+    delete timer;
+    delete jugador1;
+    delete jugador2;
+    delete scene;
+    delete ui;
+
+
     Menu menu;
     menu.setModal(true);
     menu.exec();
-}*/
+}
+
+void Multiplayer::on_ControJ1_clicked()
+{
+    QMessageBox::information(this, tr("Controles"), tr("-El boton C es para realizar un disparo.\n-Presione el boton X para cambiar la gravedad. Si quiere regresarla a al normalidad presione el boton otra vez.\n-Los botones Q y E, son para variar la velocidad inicial.\n-Los botones W y S, son para variar el angulo de disparo."));
+}
+
+void Multiplayer::on_ControlJ2_clicked()
+{
+    QMessageBox::information(this, tr("Controles"), tr("-El boton N es para realizar un disparo.\n-Presione el boton M para cambiar la gravedad. Si quiere regresarla a al normalidad presione el boton otra vez.\n-Los botones O y U, son para variar la velocidad inicial.\n-Los botones I y K, son para variar el angulo de disparo."));
+}

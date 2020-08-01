@@ -10,6 +10,10 @@
 #include "myrect.h"
 #include "cuerpo.h"
 #include "bala.h"
+#include "circular.h"
+#include "pendulo.h"
+#include "time.h"
+#include "stdlib.h"
 
 namespace Ui {
 class Multiplayer;
@@ -25,8 +29,12 @@ public:
 
 
 private slots:
-    //void on_pushButton_clicked();
+     void on_pushButton_clicked();
      void actualizar();
+
+     void on_ControJ1_clicked();
+
+     void on_ControlJ2_clicked();
 
 private:
     Ui::Multiplayer *ui;
@@ -39,6 +47,8 @@ private:
     void keyPressEvent(QKeyEvent *event);
     QList<Bala*>barsmulti;
     QList<Bala*>barsmulti2;
+    QList<Circular*>estrellas;
+    QList<Pendulo*>pendulos;
 };
 
 #endif // MULTIPLAYER_H

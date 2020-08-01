@@ -26,13 +26,82 @@
     </rect>
    </property>
   </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>690</x>
+     <y>630</y>
+     <width>151</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="Imagenes.qrc">
+     <normaloff>:/botonGuardar.png</normaloff>:/botonGuardar.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>150</width>
+     <height>80</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="controles">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>630</y>
+     <width>151</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="Imagenes.qrc">
+     <normaloff>:/botonControles - copia.png</normaloff>:/botonControles - copia.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>150</width>
+     <height>80</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="menu">
+   <property name="geometry">
+    <rect>
+     <x>840</x>
+     <y>630</y>
+     <width>151</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="Imagenes.qrc">
+     <normaloff>:/botonMenu.png</normaloff>:/botonMenu.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>150</width>
+     <height>80</height>
+    </size>
+   </property>
+  </widget>
   <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>11</x>
-     <y>630</y>
-     <width>981</width>
-     <height>30</height>
+     <x>0</x>
+     <y>640</y>
+     <width>531</width>
+     <height>20</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
@@ -92,30 +161,11 @@
       </property>
      </widget>
     </item>
-    <item row="0" column="8">
-     <widget class="QPushButton" name="controles">
-      <property name="text">
-       <string>Controles</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="9">
-     <widget class="QPushButton" name="pushButton">
-      <property name="text">
-       <string>Guardar</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="10">
-     <widget class="QPushButton" name="menu">
-      <property name="text">
-       <string>Volver al menu</string>
-      </property>
-     </widget>
-    </item>
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="Imagenes.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -10,6 +10,7 @@
 #define UI_NIVEL_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QGraphicsView>
@@ -24,6 +25,9 @@ class Ui_Nivel
 {
 public:
     QGraphicsView *graphicsView;
+    QPushButton *pushButton;
+    QPushButton *controles;
+    QPushButton *menu;
     QWidget *widget;
     QGridLayout *gridLayout;
     QLabel *nombrevo;
@@ -34,9 +38,6 @@ public:
     QLabel *objetivo;
     QLabel *label_2;
     QLabel *numdis;
-    QPushButton *controles;
-    QPushButton *pushButton;
-    QPushButton *menu;
 
     void setupUi(QDialog *Nivel)
     {
@@ -47,9 +48,30 @@ public:
         graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
         graphicsView->setEnabled(true);
         graphicsView->setGeometry(QRect(0, 0, 999, 625));
+        pushButton = new QPushButton(Nivel);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setGeometry(QRect(690, 630, 151, 41));
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/botonGuardar.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton->setIcon(icon);
+        pushButton->setIconSize(QSize(150, 80));
+        controles = new QPushButton(Nivel);
+        controles->setObjectName(QString::fromUtf8("controles"));
+        controles->setGeometry(QRect(540, 630, 151, 41));
+        QIcon icon1;
+        icon1.addFile(QString::fromUtf8(":/botonControles - copia.png"), QSize(), QIcon::Normal, QIcon::Off);
+        controles->setIcon(icon1);
+        controles->setIconSize(QSize(150, 80));
+        menu = new QPushButton(Nivel);
+        menu->setObjectName(QString::fromUtf8("menu"));
+        menu->setGeometry(QRect(840, 630, 151, 41));
+        QIcon icon2;
+        icon2.addFile(QString::fromUtf8(":/botonMenu.png"), QSize(), QIcon::Normal, QIcon::Off);
+        menu->setIcon(icon2);
+        menu->setIconSize(QSize(150, 80));
         widget = new QWidget(Nivel);
         widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(11, 630, 981, 30));
+        widget->setGeometry(QRect(0, 640, 531, 20));
         gridLayout = new QGridLayout(widget);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 0, 0);
@@ -93,21 +115,6 @@ public:
 
         gridLayout->addWidget(numdis, 0, 7, 1, 1);
 
-        controles = new QPushButton(widget);
-        controles->setObjectName(QString::fromUtf8("controles"));
-
-        gridLayout->addWidget(controles, 0, 8, 1, 1);
-
-        pushButton = new QPushButton(widget);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-
-        gridLayout->addWidget(pushButton, 0, 9, 1, 1);
-
-        menu = new QPushButton(widget);
-        menu->setObjectName(QString::fromUtf8("menu"));
-
-        gridLayout->addWidget(menu, 0, 10, 1, 1);
-
 
         retranslateUi(Nivel);
 
@@ -117,6 +124,9 @@ public:
     void retranslateUi(QDialog *Nivel)
     {
         Nivel->setWindowTitle(QCoreApplication::translate("Nivel", "Dialog", nullptr));
+        pushButton->setText(QString());
+        controles->setText(QString());
+        menu->setText(QString());
         nombrevo->setText(QCoreApplication::translate("Nivel", "Velocidad inicial:", nullptr));
         vo->setText(QCoreApplication::translate("Nivel", "0", nullptr));
         nombreangulo->setText(QCoreApplication::translate("Nivel", "Angulo:", nullptr));
@@ -125,9 +135,6 @@ public:
         objetivo->setText(QCoreApplication::translate("Nivel", "0", nullptr));
         label_2->setText(QCoreApplication::translate("Nivel", "Numero de disparos:", nullptr));
         numdis->setText(QCoreApplication::translate("Nivel", "0", nullptr));
-        controles->setText(QCoreApplication::translate("Nivel", "Controles", nullptr));
-        pushButton->setText(QCoreApplication::translate("Nivel", "Guardar", nullptr));
-        menu->setText(QCoreApplication::translate("Nivel", "Volver al menu", nullptr));
     } // retranslateUi
 
 };

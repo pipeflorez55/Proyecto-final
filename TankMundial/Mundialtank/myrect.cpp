@@ -2,7 +2,7 @@
 #include <QKeyEvent>
 #include <QGraphicsScene>
 #include <QDebug>
-
+#include "bala.h"
 
 MyRect::MyRect(QGraphicsItem *parent): QGraphicsPixmapItem(parent)
 {
@@ -88,4 +88,63 @@ void MyRect::cambiarplayer(int eleccion)
 void MyRect::cambiarimagen(int anguim)
 {
     anguloim=anguim;
+}
+
+int MyRect::pushx()
+{
+    if(anguloim>60){
+    return posix-10;
+    }
+    else{
+    return posix;
+    }
+}
+
+int MyRect::pushy()
+{
+    if(flag==1){
+    return posiy+50;
+    }
+    if(flag==-1){
+    return posiy+100;
+    }
+}
+
+void MyRect::actualizar()
+{
+    if(posiy<10){
+        flag=-1;
+    }
+    if(posiy>480){
+        flag=1;
+    }
+    if(flag==1){
+        posiy-=10;
+    }
+    if(flag==-1){
+        posiy+=10;
+    }
+    setPos(posix,posiy);
+
+}
+
+void MyRect::colib(int a)
+{
+
+        if(a==-1){
+            vidas--;
+
+           }
+
+}
+
+int MyRect::pushvidas()
+{
+    return vidas;
+}
+
+void MyRect::inipos(int xi, int yi)
+{
+    posix=xi;
+    posiy=yi;
 }

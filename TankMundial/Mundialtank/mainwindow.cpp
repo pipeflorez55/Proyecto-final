@@ -12,6 +12,8 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->label->setPixmap(QPixmap(":/inicio.jpg"));
+
 
 }
 
@@ -23,6 +25,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_3_clicked()
 {
+
     QString name2 = ui->newname->text();
     std::string name = name2.toStdString();//cambio de QString para extraer datos de la Mainwindow para utilizar funciones
     QString password2 = ui->newpassword->text();
