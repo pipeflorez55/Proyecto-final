@@ -14,13 +14,13 @@ EQ            = =
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DUNICODE -D_UNICODE -DWIN32 -DMINGW_HAS_SECURE_API=1 -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_NEEDS_QMAIN
+DEFINES       = -DUNICODE -D_UNICODE -DWIN32 -DMINGW_HAS_SECURE_API=1 -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_MULTIMEDIA_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_NEEDS_QMAIN
 CFLAGS        = -fno-keep-inline-dllexport -g -Wall -Wextra -Wextra $(DEFINES)
 CXXFLAGS      = -fno-keep-inline-dllexport -g -std=gnu++11 -Wall -Wextra -Wextra -fexceptions -mthreads $(DEFINES)
-INCPATH       = -I..\MundialTank -I. -I..\..\..\..\Qt\5.14.1\mingw73_32\include -I..\..\..\..\Qt\5.14.1\mingw73_32\include\QtWidgets -I..\..\..\..\Qt\5.14.1\mingw73_32\include\QtGui -I..\..\..\..\Qt\5.14.1\mingw73_32\include\QtANGLE -I..\..\..\..\Qt\5.14.1\mingw73_32\include\QtCore -I. -I. -I..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\win32-g++ 
+INCPATH       = -I..\MundialTank -I. -I..\..\..\..\Qt\5.14.1\mingw73_32\include -I..\..\..\..\Qt\5.14.1\mingw73_32\include\QtMultimedia -I..\..\..\..\Qt\5.14.1\mingw73_32\include\QtWidgets -I..\..\..\..\Qt\5.14.1\mingw73_32\include\QtGui -I..\..\..\..\Qt\5.14.1\mingw73_32\include\QtANGLE -I..\..\..\..\Qt\5.14.1\mingw73_32\include\QtNetwork -I..\..\..\..\Qt\5.14.1\mingw73_32\include\QtCore -I. -I. -I..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\win32-g++ 
 LINKER      =        g++
 LFLAGS        =        -Wl,-subsystem,windows -mthreads
-LIBS        =        C:\Qt\5.14.1\mingw73_32\lib\libQt5Widgets.a C:\Qt\5.14.1\mingw73_32\lib\libQt5Gui.a C:\Qt\5.14.1\mingw73_32\lib\libQt5Core.a  -lmingw32 C:\Qt\5.14.1\mingw73_32\lib\libqtmain.a -LC:\openssl\lib -LC:\Utils\my_sql\mysql-5.7.25-win32\lib -LC:\Utils\postgresql\pgsql\lib -lshell32 
+LIBS        =        C:\Qt\5.14.1\mingw73_32\lib\libQt5Multimedia.a C:\Qt\5.14.1\mingw73_32\lib\libQt5Widgets.a C:\Qt\5.14.1\mingw73_32\lib\libQt5Gui.a C:\Qt\5.14.1\mingw73_32\lib\libQt5Network.a C:\Qt\5.14.1\mingw73_32\lib\libQt5Core.a  -lmingw32 C:\Qt\5.14.1\mingw73_32\lib\libqtmain.a -LC:\openssl\lib -LC:\Utils\my_sql\mysql-5.7.25-win32\lib -LC:\Utils\postgresql\pgsql\lib -lshell32 
 QMAKE         = C:\Qt\5.14.1\mingw73_32\bin\qmake.exe
 DEL_FILE      = del
 CHK_DIR_EXISTS= if not exist
@@ -67,7 +67,8 @@ SOURCES       = ..\MundialTank\bala.cpp \
 		..\MundialTank\myrect.cpp \
 		..\MundialTank\nivel.cpp \
 		..\MundialTank\pantallaf.cpp \
-		..\MundialTank\pendulo.cpp qrc_Imagenes.cpp \
+		..\MundialTank\pendulo.cpp \
+		..\MundialTank\planetas.cpp qrc_Imagenes.cpp \
 		moc_circular.cpp \
 		moc_enemy.cpp \
 		moc_finalsingle.cpp \
@@ -97,6 +98,7 @@ OBJECTS       = bala.o \
 		nivel.o \
 		pantallaf.o \
 		pendulo.o \
+		planetas.o \
 		qrc_Imagenes.o \
 		moc_circular.o \
 		moc_enemy.o \
@@ -126,7 +128,8 @@ DIST          =  ..\MundialTank\bala.h \
 		..\MundialTank\myrect.h \
 		..\MundialTank\nivel.h \
 		..\MundialTank\pantallaf.h \
-		..\MundialTank\pendulo.h ..\MundialTank\bala.cpp \
+		..\MundialTank\pendulo.h \
+		..\MundialTank\planetas.h ..\MundialTank\bala.cpp \
 		..\MundialTank\circular.cpp \
 		..\MundialTank\cuerpo.cpp \
 		..\MundialTank\enemy.cpp \
@@ -142,7 +145,8 @@ DIST          =  ..\MundialTank\bala.h \
 		..\MundialTank\myrect.cpp \
 		..\MundialTank\nivel.cpp \
 		..\MundialTank\pantallaf.cpp \
-		..\MundialTank\pendulo.cpp
+		..\MundialTank\pendulo.cpp \
+		..\MundialTank\planetas.cpp
 QMAKE_TARGET  = Mundialtank
 DESTDIR        =  #avoid trailing-slash linebreak
 TARGET         = Mundialtank.exe
@@ -153,7 +157,7 @@ DESTDIR_TARGET = Mundialtank.exe
 first: all
 all: Makefile  Mundialtank.exe
 
-Mundialtank.exe: C:/Qt/5.14.1/mingw73_32/lib/libQt5Widgets.a C:/Qt/5.14.1/mingw73_32/lib/libQt5Gui.a C:/Qt/5.14.1/mingw73_32/lib/libQt5Core.a C:/Qt/5.14.1/mingw73_32/lib/libqtmain.a ui_finalsingle.h ui_ganadorj1.h ui_ganadorj2.h ui_mainwindow.h ui_menu.h ui_multiplayer.h ui_nivel.h ui_pantallaf.h $(OBJECTS) 
+Mundialtank.exe: C:/Qt/5.14.1/mingw73_32/lib/libQt5Multimedia.a C:/Qt/5.14.1/mingw73_32/lib/libQt5Widgets.a C:/Qt/5.14.1/mingw73_32/lib/libQt5Gui.a C:/Qt/5.14.1/mingw73_32/lib/libQt5Network.a C:/Qt/5.14.1/mingw73_32/lib/libQt5Core.a C:/Qt/5.14.1/mingw73_32/lib/libqtmain.a ui_finalsingle.h ui_ganadorj1.h ui_ganadorj2.h ui_mainwindow.h ui_menu.h ui_multiplayer.h ui_nivel.h ui_pantallaf.h $(OBJECTS) 
 	$(LINKER) $(LFLAGS) -o $(DESTDIR_TARGET) @object_script.Mundialtank  $(LIBS)
 
 Makefile: ../MundialTank/Mundialtank.pro ../../../../Qt/5.14.1/mingw73_32/mkspecs/win32-g++/qmake.conf ../../../../Qt/5.14.1/mingw73_32/mkspecs/features/spec_pre.prf \
@@ -357,8 +361,10 @@ Makefile: ../MundialTank/Mundialtank.pro ../../../../Qt/5.14.1/mingw73_32/mkspec
 		../../../../Qt/5.14.1/mingw73_32/mkspecs/features/lex.prf \
 		../MundialTank/Mundialtank.pro \
 		../MundialTank/Imagenes.qrc \
+		../../../../Qt/5.14.1/mingw73_32/lib/Qt5Multimedia.prl \
 		../../../../Qt/5.14.1/mingw73_32/lib/Qt5Widgets.prl \
 		../../../../Qt/5.14.1/mingw73_32/lib/Qt5Gui.prl \
+		../../../../Qt/5.14.1/mingw73_32/lib/Qt5Network.prl \
 		../../../../Qt/5.14.1/mingw73_32/lib/Qt5Core.prl \
 		../../../../Qt/5.14.1/mingw73_32/lib/qtmain.prl
 	$(QMAKE) -o Makefile ..\MundialTank\Mundialtank.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
@@ -563,8 +569,10 @@ Makefile: ../MundialTank/Mundialtank.pro ../../../../Qt/5.14.1/mingw73_32/mkspec
 ../../../../Qt/5.14.1/mingw73_32/mkspecs/features/lex.prf:
 ../MundialTank/Mundialtank.pro:
 ../MundialTank/Imagenes.qrc:
+../../../../Qt/5.14.1/mingw73_32/lib/Qt5Multimedia.prl:
 ../../../../Qt/5.14.1/mingw73_32/lib/Qt5Widgets.prl:
 ../../../../Qt/5.14.1/mingw73_32/lib/Qt5Gui.prl:
+../../../../Qt/5.14.1/mingw73_32/lib/Qt5Network.prl:
 ../../../../Qt/5.14.1/mingw73_32/lib/Qt5Core.prl:
 ../../../../Qt/5.14.1/mingw73_32/lib/qtmain.prl:
 qmake: FORCE
@@ -573,10 +581,10 @@ qmake: FORCE
 qmake_all: FORCE
 
 dist:
-	$(ZIP) Mundialtank.zip $(SOURCES) $(DIST) ..\MundialTank\Mundialtank.pro ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\spec_pre.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\qdevice.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\device_config.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\common\sanitize.conf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\common\gcc-base.conf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\common\g++-base.conf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\common\angle.conf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\win32\windows_vulkan_sdk.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\common\windows-vulkan.conf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\common\g++-win32.conf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\common\windows-desktop.conf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\qconfig.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3danimation.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3danimation_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dcore.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dcore_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dextras.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dextras_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dinput.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dinput_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dlogic.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dlogic_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquick.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquick_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquickanimation.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquickanimation_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquickextras.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquickextras_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquickinput.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquickinput_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquickrender.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquickrender_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquickscene2d.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquickscene2d_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3drender.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3drender_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_accessibility_support_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_axbase.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_axbase_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_axcontainer.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_axcontainer_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_axserver.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_axserver_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_bluetooth.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_bluetooth_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_bodymovin_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_bootstrap_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_charts.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_charts_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_concurrent.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_concurrent_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_core.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_core_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_datavisualization.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_datavisualization_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_dbus.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_dbus_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_designer.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_designer_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_designercomponents_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_devicediscovery_support_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_edid_support_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_egl_support_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_fb_support_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_fontdatabase_support_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_gamepad.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_gamepad_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_gui.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_gui_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_help.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_help_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_location.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_location_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_multimedia.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_multimedia_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_multimediawidgets.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_multimediawidgets_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_network.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_network_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_networkauth.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_networkauth_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_nfc.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_nfc_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_opengl.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_opengl_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_openglextensions.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_openglextensions_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_packetprotocol_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_platformcompositor_support_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_positioning.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_positioning_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_positioningquick.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_positioningquick_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_printsupport.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_printsupport_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_purchasing.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_purchasing_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qml.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qml_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qmldebug_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qmldevtools_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qmlmodels.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qmlmodels_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qmltest.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qmltest_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qmlworkerscript.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qmlworkerscript_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quick.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quick3d.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quick3d_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quick3dassetimport.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quick3dassetimport_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quick3drender.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quick3drender_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quick3druntimerender.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quick3druntimerender_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quick3dutils.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quick3dutils_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quick_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quickcontrols2.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quickcontrols2_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quickparticles_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quickshapes_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quicktemplates2.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quicktemplates2_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quickwidgets.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quickwidgets_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_remoteobjects.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_remoteobjects_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_repparser.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_repparser_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_script.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_script_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_scripttools.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_scripttools_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_scxml.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_scxml_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_sensors.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_sensors_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_serialbus.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_serialbus_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_serialport.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_serialport_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_sql.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_sql_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_svg.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_svg_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_testlib.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_testlib_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_texttospeech.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_texttospeech_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_theme_support_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_uiplugin.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_uitools.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_uitools_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_virtualkeyboard.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_virtualkeyboard_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_webchannel.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_webchannel_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_websockets.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_websockets_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_widgets.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_widgets_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_windowsuiautomation_support_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_winextras.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_winextras_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_xml.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_xml_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_xmlpatterns.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_xmlpatterns_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\qt_functions.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\qt_config.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\win32-g++\qmake.conf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\spec_post.prf .qmake.stash ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\exclusive_builds.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\toolchain.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\default_pre.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\win32\default_pre.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\resolve_config.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\default_post.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\qml_debug.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\precompile_header.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\warn_on.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\qt.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\resources_functions.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\resources.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\moc.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\win32\opengl.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\uic.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\qmake_use.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\file_copies.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\win32\windows.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\testcase_targets.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\exceptions.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\yacc.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\lex.prf ..\MundialTank\Mundialtank.pro ..\MundialTank\Imagenes.qrc ..\..\..\..\Qt\5.14.1\mingw73_32\lib\Qt5Widgets.prl ..\..\..\..\Qt\5.14.1\mingw73_32\lib\Qt5Gui.prl ..\..\..\..\Qt\5.14.1\mingw73_32\lib\Qt5Core.prl ..\..\..\..\Qt\5.14.1\mingw73_32\lib\qtmain.prl   ..\MundialTank\Imagenes.qrc ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\data\dummy.cpp ..\MundialTank\bala.h ..\MundialTank\circular.h ..\MundialTank\cuerpo.h ..\MundialTank\enemy.h ..\MundialTank\finalsingle.h ..\MundialTank\funcioneslogin.h ..\MundialTank\ganadorj1.h ..\MundialTank\ganadorj2.h ..\MundialTank\mainwindow.h ..\MundialTank\menu.h ..\MundialTank\movible.h ..\MundialTank\multiplayer.h ..\MundialTank\myrect.h ..\MundialTank\nivel.h ..\MundialTank\pantallaf.h ..\MundialTank\pendulo.h  ..\MundialTank\bala.cpp ..\MundialTank\circular.cpp ..\MundialTank\cuerpo.cpp ..\MundialTank\enemy.cpp ..\MundialTank\finalsingle.cpp ..\MundialTank\funcioneslogin.cpp ..\MundialTank\ganadorj1.cpp ..\MundialTank\ganadorj2.cpp ..\MundialTank\main.cpp ..\MundialTank\mainwindow.cpp ..\MundialTank\menu.cpp ..\MundialTank\movible.cpp ..\MundialTank\multiplayer.cpp ..\MundialTank\myrect.cpp ..\MundialTank\nivel.cpp ..\MundialTank\pantallaf.cpp ..\MundialTank\pendulo.cpp ..\MundialTank\finalsingle.ui ..\MundialTank\ganadorj1.ui ..\MundialTank\ganadorj2.ui ..\MundialTank\mainwindow.ui ..\MundialTank\menu.ui ..\MundialTank\multiplayer.ui ..\MundialTank\nivel.ui ..\MundialTank\pantallaf.ui    
+	$(ZIP) Mundialtank.zip $(SOURCES) $(DIST) ..\MundialTank\Mundialtank.pro ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\spec_pre.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\qdevice.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\device_config.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\common\sanitize.conf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\common\gcc-base.conf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\common\g++-base.conf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\common\angle.conf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\win32\windows_vulkan_sdk.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\common\windows-vulkan.conf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\common\g++-win32.conf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\common\windows-desktop.conf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\qconfig.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3danimation.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3danimation_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dcore.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dcore_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dextras.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dextras_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dinput.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dinput_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dlogic.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dlogic_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquick.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquick_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquickanimation.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquickanimation_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquickextras.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquickextras_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquickinput.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquickinput_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquickrender.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquickrender_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquickscene2d.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquickscene2d_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3drender.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3drender_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_accessibility_support_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_axbase.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_axbase_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_axcontainer.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_axcontainer_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_axserver.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_axserver_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_bluetooth.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_bluetooth_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_bodymovin_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_bootstrap_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_charts.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_charts_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_concurrent.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_concurrent_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_core.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_core_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_datavisualization.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_datavisualization_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_dbus.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_dbus_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_designer.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_designer_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_designercomponents_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_devicediscovery_support_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_edid_support_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_egl_support_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_fb_support_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_fontdatabase_support_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_gamepad.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_gamepad_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_gui.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_gui_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_help.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_help_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_location.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_location_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_multimedia.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_multimedia_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_multimediawidgets.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_multimediawidgets_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_network.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_network_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_networkauth.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_networkauth_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_nfc.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_nfc_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_opengl.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_opengl_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_openglextensions.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_openglextensions_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_packetprotocol_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_platformcompositor_support_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_positioning.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_positioning_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_positioningquick.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_positioningquick_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_printsupport.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_printsupport_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_purchasing.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_purchasing_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qml.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qml_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qmldebug_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qmldevtools_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qmlmodels.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qmlmodels_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qmltest.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qmltest_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qmlworkerscript.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qmlworkerscript_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quick.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quick3d.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quick3d_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quick3dassetimport.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quick3dassetimport_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quick3drender.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quick3drender_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quick3druntimerender.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quick3druntimerender_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quick3dutils.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quick3dutils_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quick_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quickcontrols2.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quickcontrols2_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quickparticles_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quickshapes_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quicktemplates2.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quicktemplates2_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quickwidgets.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quickwidgets_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_remoteobjects.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_remoteobjects_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_repparser.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_repparser_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_script.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_script_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_scripttools.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_scripttools_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_scxml.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_scxml_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_sensors.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_sensors_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_serialbus.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_serialbus_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_serialport.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_serialport_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_sql.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_sql_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_svg.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_svg_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_testlib.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_testlib_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_texttospeech.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_texttospeech_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_theme_support_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_uiplugin.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_uitools.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_uitools_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_virtualkeyboard.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_virtualkeyboard_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_webchannel.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_webchannel_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_websockets.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_websockets_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_widgets.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_widgets_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_windowsuiautomation_support_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_winextras.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_winextras_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_xml.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_xml_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_xmlpatterns.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_xmlpatterns_private.pri ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\qt_functions.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\qt_config.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\win32-g++\qmake.conf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\spec_post.prf .qmake.stash ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\exclusive_builds.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\toolchain.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\default_pre.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\win32\default_pre.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\resolve_config.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\default_post.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\qml_debug.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\precompile_header.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\warn_on.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\qt.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\resources_functions.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\resources.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\moc.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\win32\opengl.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\uic.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\qmake_use.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\file_copies.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\win32\windows.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\testcase_targets.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\exceptions.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\yacc.prf ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\lex.prf ..\MundialTank\Mundialtank.pro ..\MundialTank\Imagenes.qrc ..\..\..\..\Qt\5.14.1\mingw73_32\lib\Qt5Multimedia.prl ..\..\..\..\Qt\5.14.1\mingw73_32\lib\Qt5Widgets.prl ..\..\..\..\Qt\5.14.1\mingw73_32\lib\Qt5Gui.prl ..\..\..\..\Qt\5.14.1\mingw73_32\lib\Qt5Network.prl ..\..\..\..\Qt\5.14.1\mingw73_32\lib\Qt5Core.prl ..\..\..\..\Qt\5.14.1\mingw73_32\lib\qtmain.prl   ..\MundialTank\Imagenes.qrc ..\..\..\..\Qt\5.14.1\mingw73_32\mkspecs\features\data\dummy.cpp ..\MundialTank\bala.h ..\MundialTank\circular.h ..\MundialTank\cuerpo.h ..\MundialTank\enemy.h ..\MundialTank\finalsingle.h ..\MundialTank\funcioneslogin.h ..\MundialTank\ganadorj1.h ..\MundialTank\ganadorj2.h ..\MundialTank\mainwindow.h ..\MundialTank\menu.h ..\MundialTank\movible.h ..\MundialTank\multiplayer.h ..\MundialTank\myrect.h ..\MundialTank\nivel.h ..\MundialTank\pantallaf.h ..\MundialTank\pendulo.h ..\MundialTank\planetas.h  ..\MundialTank\bala.cpp ..\MundialTank\circular.cpp ..\MundialTank\cuerpo.cpp ..\MundialTank\enemy.cpp ..\MundialTank\finalsingle.cpp ..\MundialTank\funcioneslogin.cpp ..\MundialTank\ganadorj1.cpp ..\MundialTank\ganadorj2.cpp ..\MundialTank\main.cpp ..\MundialTank\mainwindow.cpp ..\MundialTank\menu.cpp ..\MundialTank\movible.cpp ..\MundialTank\multiplayer.cpp ..\MundialTank\myrect.cpp ..\MundialTank\nivel.cpp ..\MundialTank\pantallaf.cpp ..\MundialTank\pendulo.cpp ..\MundialTank\planetas.cpp ..\MundialTank\finalsingle.ui ..\MundialTank\ganadorj1.ui ..\MundialTank\ganadorj2.ui ..\MundialTank\mainwindow.ui ..\MundialTank\menu.ui ..\MundialTank\multiplayer.ui ..\MundialTank\nivel.ui ..\MundialTank\pantallaf.ui    
 
 clean: compiler_clean 
-	-$(DEL_FILE) bala.o circular.o cuerpo.o enemy.o finalsingle.o funcioneslogin.o ganadorj1.o ganadorj2.o main.o mainwindow.o menu.o movible.o multiplayer.o myrect.o nivel.o pantallaf.o pendulo.o qrc_Imagenes.o moc_circular.o moc_enemy.o moc_finalsingle.o moc_ganadorj1.o moc_ganadorj2.o moc_mainwindow.o moc_menu.o moc_multiplayer.o moc_myrect.o moc_nivel.o moc_pantallaf.o moc_pendulo.o
+	-$(DEL_FILE) bala.o circular.o cuerpo.o enemy.o finalsingle.o funcioneslogin.o ganadorj1.o ganadorj2.o main.o mainwindow.o menu.o movible.o multiplayer.o myrect.o nivel.o pantallaf.o pendulo.o planetas.o qrc_Imagenes.o moc_circular.o moc_enemy.o moc_finalsingle.o moc_ganadorj1.o moc_ganadorj2.o moc_mainwindow.o moc_menu.o moc_multiplayer.o moc_myrect.o moc_nivel.o moc_pantallaf.o moc_pendulo.o
 
 distclean: clean 
 	-$(DEL_FILE) .qmake.stash
@@ -609,17 +617,20 @@ qrc_Imagenes.cpp: ../MundialTank/Imagenes.qrc \
 		../MundialTank/inicio.jpg \
 		../MundialTank/botonSignup.png \
 		../MundialTank/pantallafinal.png \
+		../MundialTank/TANK9\ (mp3cut.net).mp3 \
 		../MundialTank/botonMenu.png \
 		../MundialTank/Estrella.png \
 		../MundialTank/Escena.png \
 		../MundialTank/boton\ negro.png \
 		../MundialTank/GanadorJ1.png \
+		../MundialTank/Battleship.ogg \
 		../MundialTank/botonMulti.png \
 		../MundialTank/Escena3.jpg \
 		../MundialTank/Escena4.jpg \
 		../MundialTank/boton\ verde.png \
 		../MundialTank/EscenaMulti.png \
 		../MundialTank/Escena2.png \
+		../MundialTank/Battleship.mp3 \
 		../MundialTank/tank-verde-0-grados.png \
 		../MundialTank/tank-azul-0-grados.png \
 		../MundialTank/tank-verde-80-grados.png \
@@ -751,7 +762,7 @@ moc_circular.cpp: ../MundialTank/circular.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qgraphicsscene.h \
 		moc_predefs.h \
 		../../../../Qt/5.14.1/mingw73_32/bin/moc.exe
-	C:\Qt\5.14.1\mingw73_32\bin\moc.exe $(DEFINES) --include C:/Users/Usuario/Desktop/build-Mundialtank-Desktop_Qt_5_14_1_MinGW_32_bit-Debug/moc_predefs.h -IC:/Qt/5.14.1/mingw73_32/mkspecs/win32-g++ -IC:/Users/Usuario/Desktop/MundialTank -IC:/Qt/5.14.1/mingw73_32/include -IC:/Qt/5.14.1/mingw73_32/include/QtWidgets -IC:/Qt/5.14.1/mingw73_32/include/QtGui -IC:/Qt/5.14.1/mingw73_32/include/QtANGLE -IC:/Qt/5.14.1/mingw73_32/include/QtCore -I. -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_32/i686-w64-mingw32/include ..\MundialTank\circular.h -o moc_circular.cpp
+	C:\Qt\5.14.1\mingw73_32\bin\moc.exe $(DEFINES) --include C:/Users/Usuario/Desktop/build-Mundialtank-Desktop_Qt_5_14_1_MinGW_32_bit-Debug/moc_predefs.h -IC:/Qt/5.14.1/mingw73_32/mkspecs/win32-g++ -IC:/Users/Usuario/Desktop/MundialTank -IC:/Qt/5.14.1/mingw73_32/include -IC:/Qt/5.14.1/mingw73_32/include/QtMultimedia -IC:/Qt/5.14.1/mingw73_32/include/QtWidgets -IC:/Qt/5.14.1/mingw73_32/include/QtGui -IC:/Qt/5.14.1/mingw73_32/include/QtANGLE -IC:/Qt/5.14.1/mingw73_32/include/QtNetwork -IC:/Qt/5.14.1/mingw73_32/include/QtCore -I. -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_32/i686-w64-mingw32/include ..\MundialTank\circular.h -o moc_circular.cpp
 
 moc_enemy.cpp: ../MundialTank/enemy.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QGraphicsPixmapItem \
@@ -846,7 +857,7 @@ moc_enemy.cpp: ../MundialTank/enemy.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtCore/QObject \
 		moc_predefs.h \
 		../../../../Qt/5.14.1/mingw73_32/bin/moc.exe
-	C:\Qt\5.14.1\mingw73_32\bin\moc.exe $(DEFINES) --include C:/Users/Usuario/Desktop/build-Mundialtank-Desktop_Qt_5_14_1_MinGW_32_bit-Debug/moc_predefs.h -IC:/Qt/5.14.1/mingw73_32/mkspecs/win32-g++ -IC:/Users/Usuario/Desktop/MundialTank -IC:/Qt/5.14.1/mingw73_32/include -IC:/Qt/5.14.1/mingw73_32/include/QtWidgets -IC:/Qt/5.14.1/mingw73_32/include/QtGui -IC:/Qt/5.14.1/mingw73_32/include/QtANGLE -IC:/Qt/5.14.1/mingw73_32/include/QtCore -I. -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_32/i686-w64-mingw32/include ..\MundialTank\enemy.h -o moc_enemy.cpp
+	C:\Qt\5.14.1\mingw73_32\bin\moc.exe $(DEFINES) --include C:/Users/Usuario/Desktop/build-Mundialtank-Desktop_Qt_5_14_1_MinGW_32_bit-Debug/moc_predefs.h -IC:/Qt/5.14.1/mingw73_32/mkspecs/win32-g++ -IC:/Users/Usuario/Desktop/MundialTank -IC:/Qt/5.14.1/mingw73_32/include -IC:/Qt/5.14.1/mingw73_32/include/QtMultimedia -IC:/Qt/5.14.1/mingw73_32/include/QtWidgets -IC:/Qt/5.14.1/mingw73_32/include/QtGui -IC:/Qt/5.14.1/mingw73_32/include/QtANGLE -IC:/Qt/5.14.1/mingw73_32/include/QtNetwork -IC:/Qt/5.14.1/mingw73_32/include/QtCore -I. -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_32/i686-w64-mingw32/include ..\MundialTank\enemy.h -o moc_enemy.cpp
 
 moc_finalsingle.cpp: ../MundialTank/finalsingle.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QDialog \
@@ -954,9 +965,10 @@ moc_finalsingle.cpp: ../MundialTank/finalsingle.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qfiledevice.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qvector2d.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qtouchdevice.h \
+		../MundialTank/funcioneslogin.h \
 		moc_predefs.h \
 		../../../../Qt/5.14.1/mingw73_32/bin/moc.exe
-	C:\Qt\5.14.1\mingw73_32\bin\moc.exe $(DEFINES) --include C:/Users/Usuario/Desktop/build-Mundialtank-Desktop_Qt_5_14_1_MinGW_32_bit-Debug/moc_predefs.h -IC:/Qt/5.14.1/mingw73_32/mkspecs/win32-g++ -IC:/Users/Usuario/Desktop/MundialTank -IC:/Qt/5.14.1/mingw73_32/include -IC:/Qt/5.14.1/mingw73_32/include/QtWidgets -IC:/Qt/5.14.1/mingw73_32/include/QtGui -IC:/Qt/5.14.1/mingw73_32/include/QtANGLE -IC:/Qt/5.14.1/mingw73_32/include/QtCore -I. -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_32/i686-w64-mingw32/include ..\MundialTank\finalsingle.h -o moc_finalsingle.cpp
+	C:\Qt\5.14.1\mingw73_32\bin\moc.exe $(DEFINES) --include C:/Users/Usuario/Desktop/build-Mundialtank-Desktop_Qt_5_14_1_MinGW_32_bit-Debug/moc_predefs.h -IC:/Qt/5.14.1/mingw73_32/mkspecs/win32-g++ -IC:/Users/Usuario/Desktop/MundialTank -IC:/Qt/5.14.1/mingw73_32/include -IC:/Qt/5.14.1/mingw73_32/include/QtMultimedia -IC:/Qt/5.14.1/mingw73_32/include/QtWidgets -IC:/Qt/5.14.1/mingw73_32/include/QtGui -IC:/Qt/5.14.1/mingw73_32/include/QtANGLE -IC:/Qt/5.14.1/mingw73_32/include/QtNetwork -IC:/Qt/5.14.1/mingw73_32/include/QtCore -I. -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_32/i686-w64-mingw32/include ..\MundialTank\finalsingle.h -o moc_finalsingle.cpp
 
 moc_ganadorj1.cpp: ../MundialTank/ganadorj1.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QDialog \
@@ -1066,7 +1078,7 @@ moc_ganadorj1.cpp: ../MundialTank/ganadorj1.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qtouchdevice.h \
 		moc_predefs.h \
 		../../../../Qt/5.14.1/mingw73_32/bin/moc.exe
-	C:\Qt\5.14.1\mingw73_32\bin\moc.exe $(DEFINES) --include C:/Users/Usuario/Desktop/build-Mundialtank-Desktop_Qt_5_14_1_MinGW_32_bit-Debug/moc_predefs.h -IC:/Qt/5.14.1/mingw73_32/mkspecs/win32-g++ -IC:/Users/Usuario/Desktop/MundialTank -IC:/Qt/5.14.1/mingw73_32/include -IC:/Qt/5.14.1/mingw73_32/include/QtWidgets -IC:/Qt/5.14.1/mingw73_32/include/QtGui -IC:/Qt/5.14.1/mingw73_32/include/QtANGLE -IC:/Qt/5.14.1/mingw73_32/include/QtCore -I. -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_32/i686-w64-mingw32/include ..\MundialTank\ganadorj1.h -o moc_ganadorj1.cpp
+	C:\Qt\5.14.1\mingw73_32\bin\moc.exe $(DEFINES) --include C:/Users/Usuario/Desktop/build-Mundialtank-Desktop_Qt_5_14_1_MinGW_32_bit-Debug/moc_predefs.h -IC:/Qt/5.14.1/mingw73_32/mkspecs/win32-g++ -IC:/Users/Usuario/Desktop/MundialTank -IC:/Qt/5.14.1/mingw73_32/include -IC:/Qt/5.14.1/mingw73_32/include/QtMultimedia -IC:/Qt/5.14.1/mingw73_32/include/QtWidgets -IC:/Qt/5.14.1/mingw73_32/include/QtGui -IC:/Qt/5.14.1/mingw73_32/include/QtANGLE -IC:/Qt/5.14.1/mingw73_32/include/QtNetwork -IC:/Qt/5.14.1/mingw73_32/include/QtCore -I. -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_32/i686-w64-mingw32/include ..\MundialTank\ganadorj1.h -o moc_ganadorj1.cpp
 
 moc_ganadorj2.cpp: ../MundialTank/ganadorj2.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QDialog \
@@ -1176,7 +1188,7 @@ moc_ganadorj2.cpp: ../MundialTank/ganadorj2.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qtouchdevice.h \
 		moc_predefs.h \
 		../../../../Qt/5.14.1/mingw73_32/bin/moc.exe
-	C:\Qt\5.14.1\mingw73_32\bin\moc.exe $(DEFINES) --include C:/Users/Usuario/Desktop/build-Mundialtank-Desktop_Qt_5_14_1_MinGW_32_bit-Debug/moc_predefs.h -IC:/Qt/5.14.1/mingw73_32/mkspecs/win32-g++ -IC:/Users/Usuario/Desktop/MundialTank -IC:/Qt/5.14.1/mingw73_32/include -IC:/Qt/5.14.1/mingw73_32/include/QtWidgets -IC:/Qt/5.14.1/mingw73_32/include/QtGui -IC:/Qt/5.14.1/mingw73_32/include/QtANGLE -IC:/Qt/5.14.1/mingw73_32/include/QtCore -I. -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_32/i686-w64-mingw32/include ..\MundialTank\ganadorj2.h -o moc_ganadorj2.cpp
+	C:\Qt\5.14.1\mingw73_32\bin\moc.exe $(DEFINES) --include C:/Users/Usuario/Desktop/build-Mundialtank-Desktop_Qt_5_14_1_MinGW_32_bit-Debug/moc_predefs.h -IC:/Qt/5.14.1/mingw73_32/mkspecs/win32-g++ -IC:/Users/Usuario/Desktop/MundialTank -IC:/Qt/5.14.1/mingw73_32/include -IC:/Qt/5.14.1/mingw73_32/include/QtMultimedia -IC:/Qt/5.14.1/mingw73_32/include/QtWidgets -IC:/Qt/5.14.1/mingw73_32/include/QtGui -IC:/Qt/5.14.1/mingw73_32/include/QtANGLE -IC:/Qt/5.14.1/mingw73_32/include/QtNetwork -IC:/Qt/5.14.1/mingw73_32/include/QtCore -I. -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_32/i686-w64-mingw32/include ..\MundialTank\ganadorj2.h -o moc_ganadorj2.cpp
 
 moc_mainwindow.cpp: ../MundialTank/mainwindow.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QMainWindow \
@@ -1289,7 +1301,7 @@ moc_mainwindow.cpp: ../MundialTank/mainwindow.h \
 		../MundialTank/funcioneslogin.h \
 		moc_predefs.h \
 		../../../../Qt/5.14.1/mingw73_32/bin/moc.exe
-	C:\Qt\5.14.1\mingw73_32\bin\moc.exe $(DEFINES) --include C:/Users/Usuario/Desktop/build-Mundialtank-Desktop_Qt_5_14_1_MinGW_32_bit-Debug/moc_predefs.h -IC:/Qt/5.14.1/mingw73_32/mkspecs/win32-g++ -IC:/Users/Usuario/Desktop/MundialTank -IC:/Qt/5.14.1/mingw73_32/include -IC:/Qt/5.14.1/mingw73_32/include/QtWidgets -IC:/Qt/5.14.1/mingw73_32/include/QtGui -IC:/Qt/5.14.1/mingw73_32/include/QtANGLE -IC:/Qt/5.14.1/mingw73_32/include/QtCore -I. -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_32/i686-w64-mingw32/include ..\MundialTank\mainwindow.h -o moc_mainwindow.cpp
+	C:\Qt\5.14.1\mingw73_32\bin\moc.exe $(DEFINES) --include C:/Users/Usuario/Desktop/build-Mundialtank-Desktop_Qt_5_14_1_MinGW_32_bit-Debug/moc_predefs.h -IC:/Qt/5.14.1/mingw73_32/mkspecs/win32-g++ -IC:/Users/Usuario/Desktop/MundialTank -IC:/Qt/5.14.1/mingw73_32/include -IC:/Qt/5.14.1/mingw73_32/include/QtMultimedia -IC:/Qt/5.14.1/mingw73_32/include/QtWidgets -IC:/Qt/5.14.1/mingw73_32/include/QtGui -IC:/Qt/5.14.1/mingw73_32/include/QtANGLE -IC:/Qt/5.14.1/mingw73_32/include/QtNetwork -IC:/Qt/5.14.1/mingw73_32/include/QtCore -I. -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_32/i686-w64-mingw32/include ..\MundialTank\mainwindow.h -o moc_mainwindow.cpp
 
 moc_menu.cpp: ../MundialTank/menu.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QDialog \
@@ -1400,7 +1412,7 @@ moc_menu.cpp: ../MundialTank/menu.h \
 		../MundialTank/funcioneslogin.h \
 		moc_predefs.h \
 		../../../../Qt/5.14.1/mingw73_32/bin/moc.exe
-	C:\Qt\5.14.1\mingw73_32\bin\moc.exe $(DEFINES) --include C:/Users/Usuario/Desktop/build-Mundialtank-Desktop_Qt_5_14_1_MinGW_32_bit-Debug/moc_predefs.h -IC:/Qt/5.14.1/mingw73_32/mkspecs/win32-g++ -IC:/Users/Usuario/Desktop/MundialTank -IC:/Qt/5.14.1/mingw73_32/include -IC:/Qt/5.14.1/mingw73_32/include/QtWidgets -IC:/Qt/5.14.1/mingw73_32/include/QtGui -IC:/Qt/5.14.1/mingw73_32/include/QtANGLE -IC:/Qt/5.14.1/mingw73_32/include/QtCore -I. -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_32/i686-w64-mingw32/include ..\MundialTank\menu.h -o moc_menu.cpp
+	C:\Qt\5.14.1\mingw73_32\bin\moc.exe $(DEFINES) --include C:/Users/Usuario/Desktop/build-Mundialtank-Desktop_Qt_5_14_1_MinGW_32_bit-Debug/moc_predefs.h -IC:/Qt/5.14.1/mingw73_32/mkspecs/win32-g++ -IC:/Users/Usuario/Desktop/MundialTank -IC:/Qt/5.14.1/mingw73_32/include -IC:/Qt/5.14.1/mingw73_32/include/QtMultimedia -IC:/Qt/5.14.1/mingw73_32/include/QtWidgets -IC:/Qt/5.14.1/mingw73_32/include/QtGui -IC:/Qt/5.14.1/mingw73_32/include/QtANGLE -IC:/Qt/5.14.1/mingw73_32/include/QtNetwork -IC:/Qt/5.14.1/mingw73_32/include/QtCore -I. -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_32/i686-w64-mingw32/include ..\MundialTank\menu.h -o moc_menu.cpp
 
 moc_multiplayer.cpp: ../MundialTank/multiplayer.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QDialog \
@@ -1537,7 +1549,7 @@ moc_multiplayer.cpp: ../MundialTank/multiplayer.h \
 		../MundialTank/pendulo.h \
 		moc_predefs.h \
 		../../../../Qt/5.14.1/mingw73_32/bin/moc.exe
-	C:\Qt\5.14.1\mingw73_32\bin\moc.exe $(DEFINES) --include C:/Users/Usuario/Desktop/build-Mundialtank-Desktop_Qt_5_14_1_MinGW_32_bit-Debug/moc_predefs.h -IC:/Qt/5.14.1/mingw73_32/mkspecs/win32-g++ -IC:/Users/Usuario/Desktop/MundialTank -IC:/Qt/5.14.1/mingw73_32/include -IC:/Qt/5.14.1/mingw73_32/include/QtWidgets -IC:/Qt/5.14.1/mingw73_32/include/QtGui -IC:/Qt/5.14.1/mingw73_32/include/QtANGLE -IC:/Qt/5.14.1/mingw73_32/include/QtCore -I. -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_32/i686-w64-mingw32/include ..\MundialTank\multiplayer.h -o moc_multiplayer.cpp
+	C:\Qt\5.14.1\mingw73_32\bin\moc.exe $(DEFINES) --include C:/Users/Usuario/Desktop/build-Mundialtank-Desktop_Qt_5_14_1_MinGW_32_bit-Debug/moc_predefs.h -IC:/Qt/5.14.1/mingw73_32/mkspecs/win32-g++ -IC:/Users/Usuario/Desktop/MundialTank -IC:/Qt/5.14.1/mingw73_32/include -IC:/Qt/5.14.1/mingw73_32/include/QtMultimedia -IC:/Qt/5.14.1/mingw73_32/include/QtWidgets -IC:/Qt/5.14.1/mingw73_32/include/QtGui -IC:/Qt/5.14.1/mingw73_32/include/QtANGLE -IC:/Qt/5.14.1/mingw73_32/include/QtNetwork -IC:/Qt/5.14.1/mingw73_32/include/QtCore -I. -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_32/i686-w64-mingw32/include ..\MundialTank\multiplayer.h -o moc_multiplayer.cpp
 
 moc_myrect.cpp: ../MundialTank/myrect.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QGraphicsPixmapItem \
@@ -1633,7 +1645,7 @@ moc_myrect.cpp: ../MundialTank/myrect.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtGui/QPixmap \
 		moc_predefs.h \
 		../../../../Qt/5.14.1/mingw73_32/bin/moc.exe
-	C:\Qt\5.14.1\mingw73_32\bin\moc.exe $(DEFINES) --include C:/Users/Usuario/Desktop/build-Mundialtank-Desktop_Qt_5_14_1_MinGW_32_bit-Debug/moc_predefs.h -IC:/Qt/5.14.1/mingw73_32/mkspecs/win32-g++ -IC:/Users/Usuario/Desktop/MundialTank -IC:/Qt/5.14.1/mingw73_32/include -IC:/Qt/5.14.1/mingw73_32/include/QtWidgets -IC:/Qt/5.14.1/mingw73_32/include/QtGui -IC:/Qt/5.14.1/mingw73_32/include/QtANGLE -IC:/Qt/5.14.1/mingw73_32/include/QtCore -I. -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_32/i686-w64-mingw32/include ..\MundialTank\myrect.h -o moc_myrect.cpp
+	C:\Qt\5.14.1\mingw73_32\bin\moc.exe $(DEFINES) --include C:/Users/Usuario/Desktop/build-Mundialtank-Desktop_Qt_5_14_1_MinGW_32_bit-Debug/moc_predefs.h -IC:/Qt/5.14.1/mingw73_32/mkspecs/win32-g++ -IC:/Users/Usuario/Desktop/MundialTank -IC:/Qt/5.14.1/mingw73_32/include -IC:/Qt/5.14.1/mingw73_32/include/QtMultimedia -IC:/Qt/5.14.1/mingw73_32/include/QtWidgets -IC:/Qt/5.14.1/mingw73_32/include/QtGui -IC:/Qt/5.14.1/mingw73_32/include/QtANGLE -IC:/Qt/5.14.1/mingw73_32/include/QtNetwork -IC:/Qt/5.14.1/mingw73_32/include/QtCore -I. -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_32/i686-w64-mingw32/include ..\MundialTank\myrect.h -o moc_myrect.cpp
 
 moc_nivel.cpp: ../MundialTank/nivel.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QDialog \
@@ -1769,9 +1781,29 @@ moc_nivel.cpp: ../MundialTank/nivel.h \
 		../MundialTank/circular.h \
 		../MundialTank/movible.h \
 		../MundialTank/pendulo.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/QMediaPlayer \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qmediaplayer.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qmediaobject.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qtmultimediaglobal.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qtmultimedia-config.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qmultimedia.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qmediacontent.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qmediaresource.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtNetwork/qnetworkrequest.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtNetwork/qtnetworkglobal.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtNetwork/qtnetwork-config.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/QSharedDataPointer \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/QString \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/QUrl \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/QVariant \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qmediaenumdebug.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qmetaobject.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qaudio.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtNetwork/qnetworkconfiguration.h \
+		../MundialTank/planetas.h \
 		moc_predefs.h \
 		../../../../Qt/5.14.1/mingw73_32/bin/moc.exe
-	C:\Qt\5.14.1\mingw73_32\bin\moc.exe $(DEFINES) --include C:/Users/Usuario/Desktop/build-Mundialtank-Desktop_Qt_5_14_1_MinGW_32_bit-Debug/moc_predefs.h -IC:/Qt/5.14.1/mingw73_32/mkspecs/win32-g++ -IC:/Users/Usuario/Desktop/MundialTank -IC:/Qt/5.14.1/mingw73_32/include -IC:/Qt/5.14.1/mingw73_32/include/QtWidgets -IC:/Qt/5.14.1/mingw73_32/include/QtGui -IC:/Qt/5.14.1/mingw73_32/include/QtANGLE -IC:/Qt/5.14.1/mingw73_32/include/QtCore -I. -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_32/i686-w64-mingw32/include ..\MundialTank\nivel.h -o moc_nivel.cpp
+	C:\Qt\5.14.1\mingw73_32\bin\moc.exe $(DEFINES) --include C:/Users/Usuario/Desktop/build-Mundialtank-Desktop_Qt_5_14_1_MinGW_32_bit-Debug/moc_predefs.h -IC:/Qt/5.14.1/mingw73_32/mkspecs/win32-g++ -IC:/Users/Usuario/Desktop/MundialTank -IC:/Qt/5.14.1/mingw73_32/include -IC:/Qt/5.14.1/mingw73_32/include/QtMultimedia -IC:/Qt/5.14.1/mingw73_32/include/QtWidgets -IC:/Qt/5.14.1/mingw73_32/include/QtGui -IC:/Qt/5.14.1/mingw73_32/include/QtANGLE -IC:/Qt/5.14.1/mingw73_32/include/QtNetwork -IC:/Qt/5.14.1/mingw73_32/include/QtCore -I. -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_32/i686-w64-mingw32/include ..\MundialTank\nivel.h -o moc_nivel.cpp
 
 moc_pantallaf.cpp: ../MundialTank/pantallaf.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QDialog \
@@ -1881,7 +1913,7 @@ moc_pantallaf.cpp: ../MundialTank/pantallaf.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qtouchdevice.h \
 		moc_predefs.h \
 		../../../../Qt/5.14.1/mingw73_32/bin/moc.exe
-	C:\Qt\5.14.1\mingw73_32\bin\moc.exe $(DEFINES) --include C:/Users/Usuario/Desktop/build-Mundialtank-Desktop_Qt_5_14_1_MinGW_32_bit-Debug/moc_predefs.h -IC:/Qt/5.14.1/mingw73_32/mkspecs/win32-g++ -IC:/Users/Usuario/Desktop/MundialTank -IC:/Qt/5.14.1/mingw73_32/include -IC:/Qt/5.14.1/mingw73_32/include/QtWidgets -IC:/Qt/5.14.1/mingw73_32/include/QtGui -IC:/Qt/5.14.1/mingw73_32/include/QtANGLE -IC:/Qt/5.14.1/mingw73_32/include/QtCore -I. -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_32/i686-w64-mingw32/include ..\MundialTank\pantallaf.h -o moc_pantallaf.cpp
+	C:\Qt\5.14.1\mingw73_32\bin\moc.exe $(DEFINES) --include C:/Users/Usuario/Desktop/build-Mundialtank-Desktop_Qt_5_14_1_MinGW_32_bit-Debug/moc_predefs.h -IC:/Qt/5.14.1/mingw73_32/mkspecs/win32-g++ -IC:/Users/Usuario/Desktop/MundialTank -IC:/Qt/5.14.1/mingw73_32/include -IC:/Qt/5.14.1/mingw73_32/include/QtMultimedia -IC:/Qt/5.14.1/mingw73_32/include/QtWidgets -IC:/Qt/5.14.1/mingw73_32/include/QtGui -IC:/Qt/5.14.1/mingw73_32/include/QtANGLE -IC:/Qt/5.14.1/mingw73_32/include/QtNetwork -IC:/Qt/5.14.1/mingw73_32/include/QtCore -I. -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_32/i686-w64-mingw32/include ..\MundialTank\pantallaf.h -o moc_pantallaf.cpp
 
 moc_pendulo.cpp: ../MundialTank/pendulo.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtGui/QPainter \
@@ -1983,9 +2015,10 @@ moc_pendulo.cpp: ../MundialTank/pendulo.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qcontiguouscache.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QGraphicsScene \
 		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qgraphicsscene.h \
+		../MundialTank/circular.h \
 		moc_predefs.h \
 		../../../../Qt/5.14.1/mingw73_32/bin/moc.exe
-	C:\Qt\5.14.1\mingw73_32\bin\moc.exe $(DEFINES) --include C:/Users/Usuario/Desktop/build-Mundialtank-Desktop_Qt_5_14_1_MinGW_32_bit-Debug/moc_predefs.h -IC:/Qt/5.14.1/mingw73_32/mkspecs/win32-g++ -IC:/Users/Usuario/Desktop/MundialTank -IC:/Qt/5.14.1/mingw73_32/include -IC:/Qt/5.14.1/mingw73_32/include/QtWidgets -IC:/Qt/5.14.1/mingw73_32/include/QtGui -IC:/Qt/5.14.1/mingw73_32/include/QtANGLE -IC:/Qt/5.14.1/mingw73_32/include/QtCore -I. -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_32/i686-w64-mingw32/include ..\MundialTank\pendulo.h -o moc_pendulo.cpp
+	C:\Qt\5.14.1\mingw73_32\bin\moc.exe $(DEFINES) --include C:/Users/Usuario/Desktop/build-Mundialtank-Desktop_Qt_5_14_1_MinGW_32_bit-Debug/moc_predefs.h -IC:/Qt/5.14.1/mingw73_32/mkspecs/win32-g++ -IC:/Users/Usuario/Desktop/MundialTank -IC:/Qt/5.14.1/mingw73_32/include -IC:/Qt/5.14.1/mingw73_32/include/QtMultimedia -IC:/Qt/5.14.1/mingw73_32/include/QtWidgets -IC:/Qt/5.14.1/mingw73_32/include/QtGui -IC:/Qt/5.14.1/mingw73_32/include/QtANGLE -IC:/Qt/5.14.1/mingw73_32/include/QtNetwork -IC:/Qt/5.14.1/mingw73_32/include/QtCore -I. -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_32/i686-w64-mingw32/include ..\MundialTank\pendulo.h -o moc_pendulo.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -2171,7 +2204,27 @@ bala.o: ../MundialTank/bala.cpp ../MundialTank/bala.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtCore/QTimer \
 		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qtimer.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qbasictimer.h \
-		../MundialTank/pendulo.h
+		../MundialTank/pendulo.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/QMediaPlayer \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qmediaplayer.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qmediaobject.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qtmultimediaglobal.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qtmultimedia-config.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qmultimedia.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qmediacontent.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qmediaresource.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtNetwork/qnetworkrequest.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtNetwork/qtnetworkglobal.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtNetwork/qtnetwork-config.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/QSharedDataPointer \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/QString \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/QUrl \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/QVariant \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qmediaenumdebug.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qmetaobject.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qaudio.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtNetwork/qnetworkconfiguration.h \
+		../MundialTank/planetas.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o bala.o ..\MundialTank\bala.cpp
 
 circular.o: ../MundialTank/circular.cpp ../MundialTank/circular.h \
@@ -2488,6 +2541,7 @@ finalsingle.o: ../MundialTank/finalsingle.cpp ../MundialTank/finalsingle.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qfiledevice.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qvector2d.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qtouchdevice.h \
+		../MundialTank/funcioneslogin.h \
 		ui_finalsingle.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtCore/QVariant \
 		../../../../Qt/5.14.1/mingw73_32/include/QtGui/QIcon \
@@ -2499,11 +2553,13 @@ finalsingle.o: ../MundialTank/finalsingle.cpp ../MundialTank/finalsingle.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qdesktopwidget.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qguiapplication.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qinputmethod.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QLabel \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qlabel.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qframe.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QPushButton \
 		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qpushbutton.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qabstractbutton.h \
-		../MundialTank/menu.h \
-		../MundialTank/funcioneslogin.h
+		../MundialTank/menu.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o finalsingle.o ..\MundialTank\finalsingle.cpp
 
 funcioneslogin.o: ../MundialTank/funcioneslogin.cpp ../MundialTank/funcioneslogin.h
@@ -3047,9 +3103,31 @@ mainwindow.o: ../MundialTank/mainwindow.cpp ../MundialTank/mainwindow.h \
 		../MundialTank/circular.h \
 		../MundialTank/movible.h \
 		../MundialTank/pendulo.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/QMediaPlayer \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qmediaplayer.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qmediaobject.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qtmultimediaglobal.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qtmultimedia-config.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qmultimedia.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qmediacontent.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qmediaresource.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtNetwork/qnetworkrequest.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtNetwork/qtnetworkglobal.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtNetwork/qtnetwork-config.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/QSharedDataPointer \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/QString \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/QUrl \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qmediaenumdebug.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qmetaobject.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qaudio.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtNetwork/qnetworkconfiguration.h \
+		../MundialTank/planetas.h \
 		../MundialTank/multiplayer.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QMessageBox \
-		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qmessagebox.h
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qmessagebox.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/QMediaPlaylist \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qmediaplaylist.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qmediabindableinterface.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ..\MundialTank\mainwindow.cpp
 
 menu.o: ../MundialTank/menu.cpp ../MundialTank/menu.h \
@@ -3208,6 +3286,25 @@ menu.o: ../MundialTank/menu.cpp ../MundialTank/menu.h \
 		../MundialTank/circular.h \
 		../MundialTank/movible.h \
 		../MundialTank/pendulo.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/QMediaPlayer \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qmediaplayer.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qmediaobject.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qtmultimediaglobal.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qtmultimedia-config.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qmultimedia.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qmediacontent.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qmediaresource.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtNetwork/qnetworkrequest.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtNetwork/qtnetworkglobal.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtNetwork/qtnetwork-config.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/QSharedDataPointer \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/QString \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/QUrl \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qmediaenumdebug.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qmetaobject.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qaudio.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtNetwork/qnetworkconfiguration.h \
+		../MundialTank/planetas.h \
 		../MundialTank/multiplayer.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QMessageBox \
 		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qmessagebox.h
@@ -3734,8 +3831,27 @@ nivel.o: ../MundialTank/nivel.cpp ../MundialTank/nivel.h \
 		../MundialTank/circular.h \
 		../MundialTank/movible.h \
 		../MundialTank/pendulo.h \
-		ui_nivel.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/QMediaPlayer \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qmediaplayer.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qmediaobject.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qtmultimediaglobal.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qtmultimedia-config.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qmultimedia.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qmediacontent.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qmediaresource.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtNetwork/qnetworkrequest.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtNetwork/qtnetworkglobal.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtNetwork/qtnetwork-config.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/QSharedDataPointer \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/QString \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/QUrl \
 		../../../../Qt/5.14.1/mingw73_32/include/QtCore/QVariant \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qmediaenumdebug.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qmetaobject.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtMultimedia/qaudio.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtNetwork/qnetworkconfiguration.h \
+		../MundialTank/planetas.h \
+		ui_nivel.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtGui/QIcon \
 		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qicon.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QApplication \
@@ -3979,8 +4095,111 @@ pendulo.o: ../MundialTank/pendulo.cpp ../MundialTank/pendulo.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qset.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qcontiguouscache.h \
 		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QGraphicsScene \
-		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qgraphicsscene.h
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qgraphicsscene.h \
+		../MundialTank/circular.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pendulo.o ..\MundialTank\pendulo.cpp
+
+planetas.o: ../MundialTank/planetas.cpp ../MundialTank/planetas.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/QPainter \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qpainter.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qtguiglobal.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qglobal.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qconfig-bootstrapped.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qconfig.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qtcore-config.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qsystemdetection.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qprocessordetection.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qcompilerdetection.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qtypeinfo.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qsysinfo.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qlogging.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qflags.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qatomic.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qbasicatomic.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qatomic_bootstrap.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qgenericatomic.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qatomic_cxx11.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qatomic_msvc.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qglobalstatic.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qmutex.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qnumeric.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qversiontagging.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qtgui-config.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qnamespace.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qrect.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qmargins.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qsize.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qpoint.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qscopedpointer.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qpixmap.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qpaintdevice.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qwindowdefs.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qobjectdefs.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qobjectdefs_impl.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qwindowdefs_win.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qcolor.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qrgb.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qstringlist.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qlist.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qalgorithms.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qiterator.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qrefcount.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qarraydata.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qhashfunctions.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qstring.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qchar.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qbytearray.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qstringliteral.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qstringalgorithms.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qstringview.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qstringbuilder.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qpair.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qvector.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qcontainertools_impl.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qbytearraylist.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qregexp.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qstringmatcher.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qrgba64.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qsharedpointer.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qshareddata.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qhash.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qsharedpointer_impl.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qobject.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qcoreevent.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qmetatype.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qvarlengtharray.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qcontainerfwd.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qobject_impl.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qimage.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qpixelformat.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qtransform.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qmatrix.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qpolygon.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qregion.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qdatastream.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qiodevice.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qline.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qpainterpath.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qtextoption.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qpen.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qbrush.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qfontinfo.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qfont.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtGui/qfontmetrics.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QGraphicsItem \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qgraphicsitem.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qtwidgetsglobal.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qtwidgets-config.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qvariant.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qmap.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qdebug.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qtextstream.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qlocale.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qset.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtCore/qcontiguouscache.h \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/QGraphicsScene \
+		../../../../Qt/5.14.1/mingw73_32/include/QtWidgets/qgraphicsscene.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o planetas.o ..\MundialTank\planetas.cpp
 
 qrc_Imagenes.o: qrc_Imagenes.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_Imagenes.o qrc_Imagenes.cpp

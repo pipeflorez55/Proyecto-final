@@ -14,7 +14,8 @@
 #include "enemy.h"
 #include "circular.h"
 #include "pendulo.h"
-
+#include "QMediaPlayer"
+#include "planetas.h"
 namespace Ui {
 class Nivel;
 }
@@ -47,6 +48,8 @@ private:
     Circular *estrella1,*estrella2,*estrella3;
     enemy *blanco, *blanco1, *blanco2, *blanco3;
     QTimer *timer;
+    QMediaPlayer *sondi;
+    planetas *planeta1,*planeta2,*planeta3,*planeta4,*planeta5;
     int score=0;
     float dt;
     int h_limit;

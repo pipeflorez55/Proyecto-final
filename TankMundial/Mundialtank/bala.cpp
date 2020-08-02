@@ -15,6 +15,7 @@ Bala::Bala(): escala(1)
     K = 0.03;
     e = 0.2;
     esf = new Cuerpo(posx,posy,velx,vely,mass,r,K,e);
+
 }
 
 Bala::~Bala()
@@ -131,6 +132,18 @@ bool Bala::colistar()
     }
     for(int i = 0, n = colliding_items.size(); i < n; i++){
         if(typeid(*(colliding_items[i])) == typeid (Movible)){
+
+            //Increase score
+
+            //remove
+
+            scene()->removeItem(this);
+            return -1;
+            //delete
+        }
+    }
+    for(int i = 0, n = colliding_items.size(); i < n; i++){
+        if(typeid(*(colliding_items[i])) == typeid (planetas)){
 
             //Increase score
 

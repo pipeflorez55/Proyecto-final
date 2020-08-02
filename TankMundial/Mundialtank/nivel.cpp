@@ -6,6 +6,7 @@
 #include "QMessageBox"
 #include "menu.h"
 #include "finalsingle.h"
+#include "QMediaPlayer"
 
 int cont=0;
 int grav=1;
@@ -42,6 +43,8 @@ Nivel::Nivel(QWidget *parent) :
     pinchos1=new Pendulo;
     pinchos2=new Pendulo;
 
+    sondi = new QMediaPlayer();
+
 
 
     ui->graphicsView->setScene(scene);//añade la escena al graphicsview
@@ -77,6 +80,11 @@ void Nivel::keyPressEvent(QKeyEvent *event)//Teclas para variar la velocidad ini
 
     if(event->key()==Qt::Key_C)
     {
+        sondi = new QMediaPlayer();
+        sondi->setMedia(QUrl("qrc:/TANK9 (mp3cut.net).mp3"));
+        sondi->setVolume(40);
+        sondi->play();
+
         if(score==4){
             score=0;
         }
@@ -218,6 +226,22 @@ void Nivel::keyPressEvent(QKeyEvent *event)//Teclas para variar la velocidad ini
                 scene->addItem(pinchos2);
                 pinchos1->setDatos(45,100,18,742,162);
                 pinchos2->setDatos(60,40,18,495,497);
+
+                planeta1= new planetas;
+                planeta1->set_valores(0,0,0,0,50000,200);
+                scene->addItem(planeta1);
+                planeta2= new planetas;
+                planeta2->set_valores(-5000,0,0,-2,70,70);
+                scene->addItem(planeta2);
+                planeta3= new planetas;
+                planeta3->set_valores(5000,0,0,2,70,70);
+                scene->addItem(planeta3);
+                planeta4= new planetas;
+                planeta4->set_valores(0,-5000,2,0,70,70);
+                scene->addItem(planeta4);
+                planeta5= new planetas;
+                planeta5->set_valores(0,5000,-2,0,70,70);
+                scene->addItem(planeta5);
 
 
             }
@@ -370,6 +394,16 @@ void Nivel::actualizar()
         estrella3->actualizar();
         pinchos1->actualizar();
         pinchos2->actualizar();
+        planeta1->get_posiciones(planeta2->push_x(),planeta2->push_y(),planeta3->push_x(),planeta3->push_y(),planeta4->push_x(),planeta4->push_y(),planeta5->push_x(),planeta5->push_y());
+        planeta2->get_posiciones(planeta1->push_x(),planeta1->push_y(),planeta3->push_x(),planeta3->push_y(),planeta4->push_x(),planeta4->push_y(),planeta5->push_x(),planeta5->push_y());
+        planeta3->get_posiciones(planeta2->push_x(),planeta2->push_y(),planeta1->push_x(),planeta1->push_y(),planeta4->push_x(),planeta4->push_y(),planeta5->push_x(),planeta5->push_y());
+        planeta4->get_posiciones(planeta2->push_x(),planeta2->push_y(),planeta3->push_x(),planeta3->push_y(),planeta1->push_x(),planeta1->push_y(),planeta5->push_x(),planeta5->push_y());
+        planeta5->get_posiciones(planeta2->push_x(),planeta2->push_y(),planeta3->push_x(),planeta3->push_y(),planeta4->push_x(),planeta4->push_y(),planeta1->push_x(),planeta1->push_y());
+        planeta1->actualizar(v_limit);
+        planeta2->actualizar(v_limit);
+        planeta3->actualizar(v_limit);
+        planeta4->actualizar(v_limit);
+        planeta5->actualizar(v_limit);
     }
     if(bandera==0){
         comprobarblancos();

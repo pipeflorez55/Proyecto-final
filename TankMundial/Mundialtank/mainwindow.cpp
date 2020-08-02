@@ -4,7 +4,8 @@
 #include "multiplayer.h"
 #include "QMessageBox"
 #include <cstdlib>
-
+#include <QMediaPlayer>
+#include <QMediaPlaylist>
 std::string usuario;
 
 MainWindow::MainWindow(QWidget *parent)
@@ -12,7 +13,17 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->label->setPixmap(QPixmap(":/inicio.jpg"));
+    ui->label->setPixmap(QPixmap(":/inicio.jpg"));   
+
+    QMediaPlaylist *playlist = new QMediaPlaylist();
+    playlist->addMedia(QUrl("qrc:/Battleship.mp3"));
+    playlist->setPlaybackMode(QMediaPlaylist::Loop);
+
+    QMediaPlayer *music = new QMediaPlayer();
+    music->setPlaylist(playlist);
+    music->setVolume(10);
+
+    music->play();
 
 
 }
@@ -76,6 +87,7 @@ void MainWindow::on_Login_clicked()
             nivel.contrsmain=contrase;
             nivel.cargardo(numnivel1,numdis1,bl1,bl2,bl3,bl4,sco);
            // ui->setupUi(Nivel);
+            delete ui;
             nivel.setModal(true);
             nivel.exec();
 

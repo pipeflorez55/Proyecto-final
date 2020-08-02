@@ -15,6 +15,7 @@ myrect.o
 nivel.o
 pantallaf.o
 pendulo.o
+planetas.o
 qrc_Imagenes.o
 moc_circular.o
 moc_enemy.o

@@ -42,5 +42,10 @@
         <file>GanadorJ1.png</file>
         <file>ganadorj2.png</file>
         <file>pantallafinal.png</file>
+        <file>Battleship.ogg</file>
+        <file>Battleship.mp3</file>
+        <file>TANK9 (mp3cut.net).mp3</file>
     </qresource>
+    <qresource prefix="/musica"/>
+    <qresource prefix="/new/prefix1"/>
 </RCC>

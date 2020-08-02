@@ -64,7 +64,7 @@ void Pendulo::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
 }
 
 QT_INIT_METAOBJECT const QMetaObject Pendulo::staticMetaObject = { {
-    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    QMetaObject::SuperData::link<Circular::staticMetaObject>(),
     qt_meta_stringdata_Pendulo.data,
     qt_meta_data_Pendulo,
     qt_static_metacall,
@@ -83,14 +83,12 @@ void *Pendulo::qt_metacast(const char *_clname)
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_Pendulo.stringdata0))
         return static_cast<void*>(this);
-    if (!strcmp(_clname, "QGraphicsPixmapItem"))
-        return static_cast< QGraphicsPixmapItem*>(this);
-    return QObject::qt_metacast(_clname);
+    return Circular::qt_metacast(_clname);
 }
 
 int Pendulo::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = QObject::qt_metacall(_c, _id, _a);
+    _id = Circular::qt_metacall(_c, _id, _a);
     return _id;
 }
 QT_WARNING_POP

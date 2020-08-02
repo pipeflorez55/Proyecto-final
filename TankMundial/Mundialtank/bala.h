@@ -7,6 +7,7 @@
 #include "enemy.h"
 #include "circular.h"
 #include "movible.h"
+#include "planetas.h"
 
 
 class Bala: public QGraphicsItem

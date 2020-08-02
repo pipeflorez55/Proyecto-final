@@ -1,5 +1,5 @@
-QT       += core gui
-
+QT       += core gui \
+         multimedia
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -32,7 +32,8 @@ SOURCES += \
     myrect.cpp \
     nivel.cpp \
     pantallaf.cpp \
-    pendulo.cpp
+    pendulo.cpp \
+    planetas.cpp
 
 HEADERS += \
     bala.h \
@@ -50,7 +51,8 @@ HEADERS += \
     myrect.h \
     nivel.h \
     pantallaf.h \
-    pendulo.h
+    pendulo.h \
+    planetas.h
 
 FORMS += \
     finalsingle.ui \

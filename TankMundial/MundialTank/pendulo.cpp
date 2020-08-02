@@ -1,9 +1,10 @@
 #include "pendulo.h"
 #include "math.h"
 #include "cmath"
-Pendulo::Pendulo(QGraphicsItem *parent):QObject(), QGraphicsPixmapItem(parent)
+Pendulo::Pendulo()
 {
     setPixmap(QPixmap(":/Pendulo.png"));
+    xt=0;
 }
 
 void Pendulo::setDatos(float angulomax_, float L_, float G_, float x_, float y_)
