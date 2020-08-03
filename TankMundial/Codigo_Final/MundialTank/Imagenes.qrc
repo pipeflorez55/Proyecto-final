@@ -1,0 +1,51 @@
+<RCC>
+    <qresource prefix="/Tanque">
+        <file>tank-verde-0-grados.png</file>
+        <file>tank-azul-0-grados.png</file>
+        <file>tank-verde-40-grados.png</file>
+        <file>tank-verde-50-grados.png</file>
+        <file>tank-verde-60-grados.png</file>
+        <file>tank-verde-70-grados.png</file>
+        <file>tank-verde-80-grados.png</file>
+        <file>tank-azul-10-grados.png</file>
+        <file>tank-azul-20-grados.png</file>
+        <file>tank-azul-30-grados.png</file>
+        <file>tank-azul-40-grados.png</file>
+        <file>tank-azul-50-grados.png</file>
+        <file>tank-azul-60-grados.png</file>
+        <file>tank-azul-70-grados.png</file>
+        <file>tank-azul-80-grados.png</file>
+        <file>tank-verde-10-grados.png</file>
+        <file>tank-verde-20-grados.png</file>
+        <file>tank-verde-30-grados.png</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>blanco_pequena.png</file>
+        <file>Escena.png</file>
+        <file>Escena2.png</file>
+        <file>Estrella_rival.png</file>
+        <file>Estrella.png</file>
+        <file>Escena3.jpg</file>
+        <file>Pendulo.png</file>
+        <file>Escena4.jpg</file>
+        <file>inicio.jpg</file>
+        <file>boton verde.png</file>
+        <file>boton negro.png</file>
+        <file>botonLogin.png</file>
+        <file>botonControles - copia.png</file>
+        <file>botonGuardar.png</file>
+        <file>botonMenu.png</file>
+        <file>botonMulti.png</file>
+        <file>botonSignup.png</file>
+        <file>EscenaMulti.png</file>
+        <file>muropinchos.png</file>
+        <file>GanadorJ1.png</file>
+        <file>ganadorj2.png</file>
+        <file>pantallafinal.png</file>
+        <file>Battleship.ogg</file>
+        <file>Battleship.mp3</file>
+        <file>TANK9 (mp3cut.net).mp3</file>
+    </qresource>
+    <qresource prefix="/musica"/>
+    <qresource prefix="/new/prefix1"/>
+</RCC>
