@@ -13,7 +13,6 @@ void escribirnewlogin(string name, string password)
 }
 
 
-
 string leernuevousu(string usuario, bool *valido)//lectura del archivo del usuario
 {
     string datos;
@@ -21,7 +20,7 @@ string leernuevousu(string usuario, bool *valido)//lectura del archivo del usuar
     usuario=t+usuario+".txt";
     ifstream archivo(usuario);
 
-    if(archivo.is_open()){  //validar si esta el usuario
+    if(archivo.is_open()){//validar si esta el usuario
         *valido=true;
         while (!archivo.eof()) {//leer el archivo
             if(!archivo.eof()){
@@ -31,7 +30,7 @@ string leernuevousu(string usuario, bool *valido)//lectura del archivo del usuar
         archivo.close();
         return datos;
     }
-    else{         //si no se encuentra el archivo, significa que el archivo no es valido
+    else{//si no se encuentra el archivo, significa que el archivo no es valido
         *valido= false;
         archivo.close();
             }
@@ -57,10 +56,6 @@ bool validarcontrase(string datos, string datosui)
 
 }
 
-/*setPixmap(QPixmap(":/images/TUIMAGEN"));
-    setTransformOriginPoint(50,50);
-    setRotation(180);*/
-
 string cargar(string usuario)
 {
     string datos;
@@ -82,9 +77,8 @@ string cargar(string usuario)
 void escribirpodio(string podio)
 {
     string t="../Usuarios/podio/podio.txt";
-
     ofstream archivo2;
     archivo2.open(t);
-    archivo2<< podio;
+    archivo2<< podio;//se escribe en el archivo de texto
     archivo2.close();
 }

@@ -3,7 +3,7 @@
 extern Nivel *nivel;
 
 
-Bala::Bala(): escala(1)
+Bala::Bala(): escala(1)//se dan los datos inicales del objeto y se pasan al objeto cuerpo
 {
     float posx,posy,velx,vely,r,mass,K,e;
     posx = -100;
@@ -23,7 +23,7 @@ Bala::~Bala()
     delete esf;
 }
 
-QRectF Bala::boundingRect() const
+QRectF Bala::boundingRect() const//crear el objeto
 {
     return QRectF(-1*escala*esf->get_Radio(),-1*escala*esf->get_Radio(),2*escala*esf->get_Radio(),2*escala*esf->get_Radio());
 
@@ -31,12 +31,12 @@ QRectF Bala::boundingRect() const
 
 void Bala::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-    if(player==1){
+    if(player==1){//se les da el color a cada bala
     painter->setBrush(Qt::green);}
     else{
     painter->setBrush(Qt::blue);}
 
-    painter->drawEllipse(boundingRect());
+    painter->drawEllipse(boundingRect());//se pinta la bala
 }
 
 void Bala::setEcala(float s)
@@ -46,7 +46,7 @@ void Bala::setEcala(float s)
 
 void Bala::actualizar(float v_lim)
 {
-    esf->actualizar();
+    esf->actualizar();//pasa los datos para que se actualice en cuerpo
     setPos(esf->get_PosX(),(v_lim-esf->get_PosY()));
     increase=coli();
     colistar();
@@ -61,15 +61,12 @@ Cuerpo *Bala::getEsf()
 
 bool Bala::coli()
 {
-
-    QList<QGraphicsItem *> colliding_items = collidingItems();
+    QList<QGraphicsItem *> colliding_items = collidingItems();// se crea una lista de objetos
     for(int i = 0, n = colliding_items.size(); i < n; i++){
-        if(typeid(*(colliding_items[i])) == typeid (enemy)){
-
-            //Increase score
+        if(typeid(*(colliding_items[i])) == typeid (enemy)){//si la bala llega a colisionar con un blanco
 
             //remove
-            colliding_items[i]->setPos(-100,-100);
+            colliding_items[i]->setPos(-100,-100);// se manda el blanco a esta posicion
             //delete
             return true;
 
@@ -77,101 +74,66 @@ bool Bala::coli()
         }
     }
     return false;
-    /*for(int i = 0, n = colliding_items.size(); i < n; i++){
-        if(typeid(*(colliding_items[i])) == typeid (enemy)){
-
-            //Increase score
-            game->health->decrease();
-            game->player->setPos(115,320);
-            timer1->stop();
-            timer2->stop();
-            timer3->stop();
-            timer4->stop();
-            if(game->health->lose()){
-
-                game->loser =new enemy;
-                game->loser->setPixmap(QPixmap(":/images/lose.png"));
-                game->scene->addItem(game->loser);
-                game->scene->removeItem(game->player);
-                game->scene->removeItem(game->enemigo1);
-                game->scene->removeItem(game->enemigo2);
-                delete game->player;
-                delete  game->enemigo1;
-                delete  game->enemigo2;
-                game->music->pause();
-
-
-            }
-        }
-    }*/
 
 }
 
 bool Bala::colistar()
 {
-    QList<QGraphicsItem *> colliding_items = collidingItems();
+    QList<QGraphicsItem *> colliding_items = collidingItems();// se crea una lista de objetos
     for(int i = 0, n = colliding_items.size(); i < n; i++){
-        if(typeid(*(colliding_items[i])) == typeid (Circular)){
-
-            //Increase score
+        if(typeid(*(colliding_items[i])) == typeid (Circular)){//si la bala llega a colisionar con uno de estos objetos y si es del tipo circular
 
             //remove
-            scene()->removeItem(this);
+            scene()->removeItem(this);// se elimina la bala de la escena
             //delete
         }
     }
     for(int i = 0, n = colliding_items.size(); i < n; i++){
-        if(typeid(*(colliding_items[i])) == typeid (Pendulo)){
+        if(typeid(*(colliding_items[i])) == typeid (Pendulo)){//si la bala llega a colisionar con uno de estos objetos y si es del tipo pendulo
 
             //Increase score
 
             //remove
-            scene()->removeItem(this);
+            scene()->removeItem(this);// se elimina la bala de la escena
             //delete
         }
     }
     for(int i = 0, n = colliding_items.size(); i < n; i++){
-        if(typeid(*(colliding_items[i])) == typeid (Movible)){
-
-            //Increase score
+        if(typeid(*(colliding_items[i])) == typeid (Movible)){//si la bala llega a colisionar con uno de estos objetos y si es del tipo movible
 
             //remove
 
-            scene()->removeItem(this);
+            scene()->removeItem(this);// se elimina la bala de la escena
             return -1;
             //delete
         }
     }
     for(int i = 0, n = colliding_items.size(); i < n; i++){
-        if(typeid(*(colliding_items[i])) == typeid (planetas)){
+        if(typeid(*(colliding_items[i])) == typeid (planetas)){//si la bala llega a colisionar con uno de estos objetos y si es del tipo planetas
 
             //Increase score
 
             //remove
 
-            scene()->removeItem(this);
+            scene()->removeItem(this);// se elimina la bala de la escena
             return -1;
             //delete
         }
     }
-
-
 }
-
-
 
 int Bala::coliJ()
 {
-    QList<QGraphicsItem *> colliding_items = collidingItems();
+    QList<QGraphicsItem *> colliding_items = collidingItems();// se crea una lista de objetos
     for(int i = 0, n = colliding_items.size(); i < n; i++){
-        if(typeid(*(colliding_items[i])) == typeid (MyRect)){
+        if(typeid(*(colliding_items[i])) == typeid (MyRect)){//si la bala llega a colisionar con uno de estos objetos y si es del tipo MyRect
 
             //Increase score
 
             //remove
 
-            scene()->removeItem(this);
-            return -1;
+            scene()->removeItem(this);// se elimina la bala de la escena
+            return -1;//se manda que se baje la vida al jugador que se alcanzo con la bala
             //delete
         }
     }

@@ -28,7 +28,7 @@ public:
     QPushButton *pushButton;
     QPushButton *controles;
     QPushButton *menu;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QGridLayout *gridLayout;
     QLabel *nombrevo;
     QLabel *vo;
@@ -69,49 +69,60 @@ public:
         icon2.addFile(QString::fromUtf8(":/botonMenu.png"), QSize(), QIcon::Normal, QIcon::Off);
         menu->setIcon(icon2);
         menu->setIconSize(QSize(150, 80));
-        widget = new QWidget(Nivel);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(0, 640, 531, 20));
-        gridLayout = new QGridLayout(widget);
+        layoutWidget = new QWidget(Nivel);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(0, 640, 531, 20));
+        gridLayout = new QGridLayout(layoutWidget);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 0, 0);
-        nombrevo = new QLabel(widget);
+        nombrevo = new QLabel(layoutWidget);
         nombrevo->setObjectName(QString::fromUtf8("nombrevo"));
+        QFont font;
+        font.setBold(true);
+        font.setWeight(75);
+        nombrevo->setFont(font);
 
         gridLayout->addWidget(nombrevo, 0, 0, 1, 1);
 
-        vo = new QLabel(widget);
+        vo = new QLabel(layoutWidget);
         vo->setObjectName(QString::fromUtf8("vo"));
+        vo->setFont(font);
 
         gridLayout->addWidget(vo, 0, 1, 1, 1);
 
-        nombreangulo = new QLabel(widget);
+        nombreangulo = new QLabel(layoutWidget);
         nombreangulo->setObjectName(QString::fromUtf8("nombreangulo"));
+        nombreangulo->setFont(font);
 
         gridLayout->addWidget(nombreangulo, 0, 2, 1, 1);
 
-        angulo = new QLabel(widget);
+        angulo = new QLabel(layoutWidget);
         angulo->setObjectName(QString::fromUtf8("angulo"));
+        angulo->setFont(font);
 
         gridLayout->addWidget(angulo, 0, 3, 1, 1);
 
-        label = new QLabel(widget);
+        label = new QLabel(layoutWidget);
         label->setObjectName(QString::fromUtf8("label"));
+        label->setFont(font);
 
         gridLayout->addWidget(label, 0, 4, 1, 1);
 
-        objetivo = new QLabel(widget);
+        objetivo = new QLabel(layoutWidget);
         objetivo->setObjectName(QString::fromUtf8("objetivo"));
+        objetivo->setFont(font);
 
         gridLayout->addWidget(objetivo, 0, 5, 1, 1);
 
-        label_2 = new QLabel(widget);
+        label_2 = new QLabel(layoutWidget);
         label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setFont(font);
 
         gridLayout->addWidget(label_2, 0, 6, 1, 1);
 
-        numdis = new QLabel(widget);
+        numdis = new QLabel(layoutWidget);
         numdis->setObjectName(QString::fromUtf8("numdis"));
+        numdis->setFont(font);
 
         gridLayout->addWidget(numdis, 0, 7, 1, 1);
 

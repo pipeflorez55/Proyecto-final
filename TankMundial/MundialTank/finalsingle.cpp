@@ -7,8 +7,8 @@ Finalsingle::Finalsingle(QWidget *parent) :
     ui(new Ui::Finalsingle)
 {
     ui->setupUi(this);
-    ui->label->setPixmap(QPixmap(":/pantallafinal.png"));
-    podiof(cargar("podio/podio"));
+    ui->label->setPixmap(QPixmap(":/pantallafinal.png"));//se pinta el label con la imagen que se desee
+    podiof(cargar("podio/podio"));//se carga los valores del archivo podio, que esta en la capeta podio
 }
 
 Finalsingle::~Finalsingle()
@@ -25,34 +25,38 @@ void Finalsingle::podiof(string inpo)
     string a;
     string tren;
     string infoc=inpo;
-
     QString numdisp;
-    for(int i=0;i<inpo.length()-1;i++){
+
+    for(int i=0;i<inpo.length()-1;i++){//se recorre el string inpo qe contiene los valores de podio
+
         if(inpo[i]=='|'){
-            if(lec1>=1){
-                flag*=-1;
+            if(lec1>=1){//esperar al segundo |
+                flag*=-1;//cambio estado de lectura
             }
             lec1++;
         }
-        if(flag==1){
+
+        if(flag==1){//se empieza a leer datos entre separadores
            cnt++;
-           if(cnt>4){
+           if(cnt>4){//se llega al numero de disparos entonces se guardan los valores
              a+=inpo[i];
            }
         }
-        if(lec1>1){
-            if(flag==-1){
+
+        if(lec1>1){//evitar errores en el primer caracter
+            if(flag==-1){//se entra al estado de procesamiento de datos
                 numdisp=QString::fromStdString(a);
                 string nombre;
-                if(a.length()==3){
-                    nombre=inpo.substr(i-6,3);
+                if(a.length()==3){//saber cantidad de digitos en numero de disparos, para saber posicion del nombre
+                    nombre=inpo.substr(i-6,3);//se saca el nombre
                 }
                 if(a.length()==2){
                     nombre=inpo.substr(i-5,3);
                 }
                 QString nombre1=QString::fromStdString(nombre);
                 a="";
-                if(contpo==1){
+                if(contpo==1){//depende de la posicion en el podio
+                    //se pasan valores a los labels
                     ui->nm1->setText(nombre1);
                     ui->num1->setText(numdisp);
                 }
@@ -101,7 +105,7 @@ void Finalsingle::podiof(string inpo)
 
 }
 
-void Finalsingle::on_menu_clicked()
+void Finalsingle::on_menu_clicked()//se cierra ui se abre ui de menu
 {
     delete ui;
     this->hide();

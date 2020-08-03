@@ -6,9 +6,8 @@
 
 MyRect::MyRect(QGraphicsItem *parent): QGraphicsPixmapItem(parent)
 {
-    //bulletsound = new QMediaPlayer;
-    //bulletsound->setMedia(QUrl("qrc:/sounds/disparo.mp3"));
-    if(player==1){
+
+    if(player==1){//se elige de que color va a ser el tanque
     setPixmap(QPixmap(":/Tanque/tank-verde-0-grados.png"));
     }
     else {
@@ -20,7 +19,7 @@ MyRect::MyRect(QGraphicsItem *parent): QGraphicsPixmapItem(parent)
 void MyRect::cambiarplayer(int eleccion)
 {
     player=eleccion;
-    if(player==1){
+    if(player==1){//se va variando la imagen dependiendo del angulo en el que se encuentre
         if(anguloim==0||anguloim==5){
            setPixmap(QPixmap(":/Tanque/tank-verde-0-grados.png"));
         }
@@ -52,7 +51,7 @@ void MyRect::cambiarplayer(int eleccion)
 
 
     }
-    if(player==2){
+    if(player==2){//se va variando la imagen dependiendo del angulo en el que se encuentre
         if(anguloim==0||anguloim==-5){
            setPixmap(QPixmap(":/Tanque/tank-azul-0-grados.png"));
         }
@@ -92,7 +91,7 @@ void MyRect::cambiarimagen(int anguim)
 
 int MyRect::pushx()
 {
-    if(anguloim>60){
+    if(anguloim>60){//coge la poscion del tanque y retorna X dependiendo del angulo del tanque
     return posix-10;
     }
     else{
@@ -102,7 +101,7 @@ int MyRect::pushx()
 
 int MyRect::pushy()
 {
-    if(flag==1){
+    if(flag==1){//dependiendo de la posicin en y la bandera cambiara y se graficara la bala un poco mas arriba en el multiplayer
     return posiy+50;
     }
     if(flag==-1){
@@ -110,7 +109,7 @@ int MyRect::pushy()
     }
 }
 
-void MyRect::actualizar()
+void MyRect::actualizar()//va actualizando las posiciones en Y de los objetos
 {
     if(posiy<10){
         flag=-1;
@@ -130,11 +129,9 @@ void MyRect::actualizar()
 
 void MyRect::colib(int a)
 {
-
-        if(a==-1){
+        if(a==-1){//se va reduciendo en el numero de vidas en el multiplayer
             vidas--;
-
-           }
+        }
 
 }
 

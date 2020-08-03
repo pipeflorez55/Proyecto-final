@@ -9,14 +9,14 @@ class MyRect:public QObject, public QGraphicsPixmapItem
     Q_OBJECT
 public:
     MyRect(QGraphicsItem * parent = 0);
-    void cambiarplayer(int eleccion);
-    void cambiarimagen(int anguim);
-    int pushx();
-    int pushy();
-    void actualizar();
-    void colib(int a);
-    int pushvidas();
-    void inipos(int xi,int yi);
+    void cambiarplayer(int eleccion);//cambia la imagen respecto al angulo en que se encuentre
+    void cambiarimagen(int anguim);//saca el valor privado del angulo
+    int pushx();//da la posicion en X de la bala en multiplayer
+    int pushy();//da la posicion en X de la bala en multiplayer
+    void actualizar();//actualiza los valores de MyRect
+    void colib(int a);//funcion para disminuir las vidas en multiplayer
+    int pushvidas();//saca el valor privado de vidas
+    void inipos(int xi,int yi);//saca el valor privado e inicial de X y Y
 public slots:
 
 private:

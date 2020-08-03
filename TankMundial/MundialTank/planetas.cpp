@@ -10,9 +10,9 @@ planetas::planetas(): escala(1)
 }
 void planetas::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-    painter->setBrush(Qt::black);
+    painter->setBrush(Qt::black);//se elige el color de los planetas
 
-    painter->drawEllipse(boundingRect());
+    painter->drawEllipse(boundingRect());//se pinta
 }
 
 void planetas::setEcala(float s)
@@ -30,7 +30,7 @@ float planetas::push_y()
     return y;
 }
 
-void planetas::get_posiciones( float xotro2, float yotro2, float xotro3, float yotro3, float xotro4, float yotro4, float xotro5, float yotro5)
+void planetas::get_posiciones( float xotro2, float yotro2, float xotro3, float yotro3, float xotro4, float yotro4, float xotro5, float yotro5)//se les pasa los valores de las posicions de los planetas
 {
     x2=xotro2;
     y2=yotro2;
@@ -47,27 +47,27 @@ void planetas::get_posiciones( float xotro2, float yotro2, float xotro3, float y
 
 void planetas::actualizar(float v_lim)
 {
-    ra=sqrt(pow((x2-x),2)+ pow((y2-y),2));
+    ra=sqrt(pow((x2-x),2)+ pow((y2-y),2));//radio de cada planeta que se mueve
     r3=sqrt(pow((x3-x),2)+ pow((y3-y),2));
     r4=sqrt(pow((x4-x),2)+ pow((y4-y),2));
     r5=sqrt(pow((x5-x),2)+ pow((y5-y),2));
-    ay=((G*masai)*(y2-y))/pow(ra,3)+((G*masai)*(y3-y))/pow(r3,3)+((G*masai)*(y4-y))/pow(r4,3)+((G*masai)*(y5-y))/pow(r5,3);
+    ay=((G*masai)*(y2-y))/pow(ra,3)+((G*masai)*(y3-y))/pow(r3,3)+((G*masai)*(y4-y))/pow(r4,3)+((G*masai)*(y5-y))/pow(r5,3);//aceleracion de los cuerpos
     ax=((G*masai)*(x2-x))/pow(ra,3)+((G*masai)*(x3-x))/pow(r3,3)+((G*masai)*(x4-x))/pow(r4,3)+((G*masai)*(x5-x))/pow(r5,3);
-    vy+=(ay*T);
+    vy+=(ay*T);//velocidades variables
     vx+=(ax*T);
-    x+=(vx*T);
+    x+=(vx*T);//posiciones variables
     y+=vy*T;
-    setPos(xbase+(x/40),ybase+(y/40));
+    setPos(xbase+(x/40),ybase+(y/40));//posicion del planeta
 
 
 }
-QRectF planetas::boundingRect() const
+QRectF planetas::boundingRect() const//creacion del objeto
 {
     return QRectF(-1*escala*radio,-1*escala*radio,2*escala*radio,2*escala*radio);
 }
 
 
-void planetas::set_valores(float xi, float yi, float vxi, float vyi, float masa, float radioi)
+void planetas::set_valores(float xi, float yi, float vxi, float vyi, float masa, float radioi)//se pasan los valores al planeta
 {
     x=xi;
     y=yi;

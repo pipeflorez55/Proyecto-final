@@ -48,7 +48,12 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         avisocm = new QLabel(centralwidget);
         avisocm->setObjectName(QString::fromUtf8("avisocm"));
-        avisocm->setGeometry(QRect(180, 470, 251, 21));
+        avisocm->setGeometry(QRect(180, 470, 331, 61));
+        QFont font;
+        font.setPointSize(12);
+        font.setBold(true);
+        font.setWeight(75);
+        avisocm->setFont(font);
         multi = new QPushButton(centralwidget);
         multi->setObjectName(QString::fromUtf8("multi"));
         multi->setGeometry(QRect(430, 40, 171, 31));
@@ -59,7 +64,8 @@ public:
         multi->setIconSize(QSize(190, 80));
         ingresomal = new QLabel(centralwidget);
         ingresomal->setObjectName(QString::fromUtf8("ingresomal"));
-        ingresomal->setGeometry(QRect(590, 450, 241, 101));
+        ingresomal->setGeometry(QRect(520, 440, 311, 111));
+        ingresomal->setFont(font);
         label = new QLabel(centralwidget);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(0, 0, 999, 625));

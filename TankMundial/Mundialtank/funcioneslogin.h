@@ -13,9 +13,9 @@ string leernuevousu(string usuario, bool *valido);//Funcion para leer si esta bi
 
 bool validarcontrase(string datos, string datosui);//Funcion para compara la contrseña del archivo con la contraseña ingresada
 
-string cargar(string usuario);
+string cargar(string usuario);//carga la partida de un usuario apartir de un archivo de texto
 
-void escribirpodio(string podio);
+void escribirpodio(string podio);//escribe de menor a mayor en numero de tiros en el archivo de texto
 
 #endif // FUNCIONESLOGIN_H
 

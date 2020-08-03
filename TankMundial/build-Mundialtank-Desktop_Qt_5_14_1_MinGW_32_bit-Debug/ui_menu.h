@@ -48,10 +48,16 @@ public:
         multi->setIconSize(QSize(190, 80));
         avisocm = new QLabel(Menu);
         avisocm->setObjectName(QString::fromUtf8("avisocm"));
-        avisocm->setGeometry(QRect(160, 520, 171, 21));
+        avisocm->setGeometry(QRect(170, 490, 271, 41));
+        QFont font;
+        font.setPointSize(12);
+        font.setBold(true);
+        font.setWeight(75);
+        avisocm->setFont(font);
         ingresomal = new QLabel(Menu);
         ingresomal->setObjectName(QString::fromUtf8("ingresomal"));
-        ingresomal->setGeometry(QRect(570, 450, 231, 101));
+        ingresomal->setGeometry(QRect(490, 450, 331, 101));
+        ingresomal->setFont(font);
         label = new QLabel(Menu);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(0, 0, 999, 625));

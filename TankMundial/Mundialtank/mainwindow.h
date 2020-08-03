@@ -15,17 +15,16 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    void actualizar();
 
 private slots:
-    void on_pushButton_3_clicked();
+    void on_pushButton_3_clicked();//boton para confirmar un nuevo usuario
 
 
 
-    void on_Login_clicked();
+    void on_Login_clicked();//boton para ingresar al juego
 
 
-    void on_multi_clicked();
+    void on_multi_clicked();//boton para iniciar el multijugador
 
 private:
     Ui::MainWindow *ui;

@@ -7,14 +7,14 @@
 class planetas: public QGraphicsItem
 {
 public:
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = nullptr);
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = nullptr);//funcion para pintar la bala
     void setEcala(float s);
-     float push_x();
-     float push_y();
-     void get_posiciones(float xotro2,float yotro2,float xotro3,float yotro3,float xotro4,float yotro4,float xotro5,float yotro5);
-     void actualizar(float v_lim);
-    QRectF boundingRect() const;
-     void set_valores(float xi,float yi,float vxi,float vyi,float masa,float radioi);
+     float push_x();//sacar valores privados
+     float push_y();//sacar valores privados
+     void get_posiciones(float xotro2,float yotro2,float xotro3,float yotro3,float xotro4,float yotro4,float xotro5,float yotro5);//da los valores de las posiciones inicales a los objetos
+     void actualizar(float v_lim);//actualiza la posicion de los planetas
+    QRectF boundingRect() const;//funcion para crear el objeto
+     void set_valores(float xi,float yi,float vxi,float vyi,float masa,float radioi);// da los valores del objeto
 
     planetas();
 private:

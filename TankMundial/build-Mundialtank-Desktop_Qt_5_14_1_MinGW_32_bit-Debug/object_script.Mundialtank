@@ -13,7 +13,6 @@ movible.o
 multiplayer.o
 myrect.o
 nivel.o
-pantallaf.o
 pendulo.o
 planetas.o
 qrc_Imagenes.o
@@ -27,5 +26,4 @@ moc_menu.o
 moc_multiplayer.o
 moc_myrect.o
 moc_nivel.o
-moc_pantallaf.o
 moc_pendulo.o

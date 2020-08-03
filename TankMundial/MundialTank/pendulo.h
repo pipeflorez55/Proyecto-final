@@ -10,8 +10,8 @@ class Pendulo: public Circular
     Q_OBJECT
 public:
     Pendulo();
-    void setDatos(float angulomax_,float L_, float G_,float x_,float y_);
-    void actualizar();
+    void setDatos(float angulomax_,float L_, float G_,float x_,float y_);//pasa los datos iniciales de Pendulo
+    void actualizar();//actualiza los datos de Pendulo
 
 
 

@@ -8,7 +8,7 @@ class Movible:public Circular
 {
 public:
     Movible();
-    void actualizarmo();
+    void actualizarmo();//actualiza los valores del objeto apartir del movimiento que se hereda en Circular
 
 private:
     int flag=1;

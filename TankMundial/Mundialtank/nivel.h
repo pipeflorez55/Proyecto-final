@@ -27,18 +27,19 @@ class Nivel : public QDialog
 public:
     explicit Nivel(QWidget *parent = nullptr);
     ~Nivel();
-     void cargardo(int aniv, int bdis, int bl1, int bl2, int bl3,int bl4, int sco);
-     std::string pospo(std::string info,int num,std::string nam);
+     void cargardo(int aniv, int bdis, int bl1, int bl2, int bl3,int bl4, int sco);//funcion para cargar la partida apartir de los valores que se tiene en el archivo de texto
+     std::string pospo(std::string info,int num,std::string nam);//extrae los valores de archivo de texto podio y escribe sobre este dependiendo de la puntuacion final
      std::string usuario;
      std::string contrsmain;
 private slots:
 
-     void actualizar();
-     void on_pushButton_clicked();
+     void actualizar();//actualiza los valores de todos los objetos en escena
 
-     void on_controles_clicked();
+     void on_pushButton_clicked();//despliega el aviso de que se guardo la partida
 
-     void on_menu_clicked();
+     void on_controles_clicked();//despliega la ventana de los controles del tanque
+
+     void on_menu_clicked();//boton para regresar al menu principal
 
 private:
     Ui::Nivel *ui;
@@ -57,10 +58,10 @@ private:
     int numnivel=1;
     int numedis=0;
     int ena1,ena2,ena3,ena4;
-    void guardar(std::string name);
-    void comprobarblancos();
-    void bordercollision(Cuerpo *b);
-    void keyPressEvent(QKeyEvent *event);
+    void guardar(std::string name);//funcion para pasar datos y sobreescribir en el archivo de texto cuando se desea guardar una partida
+    void comprobarblancos();//comprueba el estado de los objetos, si estan activos o inactivos
+    void bordercollision(Cuerpo *b);//funcion para rebotar con los muros de la escena y los bordes de la pantalla
+    void keyPressEvent(QKeyEvent *event);//funcion para que se haga un evento cuando se oprime una tecla en especifico
     QList<Bala*>bars;
 
 };

@@ -11,9 +11,6 @@ public:
     enemy(QGraphicsItem * parent=0);
 
 public slots:
-    /* void movede1();
-     void movede2();
-     void movede3();*/
 
 };
 #endif // ENEMY_H

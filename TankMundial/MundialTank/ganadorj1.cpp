@@ -6,7 +6,7 @@ GanadorJ1::GanadorJ1(QWidget *parent) :
     ui(new Ui::GanadorJ1)
 {
     ui->setupUi(this);
-    ui->label->setPixmap(QPixmap(":/GanadorJ1.png"));
+    ui->label->setPixmap(QPixmap(":/GanadorJ1.png"));//se pinta el label con la imagen que se desee
 }
 
 GanadorJ1::~GanadorJ1()
@@ -14,7 +14,7 @@ GanadorJ1::~GanadorJ1()
     delete ui;
 }
 
-void GanadorJ1::on_menu_clicked()
+void GanadorJ1::on_menu_clicked()//se cierra ui se abre ui de menu
 {
     delete ui;
     this->hide();

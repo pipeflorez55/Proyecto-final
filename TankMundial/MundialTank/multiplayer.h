@@ -15,6 +15,7 @@
 #include "movible.h"
 #include "time.h"
 #include "stdlib.h"
+#include "QMediaPlayer"
 
 namespace Ui {
 class Multiplayer;
@@ -30,12 +31,13 @@ public:
 
 
 private slots:
-     void on_pushButton_clicked();
-     void actualizar();
+     void on_pushButton_clicked();//despliega el menu
 
-     void on_ControJ1_clicked();
+     void actualizar();//actualiza los valores de todos los objetos en escena
 
-     void on_ControlJ2_clicked();
+     void on_ControJ1_clicked();//despliega los controles del jugador 1
+
+     void on_ControlJ2_clicked();//despliega los controles del jugador 1
 
 private:
     Ui::Multiplayer *ui;
@@ -44,13 +46,14 @@ private:
     QTimer *timer;
     int h_limit;
     int v_limit;
-    void bordercollision(Cuerpo *b);
-    void keyPressEvent(QKeyEvent *event);
+    void bordercollision(Cuerpo *b);//funcion para rebotar con los muros de la escena y los bordes de la pantalla
+    void keyPressEvent(QKeyEvent *event);//funcion para que se haga un evento cuando se oprime una tecla en especifico
     QList<Bala*>barsmulti;
     QList<Bala*>barsmulti2;
     QList<Circular*>estrellas;
     QList<Pendulo*>pendulos;
     Movible *muro,*muro1;
+    QMediaPlayer *sondi,*sondi1;
 };
 
 #endif // MULTIPLAYER_H

@@ -95,7 +95,7 @@
     </size>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -107,6 +107,12 @@
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
      <widget class="QLabel" name="nombrevo">
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="text">
        <string>Velocidad inicial:</string>
       </property>
@@ -114,6 +120,12 @@
     </item>
     <item row="0" column="1">
      <widget class="QLabel" name="vo">
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="text">
        <string>0</string>
       </property>
@@ -121,6 +133,12 @@
     </item>
     <item row="0" column="2">
      <widget class="QLabel" name="nombreangulo">
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="text">
        <string>Angulo:</string>
       </property>
@@ -128,6 +146,12 @@
     </item>
     <item row="0" column="3">
      <widget class="QLabel" name="angulo">
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="text">
        <string>0</string>
       </property>
@@ -135,6 +159,12 @@
     </item>
     <item row="0" column="4">
      <widget class="QLabel" name="label">
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="text">
        <string>Objetivos alcanzados:</string>
       </property>
@@ -142,6 +172,12 @@
     </item>
     <item row="0" column="5">
      <widget class="QLabel" name="objetivo">
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="text">
        <string>0</string>
       </property>
@@ -149,6 +185,12 @@
     </item>
     <item row="0" column="6">
      <widget class="QLabel" name="label_2">
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="text">
        <string>Numero de disparos:</string>
       </property>
@@ -156,6 +198,12 @@
     </item>
     <item row="0" column="7">
      <widget class="QLabel" name="numdis">
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="text">
        <string>0</string>
       </property>

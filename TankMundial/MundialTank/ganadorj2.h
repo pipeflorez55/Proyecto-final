@@ -16,7 +16,7 @@ public:
     ~GanadorJ2();
 
 private slots:
-    void on_pushButton_clicked();
+    void on_pushButton_clicked();//boton para regresar al menu
 
 private:
     Ui::GanadorJ2 *ui;

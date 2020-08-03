@@ -14,10 +14,10 @@ class Finalsingle : public QDialog
 public:
     explicit Finalsingle(QWidget *parent = nullptr);
     ~Finalsingle();
-    void podiof(std::string inpo);
+    void podiof(std::string inpo);//muestra el podio en labels
 
 private slots:
-    void on_menu_clicked();
+    void on_menu_clicked();//boton para regresar al menu
 
 private:
     Ui::Finalsingle *ui;

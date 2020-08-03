@@ -31,7 +31,6 @@ SOURCES += \
     multiplayer.cpp \
     myrect.cpp \
     nivel.cpp \
-    pantallaf.cpp \
     pendulo.cpp \
     planetas.cpp
 
@@ -50,7 +49,6 @@ HEADERS += \
     multiplayer.h \
     myrect.h \
     nivel.h \
-    pantallaf.h \
     pendulo.h \
     planetas.h
 
@@ -61,8 +59,7 @@ FORMS += \
     mainwindow.ui \
     menu.ui \
     multiplayer.ui \
-    nivel.ui \
-    pantallaf.ui
+    nivel.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

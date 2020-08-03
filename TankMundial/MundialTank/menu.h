@@ -17,11 +17,11 @@ public:
     ~Menu();
 
 private slots:
-    void on_pushButton_clicked();
+    void on_pushButton_clicked();//boton para confirmar un nuevo usuario
 
-    void on_pushButton_3_clicked();
+    void on_pushButton_3_clicked();//boton para ingresar al juego
 
-    void on_multi_clicked();
+    void on_multi_clicked();//boton para iniciar el multijugador
 
 private:
     Ui::Menu *ui;

@@ -3,10 +3,7 @@
 #include "cmath"
 Circular::Circular(QGraphicsItem *parent):QObject(), QGraphicsPixmapItem(parent)
 {
-    //bulletsound = new QMediaPlayer;
-    //bulletsound->setMedia(QUrl("qrc:/sounds/disparo.mp3"));
-
-    setPixmap(QPixmap(":/Estrella.png"));
+    setPixmap(QPixmap(":/Estrella.png"));//imagen
 
 }
 
